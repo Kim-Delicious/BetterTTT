@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhnwsfns7rhc0"]
+
+[ext_resource type="Script" path="res://Scripts/Player Components/component_sniper_gun.gd" id="1_npsib"]
+
+[node name="Component_Sniper_Gun" type="Node"]
+script = ExtResource("1_npsib")

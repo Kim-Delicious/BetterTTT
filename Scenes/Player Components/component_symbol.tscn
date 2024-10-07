@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8830abg8xqe1"]
+
+[ext_resource type="Script" path="res://Scripts/Player Components/component_symbol.gd" id="1_1h2rr"]
+
+[node name="Component_Symbol" type="Node"]
+script = ExtResource("1_1h2rr")
+count = null

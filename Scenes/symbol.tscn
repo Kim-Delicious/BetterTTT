@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgc5nfkuvu0s8"]
+
+[ext_resource type="Texture2D" uid="uid://djdn4duau8afd" path="res://Textures/Sticker_Mult.png" id="1_331ah"]
+[ext_resource type="Script" path="res://Scripts/symbol.gd" id="1_yuykj"]
+
+[node name="Symbol" type="Node3D"]
+script = ExtResource("1_yuykj")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, -0.8, 0, 0.8, -3.49691e-08, 0, 0, 0)
+texture = ExtResource("1_331ah")
