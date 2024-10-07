@@ -5,8 +5,10 @@ extends Node3D
 
 @onready var players: Node = $Players
 
-@onready var turn_text_animation_player: AnimationPlayer = $VBoxContainer/AnimationPlayer
-@onready var turn_text_label: Label = $VBoxContainer/Label
+@onready var turn_text_animation_player: AnimationPlayer = $GameUI/Control/Game/AnimationPlayer
+@onready var turn_text_label: Label = $GameUI/Control/Game/TurnLabel
+
+@onready var game_win_label: Label = $GameUI/Control/Game/MatchEnd/EndLabel
 
 @onready var animation_timer: Timer = $AnimationTimer
 
@@ -31,7 +33,8 @@ func _process(delta: float) -> void:
 func _connect_players_signals() -> void:
 	
 	for player in players.get_children():
-		player.out_of_resources.connect(_on_player_out_of_resources)
+		if !player.out_of_resources.is_connected(_on_player_out_of_resources):
+			player.out_of_resources.connect(_on_player_out_of_resources)
 		
 func _assign_players_ids() -> void:
 	
@@ -42,7 +45,6 @@ func _assign_players_ids() -> void:
 func _next_turn() -> void:
 	
 	if grid.check_for_win():
-		print("THE GAME IS OVER!")
 		return
 	
 	current_turn += 1
@@ -78,7 +80,12 @@ func _on_grid_tile_clicked(which_tile) -> void:
 	player.select_first_available_component()
 	
 	
-
-
 func _on_animation_timer_timeout() -> void:
 	_next_turn()
+	
+	
+	
+
+func _on_game_won(player_index: int) -> void:
+	game_win_label.text = "Player " + str(player_index + 1) + " won!"
+	turn_text_animation_player.play("GameWon")

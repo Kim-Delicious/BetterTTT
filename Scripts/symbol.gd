@@ -20,16 +20,16 @@ func change_symbol(chosen_symbol) -> void:
 func set_symbol_texture() -> void:
 	match symbol_type:
 		SymbolType.Circle:
-			sprite_3d.texture = load("res://Textures/Sticker_Circle.png")
+			sprite_3d.texture = preload("res://Textures/Sticker_Circle.png")
 			pass
 		SymbolType.Mult:
-			sprite_3d.texture = load("res://Textures/Sticker_Mult.png")
+			sprite_3d.texture = preload("res://Textures/Sticker_Mult.png")
 			pass
 		SymbolType.Tri:
-			sprite_3d.texture = load("res://Textures/Sticker_Tri.png")
+			sprite_3d.texture = preload("res://Textures/Sticker_Tri.png")
 			pass
 		SymbolType.Diamond:
-			sprite_3d.texture = load("res://Textures/Sticker_Diamond.png")
+			sprite_3d.texture = preload("res://Textures/Sticker_Diamond.png")
 			pass
 		_:
 			sprite_3d.texture = null

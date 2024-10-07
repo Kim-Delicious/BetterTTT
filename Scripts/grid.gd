@@ -4,6 +4,8 @@ extends Node3D
 
 signal tile_clicked
 
+signal game_won
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_connect_grid_to_all_tile_signals()
@@ -50,7 +52,7 @@ func check_for_win() -> bool:
 				var matching = _do_tiles_match(i, 0, 0, j, 1, 2)
 				
 				if matching:
-					print("Player " + str(symbol.symbol_type) + " Won with Left->Right")
+					game_won.emit(symbol.symbol_type)
 					return true
 
 		###Diagonal Left->Right		
@@ -60,7 +62,7 @@ func check_for_win() -> bool:
 					
 					matching = _do_tiles_match(i, 1, 2, j, 1, 2)
 					if matching:
-						print("Player " + str(symbol.symbol_type) + "Won with Diagonal Left->Right")
+						game_won.emit(symbol.symbol_type)
 						return true
 					
 			
@@ -70,7 +72,7 @@ func check_for_win() -> bool:
 				
 				var matching = _do_tiles_match(i, 1, 2, j, 0, 0)
 				if matching:
-					print("Player " + str(symbol.symbol_type) + " Won with Top->Bottom")
+					game_won.emit(symbol.symbol_type)
 					return true
 	
 		###Diagonal Right->Left		
@@ -79,7 +81,7 @@ func check_for_win() -> bool:
 					
 					matching = _do_tiles_match(i, 1, 2, j, -1, -2)
 					if matching:
-						print("Player " + str(symbol.symbol_type) + " Won with Diagonal Right->Left")
+						game_won.emit(symbol.symbol_type)
 						return true
 	return false
 	
