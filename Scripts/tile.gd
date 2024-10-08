@@ -8,20 +8,20 @@ var can_place = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
 	pass
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+	
+func play_animation(anim_name: String)	-> void:
+	animation_player.play(anim_name)
+	symbol.animation_player.play(anim_name)
+	
+	
+	
 
-func action_on_tile(which_player) -> void:
-	if can_place:
-		symbol.change_symbol(which_player)
-		animation_player.play("AddSticker")
 	
-func shoot_tile(which_player) -> void:
-	can_place = false
-	symbol.change_symbol(-1)
-	animation_player.play("GetShot")
-	
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	symbol._on_animation_player_animation_finished(anim_name)

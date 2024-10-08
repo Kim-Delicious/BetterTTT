@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpe1b22b4n8sa"]
+
+[ext_resource type="Script" path="res://Scripts/Player Components/component_telekenesis.gd" id="1_qd725"]
+
+[node name="Component_Symbol" type="Node"]
+script = ExtResource("1_qd725")

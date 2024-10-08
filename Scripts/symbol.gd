@@ -6,6 +6,11 @@ enum SymbolType {Empty = -1, Circle, Mult, Tri, Diamond}
 @export var symbol_type = SymbolType.Empty
 
 @onready var sprite_3d: Sprite3D = $Sprite3D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+	
+signal mid_tile_place
+
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,5 +41,11 @@ func set_symbol_texture() -> void:
 			pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
+	
+
+
+func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
+	#if anim_name == "AddSticker":
+	mid_tile_place.emit()

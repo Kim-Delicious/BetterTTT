@@ -1,10 +1,5 @@
-extends Node
+extends PlayerComponent
 
-
-@export var max_count = 1
-var count
-
-var available
 
 func _ready() -> void:
 	refresh()
@@ -14,12 +9,29 @@ func refresh() -> void:
 	available = true
 
 
-func take_action(source_node, on_which_tile) -> void:
-	if count > 0:
-		decrement()
+func take_action(_source_node, on_which_tile) -> void:
+	if count <= 0:
+		return
 		
-		on_which_tile.shoot_tile(source_node.id)
+	if not on_which_tile.visible:
+		return
+		
+	if not on_which_tile.get_child(0).get_child(0).visible: # MeshInstance3D
+		return
+		
+	if on_which_tile.symbol.symbol_type != -1:
+		return
+		
+	decrement()
+	
+	shoot_tile(on_which_tile)
 
+func shoot_tile(which_tile) -> void:
+	which_tile.can_place = false
+	which_tile.symbol.change_symbol(-1)
+	which_tile.animation_player.play("GetShot")
+	
+	
 func decrement(amount = 1) -> void:
 	count -= amount
 	

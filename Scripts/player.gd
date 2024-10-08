@@ -17,7 +17,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 		
 func refresh_components() -> void:
@@ -25,6 +25,8 @@ func refresh_components() -> void:
 		component.refresh()
 		
 func use_component(on_which_tile) -> void:
+	if not on_turn:
+		return
 	
 	if(component_index < 0):
 		return

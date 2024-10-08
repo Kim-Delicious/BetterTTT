@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b713dr5lk5kx8"]
+[gd_scene load_steps=21 format=3 uid="uid://b713dr5lk5kx8"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_m4vp3"]
 [ext_resource type="Texture2D" uid="uid://dnojfum3ucyrp" path="res://Textures/SandTile.png" id="1_tblmr"]
@@ -41,120 +41,97 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationTarget/Symbol:visible")
+tracks/2/path = NodePath("AnimationTarget/GPUParticles3D:emitting")
 tracks/2/interp = 2
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationTarget/Symbol:position")
-tracks/3/interp = 2
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.6, 0.833333),
-"transitions": PackedFloat32Array(0.225313, 1),
-"update": 0,
-"values": [Vector3(0, 1, 0), Vector3(0, 0.504, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimationTarget/Symbol:scale")
-tracks/4/interp = 2
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.566667),
-"transitions": PackedFloat32Array(0.225, 1),
-"update": 0,
-"values": [Vector3(0.25, 0.25, 0.25), Vector3(1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimationTarget/GPUParticles3D:emitting")
-tracks/5/interp = 2
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.733333, 0.866667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AnimationTarget/Symbol:rotation")
-tracks/6/interp = 2
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5, 0.7),
-"transitions": PackedFloat32Array(0.33, 1, 1),
-"update": 0,
-"values": [Vector3(0, -4.71239, 0), Vector3(0, 0, 0), Vector3(1.86264e-09, 0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_f56pr"]
 resource_name = "GetShot"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
+tracks/0/path = NodePath("AnimationTarget:position")
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector3(0, -10, 0), Vector3(0, 5, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AnimationTarget:position")
+tracks/1/path = NodePath("AnimationTarget:rotation")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.566667),
-"transitions": PackedFloat32Array(0.25, 1),
+"times": PackedFloat32Array(0, 1.03333),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 20, 0)]
+"values": [Vector3(3.14159, 3.14159, 3.14159), Vector3(0, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationTarget:rotation")
+tracks/2/enabled = false
+tracks/2/path = NodePath("AnimationTarget:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.566667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.999999),
+"transitions": PackedFloat32Array(3.03143, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(3.14159, 0, 3.14159)]
+"values": [Vector3(6, 12, 6), Vector3(0.8, 1.6, 0.8)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationTarget:scale")
+tracks/3/path = NodePath("AnimationTarget/GPUParticles3D:emitting")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.533333),
+"times": PackedFloat32Array(0, 1.33333),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(6, 12, 6), Vector3(0.25, 0.5, 0.25)]
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTarget/MeshInstance3D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AnimationTarget/GPUParticles3D:amount")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.366667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [256, 128, 128]
 }
 
 [sub_resource type="Animation" id="Animation_ii0vl"]
 length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
-tracks/0/enabled = false
+tracks/0/enabled = true
 tracks/0/path = NodePath("AnimationTarget:position:y")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
@@ -165,7 +142,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = false
+tracks/1/enabled = true
 tracks/1/path = NodePath("AnimationTarget:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -178,98 +155,62 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationTarget/Symbol:visible")
+tracks/2/path = NodePath("AnimationTarget/GPUParticles3D:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("AnimationTarget/Symbol:position")
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationTarget:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0.504, 0)]
+"values": [Vector3(0, 0, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimationTarget/Symbol:scale")
+tracks/4/path = NodePath("AnimationTarget:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(1, 1, 1)]
+"values": [Vector3(6, 12, 6)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimationTarget/GPUParticles3D:emitting")
+tracks/5/path = NodePath("AnimationTarget/MeshInstance3D:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("AnimationTarget/Symbol:rotation")
+tracks/6/path = NodePath("AnimationTarget/GPUParticles3D:amount")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1.86264e-09, 0, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = false
-tracks/7/path = NodePath("AnimationTarget:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath(".:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = false
-tracks/9/path = NodePath("AnimationTarget:scale")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(6, 12, 6)]
+"values": [128]
 }
 
 [sub_resource type="Animation" id="Animation_dr0e5"]
@@ -301,10 +242,126 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0.0872665, 0), Vector3(0, -0.0872665, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_woeo7"]
+resource_name = "MoveLeft"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTarget:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.16667, 1.73333),
+"transitions": PackedFloat32Array(5, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-7, 0, 0), Vector3(0, 0, 0), Vector3(2, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationTarget:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.16667, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, 0.261799), Vector3(0, 0, -0.0872665), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_drr6v"]
+resource_name = "MoveRight"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTarget:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.16667, 1.73333),
+"transitions": PackedFloat32Array(5, 1, 1, 1),
+"update": 0,
+"values": [Vector3(7, 0, 0), Vector3(0, 0, 0), Vector3(-2, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationTarget:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.16667, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.261799), Vector3(0, 0, 0.0872665), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_4tyog"]
+resource_name = "MoveUp"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTarget:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.16667, 1.73333),
+"transitions": PackedFloat32Array(5, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -7), Vector3(0, 0, 0), Vector3(0, 0, 2), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationTarget:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.16667, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.261799, 0, 0), Vector3(0.0872665, 0, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bgpm8"]
+resource_name = "MoveDown"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTarget:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.16667, 1.73333),
+"transitions": PackedFloat32Array(5, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 7), Vector3(0, 0, 0), Vector3(0, 0, -2), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationTarget:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.16667, 1.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0.261799, 0, 0), Vector3(-0.0872665, 0, 0), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h2p5"]
 _data = {
 "AddSticker": SubResource("Animation_7jmbb"),
 "GetShot": SubResource("Animation_f56pr"),
+"MoveDown": SubResource("Animation_bgpm8"),
+"MoveLeft": SubResource("Animation_woeo7"),
+"MoveRight": SubResource("Animation_drr6v"),
+"MoveUp": SubResource("Animation_4tyog"),
 "RESET": SubResource("Animation_ii0vl"),
 "WinningThree": SubResource("Animation_dr0e5")
 }
@@ -331,12 +388,22 @@ scale_min = 0.25
 scale_max = 2.0
 scale_over_velocity_max = 1000.0
 scale_over_velocity_curve = SubResource("CurveTexture_py1ss")
+hue_variation_min = -0.53
+hue_variation_max = 0.67
 collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vygrd"]
+roughness = 0.0
+clearcoat = 0.0
+clearcoat_roughness = 1.0
+distance_fade_max_distance = 1.0
+
 [sub_resource type="SphereMesh" id="SphereMesh_dmtvj"]
+material = SubResource("StandardMaterial3D_vygrd")
 radius = 1.0
+height = 2.0
 
 [node name="Tile" type="Node3D"]
 script = ExtResource("1_m4vp3")
@@ -353,10 +420,10 @@ root_node = NodePath("../..")
 libraries = {
 "": SubResource("AnimationLibrary_6h2p5")
 }
+autoplay = "RESET"
 speed_scale = 2.0
 
 [node name="Symbol" parent="AnimationTarget" instance=ExtResource("2_oplua")]
-transform = Transform3D(1, 0, 0, 0, 1, -1.86264e-09, 0, 1.86264e-09, 1, 0, 1, 0)
 
 [node name="Button3D" parent="AnimationTarget" instance=ExtResource("4_6yu4t")]
 
@@ -366,3 +433,5 @@ emitting = false
 amount = 128
 process_material = SubResource("ParticleProcessMaterial_86l7g")
 draw_pass_1 = SubResource("SphereMesh_dmtvj")
+
+[connection signal="animation_finished" from="AnimationTarget/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

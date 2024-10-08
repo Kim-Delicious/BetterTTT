@@ -380,20 +380,6 @@ texture = ExtResource("3_0lm7p")
 wait_time = 0.5
 one_shot = true
 
-[node name="Players" type="Node" parent="."]
-
-[node name="Player" parent="Players" instance=ExtResource("6_pqpfg")]
-
-[node name="Component_Symbol2" parent="Players/Player" instance=ExtResource("7_mat46")]
-
-[node name="Component_Symbol" parent="Players/Player" instance=ExtResource("7_wsosb")]
-
-[node name="Player2" parent="Players" instance=ExtResource("6_pqpfg")]
-
-[node name="Component_Symbol" parent="Players/Player2" instance=ExtResource("7_mat46")]
-
-[node name="Component_Sniper_Gun" parent="Players/Player2" instance=ExtResource("8_5evtd")]
-
 [node name="Grid" type="Node3D" parent="."]
 script = ExtResource("4_ootlo")
 
@@ -512,10 +498,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4, 0)
 
 [node name="Tile8" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 8, 0)
 
 [node name="Tile9" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 8, 0)
 
 [node name="Row5" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -5)
@@ -667,6 +653,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
 [node name="Tile9" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 0)
 
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" instance=ExtResource("6_pqpfg")]
+
+[node name="Component_Symbol" parent="Players/Player" instance=ExtResource("7_wsosb")]
+max_count = 4
+
+[node name="Player2" parent="Players" instance=ExtResource("6_pqpfg")]
+
+[node name="Component_Symbol" parent="Players/Player2" instance=ExtResource("7_mat46")]
+
+[node name="Component_Sniper_Gun" parent="Players/Player2" instance=ExtResource("8_5evtd")]
+
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -807,11 +806,10 @@ text = "==="
 
 [connection signal="timeout" from="Camera3D/Characters/AnimationTimer" to="Grid" method="_on_timer_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
+[connection signal="game_won" from="Grid" to="." method="_on_game_won"]
+[connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]
 [connection signal="out_of_resources" from="Players/Player" to="." method="_on_player_out_of_resources"]
 [connection signal="out_of_resources" from="Players/Player2" to="." method="_on_player_out_of_resources"]
-[connection signal="game_won" from="Grid" to="." method="_on_game_won"]
-[connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
-[connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]
 [connection signal="pressed" from="GameUI/Control/Game/MatchEnd/Button" to="GameUI/Control/Menu" method="_on_main_menu_pressed"]
 [connection signal="pressed" from="GameUI/Control/Menu/MainMenu" to="GameUI/Control/Menu" method="_on_main_menu_pressed"]
 [connection signal="pressed" from="GameUI/Button" to="GameUI/Control/Menu" method="_on_button_pressed"]

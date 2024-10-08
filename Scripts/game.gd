@@ -15,6 +15,8 @@ extends Node3D
 
 var max_turns
 var current_turn = 0
+
+var end_game := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -22,19 +24,28 @@ func _ready() -> void:
 	
 	max_turns = players.get_child_count()
 	
-	_connect_players_signals()
+	connect_players_signals()
+	connect_tile_signals()
 	_assign_players_ids()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	pass
 	
-func _connect_players_signals() -> void:
+func connect_players_signals() -> void:
 	
 	for player in players.get_children():
-		if !player.out_of_resources.is_connected(_on_player_out_of_resources):
+		if not player.out_of_resources.is_connected(_on_player_out_of_resources):
 			player.out_of_resources.connect(_on_player_out_of_resources)
+
+func connect_tile_signals() -> void:
+	
+	for row in grid.get_children():
+		for tile in row.get_children():
+			
+			if not tile.symbol.mid_tile_place.is_connected(grid.check_for_win):
+				tile.symbol.mid_tile_place.connect(grid.check_for_win)
 		
 func _assign_players_ids() -> void:
 	
@@ -44,7 +55,7 @@ func _assign_players_ids() -> void:
 	
 func _next_turn() -> void:
 	
-	if grid.check_for_win():
+	if end_game:
 		return
 	
 	current_turn += 1
@@ -74,18 +85,39 @@ func _on_player_out_of_resources() -> void:
 
 
 func _on_grid_tile_clicked(which_tile) -> void:
+	if end_game:
+		return
+		
 	var player = players.get_child(current_turn)
 		
 	player.use_component(which_tile)
-	player.select_first_available_component()
-	
+	player.select_first_available_component()	
 	
 func _on_animation_timer_timeout() -> void:
 	_next_turn()
 	
 	
-	
+func _on_panic_time(tile_array: Array) -> void:
+		
+	#for i in range(players.get_child_count() ):
+		#players.get_child(i).on_turn = false
+		
+	for tile in tile_array:
+		tile.symbol.animation_player.play("WinningThree")
+		
+	print("TIME TO PANIC!")
 
-func _on_game_won(player_index: int) -> void:
+
+func _on_game_won(tile_array: Array) -> void:
+	var player_index = tile_array[0].symbol.symbol_type
+	
+	end_game = true
+	
+	for i in range(players.get_child_count() ):
+		players.get_child(i).on_turn = false
+		
+	for tile in tile_array:
+		tile.play_animation("WinningThree")
+
 	game_win_label.text = "Player " + str(player_index + 1) + " won!"
 	turn_text_animation_player.play("GameWon")
