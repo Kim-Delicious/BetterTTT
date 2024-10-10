@@ -7,6 +7,10 @@ var count
 
 var available
 
+const BLANK_STICKER = preload("res://Textures/BlankSticker.png")
+
+@export var sticker = BLANK_STICKER
+
 func _ready() -> void:
 	pass # Replace with function body.
 

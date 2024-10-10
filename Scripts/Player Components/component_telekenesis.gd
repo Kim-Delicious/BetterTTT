@@ -2,8 +2,6 @@ extends PlayerComponent
 
 @onready var grid: Node3D = $"../../../Grid"
 
-
-
 func _ready() -> void:
 	refresh()
 	

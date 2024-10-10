@@ -9,7 +9,7 @@ func refresh() -> void:
 	available = true
 
 
-func take_action(_source_node, on_which_tile) -> void:
+func take_action(_wsource_node, on_which_tile) -> void:
 	if count <= 0:
 		return
 		
