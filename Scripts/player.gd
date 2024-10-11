@@ -10,6 +10,7 @@ var on_turn = false
 var id = -1
 
 signal out_of_resources
+signal select_component
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -49,10 +50,12 @@ func select_first_available_component() -> void:
 			continue
 			
 		component_index = i
+		select_component.emit(self)
 		return
 			
 	component_index = 0
-	out_of_resources.emit() 
+	select_component.emit(self)
+	out_of_resources.emit(self)
 
 
 	

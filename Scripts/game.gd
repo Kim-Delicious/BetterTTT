@@ -36,8 +36,8 @@ func _process(_delta: float) -> void:
 func connect_players_signals() -> void:
 	
 	for player in players.get_children():
-		if not player.out_of_resources.is_connected(_on_player_out_of_resources):
-			player.out_of_resources.connect(_on_player_out_of_resources)
+		if not player.out_of_resources.is_connected(_on_end_turn):
+			player.out_of_resources.connect(_on_end_turn)
 
 func connect_tile_signals() -> void:
 	
@@ -67,16 +67,13 @@ func _next_turn() -> void:
 	players.get_child(current_turn).refresh_components()
 	
 	
-	turn_text_label.text = "Player " + str(current_turn + 1) + "'s Turn!"
-	turn_text_animation_player.play("NextTurn")
-	
 
 
 
 
 
-func _on_player_out_of_resources() -> void:
-	players.get_child(current_turn).on_turn = false
+func _on_end_turn(which_player) -> void:
+	which_player.on_turn = false
 
 	###Workaround, find better way later?
 	animation_timer.start()

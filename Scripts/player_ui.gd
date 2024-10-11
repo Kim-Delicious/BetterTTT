@@ -1,8 +1,8 @@
 extends Control
 
-@onready var player_symbol: Sprite2D = $DisplayAnchor/TurnDial/PlayerSymbol
-@onready var symbol_count_sticker: Control = $DisplayAnchor/TurnDial/PlayerSymbol/CountSticker
+@onready var player_symbol: Sprite2D = $DisplayAnchor/TurnDial/AbilitySticker
 @onready var inventory: Control = $DisplayAnchor/Inventory
+@onready var animation_player: AnimationPlayer = $DisplayAnchor/AnimationPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,23 +10,76 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
 	
 func update_symbol_text_count(amount : int) -> void:
-	symbol_count_sticker.get_child(1).text = str(amount)
+	player_symbol.get_child(0).get_child(1).text = str(amount)
 	
 func update_ability_text_count(label_index, amount : int) -> void:
 	var ability_sticker = inventory.get_child(label_index).get_child(0)
 	var count_label = ability_sticker.get_child(0).get_child(1)
 	count_label.text = str(amount)
 	
+func add_missing_center_pieces(label_index, player_id, player) -> void:
+	
+	var center_piece = inventory.get_child(label_index)
+
+	if center_piece.name != "Center":
+		
+		var first_center = inventory.get_child(1)
+		var last_center = inventory.get_child(inventory.get_child_count() - 2)
+
+		var piece_copy = first_center.duplicate()
+		
+		var spacing =  48 - (player.get_child_count()-2) * 4
+		if player_id == 0 || player_id == 2:
+			last_center.add_sibling(piece_copy)
+			piece_copy.position.x = 64 + spacing * (label_index-1)
+			piece_copy.z_index = last_center.z_index - 1
+		else:
+			last_center.add_sibling(piece_copy)
+			piece_copy.position.x = -64 - spacing * (label_index-1)
+			piece_copy.z_index = last_center.z_index - 1
+		
+	
 func set_symbol_texture(symbol_texture) -> void:
 	player_symbol.texture = symbol_texture
 	
 func set_ability_sticker_texture(label_index, texture) -> void:
+		
 	var ability_sticker = inventory.get_child(label_index).get_child(0)
 	ability_sticker.texture = texture
+	
+func update_selection_indicator(which_player) -> void:
+	
+	if !which_player.on_turn:
+		return
+		
+	$DisplayAnchor/TurnDial/AbilitySticker.get_child(1).play("HideIndicator")
+		
+	for i in range(1, inventory.get_child_count()-1):
+		var ability_sticker = inventory.get_child(i).get_child(0)
+		
+		ability_sticker.get_child(1).play("HideIndicator")
+		
+		
+	if which_player.component_index == 0:
+		
+		#var ability_sticker = $DisplayAnchor/TurnDial/PlayerSymbol
+		#ability_sticker.get_child(1).play("ShowIndicator")
+		pass
+		
+	else:
+		
+		var ability_sticker = inventory.get_child(which_player.component_index).get_child(0)
+		ability_sticker.get_child(1).play("ShowIndicator")
+		
+		
+	
+
+		
+		
 	
 	

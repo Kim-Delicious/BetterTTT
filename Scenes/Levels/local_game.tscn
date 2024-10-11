@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bxlkylk5tdhqi"]
+[gd_scene load_steps=27 format=3 uid="uid://bxlkylk5tdhqi"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_06to8"]
 [ext_resource type="Texture2D" uid="uid://do2gon356i5vp" path="res://Textures/SillouetteWizard.png" id="2_qnwvk"]
@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://djdn4duau8afd" path="res://Textures/Sticker_Mult.png" id="8_2u2t1"]
 [ext_resource type="PackedScene" uid="uid://dhnwsfns7rhc0" path="res://Scenes/Player Components/component_sniper_gun.tscn" id="8_5evtd"]
 [ext_resource type="Script" path="res://Scripts/game_menu.gd" id="9_a78xj"]
+[ext_resource type="Texture2D" uid="uid://cdxypi6r1nx3f" path="res://Textures/Sticker_Tri.png" id="10_b7hxs"]
 [ext_resource type="Script" path="res://Scripts/turn_ui.gd" id="11_b70cy"]
+[ext_resource type="Texture2D" uid="uid://8vtvwqm8hj75" path="res://Textures/Sticker_Diamond.png" id="11_vu02g"]
 [ext_resource type="Texture2D" uid="uid://eqcwcewpa7ia" path="res://Textures/Sticker_Circle.png" id="12_m377n"]
 [ext_resource type="Texture2D" uid="uid://bpqe4lf65inor" path="res://Textures/MenuSticker.png" id="15_puqe8"]
 
@@ -360,9 +362,10 @@ near = 0.001
 
 [node name="Characters" type="Node3D" parent="Camera3D"]
 transform = Transform3D(0.1, -8.88178e-16, -8.88179e-16, 8.88178e-16, 0.1, 0, 8.88178e-16, -7.88861e-30, 0.1, 6.0656e-08, -0.0579987, -1.12126)
+visible = false
 
 [node name="Wizard" type="Sprite3D" parent="Camera3D/Characters"]
-transform = Transform3D(1.5, -8.52651e-14, -9.94759e-14, 8.52651e-14, 1.5, -5.96046e-08, 9.94759e-14, 5.96046e-08, 1.5, -10.2166, -1.57285, 0.908081)
+transform = Transform3D(1.5, -8.52651e-14, -9.94759e-14, 8.52651e-14, 1.5, -5.96046e-08, 9.94759e-14, 5.96046e-08, 1.5, -10.2166, -5.438, 0.908081)
 texture = ExtResource("2_qnwvk")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Characters"]
@@ -376,7 +379,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Gunslinger" type="Sprite3D" parent="Camera3D/Characters"]
-transform = Transform3D(1, -2.84217e-14, -1.42109e-14, 2.84217e-14, 1, -5.96046e-08, 1.42109e-14, 5.96046e-08, 1, 11.3154, -1.59637, 0.92157)
+transform = Transform3D(1, -2.84217e-14, -1.42109e-14, 2.84217e-14, 1, -5.96046e-08, 1.42109e-14, 5.96046e-08, 1, 11.3154, -5.438, 0.92157)
 texture = ExtResource("3_0lm7p")
 
 [node name="AnimationTimer" type="Timer" parent="."]
@@ -387,10 +390,10 @@ one_shot = true
 
 [node name="Player" parent="Players" instance=ExtResource("6_pqpfg")]
 
-[node name="Component_Symbol2" parent="Players/Player" instance=ExtResource("7_mat46")]
+[node name="Component_Symbol" parent="Players/Player" instance=ExtResource("7_mat46")]
 sticker = ExtResource("12_m377n")
 
-[node name="Component_Symbol" parent="Players/Player" instance=ExtResource("7_wsosb")]
+[node name="Component_Telekenisis" parent="Players/Player" instance=ExtResource("7_wsosb")]
 
 [node name="Player2" parent="Players" instance=ExtResource("6_pqpfg")]
 
@@ -398,6 +401,38 @@ sticker = ExtResource("12_m377n")
 sticker = ExtResource("8_2u2t1")
 
 [node name="Component_Sniper_Gun" parent="Players/Player2" instance=ExtResource("8_5evtd")]
+max_count = 2
+
+[node name="Component_Sniper_Gun2" parent="Players/Player2" instance=ExtResource("8_5evtd")]
+
+[node name="Player3" parent="Players" instance=ExtResource("6_pqpfg")]
+
+[node name="Component_Symbol" parent="Players/Player3" instance=ExtResource("7_mat46")]
+sticker = ExtResource("10_b7hxs")
+
+[node name="Component_Sniper_Gun" parent="Players/Player3" instance=ExtResource("8_5evtd")]
+max_count = 2
+
+[node name="Component_Telekenisis" parent="Players/Player3" instance=ExtResource("7_wsosb")]
+
+[node name="Component_Telekenisis2" parent="Players/Player3" instance=ExtResource("7_wsosb")]
+
+[node name="Player4" parent="Players" instance=ExtResource("6_pqpfg")]
+
+[node name="Component_Symbol" parent="Players/Player4" instance=ExtResource("7_mat46")]
+sticker = ExtResource("11_vu02g")
+
+[node name="Component_Sniper_Gun" parent="Players/Player4" instance=ExtResource("8_5evtd")]
+max_count = 2
+
+[node name="Component_Telekenisis" parent="Players/Player4" instance=ExtResource("7_wsosb")]
+max_count = 3
+
+[node name="Component_Sniper_Gun2" parent="Players/Player4" instance=ExtResource("8_5evtd")]
+max_count = 4
+
+[node name="Component_Sniper_Gun3" parent="Players/Player4" instance=ExtResource("8_5evtd")]
+max_count = 5
 
 [node name="Grid" type="Node3D" parent="."]
 script = ExtResource("4_ootlo")
@@ -827,8 +862,6 @@ icon_alignment = 1
 
 [connection signal="timeout" from="Camera3D/Characters/AnimationTimer" to="Grid" method="_on_timer_timeout"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
-[connection signal="out_of_resources" from="Players/Player" to="." method="_on_player_out_of_resources"]
-[connection signal="out_of_resources" from="Players/Player2" to="." method="_on_player_out_of_resources"]
 [connection signal="game_won" from="Grid" to="." method="_on_game_won"]
 [connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
 [connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]
