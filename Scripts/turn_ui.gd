@@ -114,6 +114,7 @@ func animate_end_turn(which_player) -> void:
 	var player_ui = get_child(which_player.id)
 	
 	player_ui.animation_player.play("EndTurn")
+	player_ui.player_symbol.get_child(1).play("HideIndicator")
 	
 	var next_player_ui
 	if which_player.id >= players.get_child_count() - 1:

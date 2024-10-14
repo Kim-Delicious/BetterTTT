@@ -1,35 +1,41 @@
-[gd_scene load_steps=27 format=3 uid="uid://bxlkylk5tdhqi"]
+[gd_scene load_steps=40 format=3 uid="uid://bxlkylk5tdhqi"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_06to8"]
-[ext_resource type="Texture2D" uid="uid://do2gon356i5vp" path="res://Textures/SillouetteWizard.png" id="2_qnwvk"]
-[ext_resource type="Texture2D" uid="uid://d1fe3tbj02pbb" path="res://Textures/SillouetteGunslinger.png" id="3_0lm7p"]
+[ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_uvcfh"]
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_btinm"]
 [ext_resource type="Script" path="res://Scripts/grid.gd" id="4_ootlo"]
 [ext_resource type="PackedScene" uid="uid://b713dr5lk5kx8" path="res://Scenes/Tile.tscn" id="5_s5ntu"]
 [ext_resource type="PackedScene" uid="uid://cbma1jhpjxi3g" path="res://Scenes/player.tscn" id="6_pqpfg"]
+[ext_resource type="PackedScene" uid="uid://bpe1b22b4n8sa" path="res://Scenes/Player Components/component_telekenesis.tscn" id="7_3mfpy"]
 [ext_resource type="PackedScene" uid="uid://c8830abg8xqe1" path="res://Scenes/Player Components/component_symbol.tscn" id="7_mat46"]
-[ext_resource type="PackedScene" uid="uid://bpe1b22b4n8sa" path="res://Scenes/Player Components/component_telekenesis.tscn" id="7_wsosb"]
 [ext_resource type="Texture2D" uid="uid://djdn4duau8afd" path="res://Textures/Sticker_Mult.png" id="8_2u2t1"]
-[ext_resource type="PackedScene" uid="uid://dhnwsfns7rhc0" path="res://Scenes/Player Components/component_sniper_gun.tscn" id="8_5evtd"]
 [ext_resource type="Script" path="res://Scripts/game_menu.gd" id="9_a78xj"]
-[ext_resource type="Texture2D" uid="uid://cdxypi6r1nx3f" path="res://Textures/Sticker_Tri.png" id="10_b7hxs"]
+[ext_resource type="PackedScene" uid="uid://dhnwsfns7rhc0" path="res://Scenes/Player Components/component_sniper_gun.tscn" id="9_auv02"]
+[ext_resource type="Texture2D" uid="uid://cdxypi6r1nx3f" path="res://Textures/Sticker_Tri.png" id="10_xhyb3"]
+[ext_resource type="Texture2D" uid="uid://8vtvwqm8hj75" path="res://Textures/Sticker_Diamond.png" id="11_0xdgx"]
 [ext_resource type="Script" path="res://Scripts/turn_ui.gd" id="11_b70cy"]
-[ext_resource type="Texture2D" uid="uid://8vtvwqm8hj75" path="res://Textures/Sticker_Diamond.png" id="11_vu02g"]
 [ext_resource type="Texture2D" uid="uid://eqcwcewpa7ia" path="res://Textures/Sticker_Circle.png" id="12_m377n"]
+[ext_resource type="Texture2D" uid="uid://bn73b2cre5yb5" path="res://Textures/CenterUI.png" id="13_vds30"]
+[ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="14_8eqf3"]
+[ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="15_3yy0p"]
 [ext_resource type="Texture2D" uid="uid://bpqe4lf65inor" path="res://Textures/MenuSticker.png" id="15_puqe8"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qfwrv"]
-sky_top_color = Color(0.983959, 0.514521, 1.15514e-06, 1)
-sky_horizon_color = Color(0.816486, 0.290446, 0.380007, 1)
-ground_bottom_color = Color(0.71159, 0.460054, 3.85046e-07, 1)
-ground_horizon_color = Color(0.816486, 0.290446, 0.380007, 1)
-ground_curve = 1.57586
-
 [sub_resource type="Sky" id="Sky_i4i7v"]
-sky_material = SubResource("ProceduralSkyMaterial_qfwrv")
+sky_material = ExtResource("2_uvcfh")
+radiance_size = 6
 
 [sub_resource type="Environment" id="Environment_g8a3a"]
 background_mode = 2
 sky = SubResource("Sky_i4i7v")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ssao_intensity = 12.08
+ssao_power = 0.0437359
+ssao_detail = 3.45
+ssao_horizon = 1.0
+ssao_sharpness = 0.0
+ssao_light_affect = 0.77
+ssao_ao_channel_affect = 1.0
 sdfgi_bounce_feedback = 0.0
 fog_mode = 1
 fog_light_color = Color(0.991376, 0.809417, 0.841349, 1)
@@ -44,49 +50,231 @@ fog_depth_end = 629.7
 volumetric_fog_density = 0.0
 volumetric_fog_length = 0.7
 
-[sub_resource type="Animation" id="Animation_ut8to"]
-resource_name = "CharactersDance"
-length = 4.6
-loop_mode = 1
-step = 0.02
+[sub_resource type="Animation" id="Animation_lcuds"]
+resource_name = "MoveLeft1"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 0.3, 1, 0.3, 1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(6.0656e-08, -0.0579987, -1.12126), Vector3(0, 0, -1.121), Vector3(6.0656e-08, -0.0579987, -1.12126), Vector3(0, 0, -1.121), Vector3(6.0656e-08, -0.0579987, -1.12126)]
+"values": [Vector3(0, 64, -45), Vector3(45, 64, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Wizard:rotation")
-tracks/1/interp = 1
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(0.3, 1, 0.3, 1, 1),
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(3.97364e-08, -6.63173e-14, 5.68434e-14), Vector3(0, 0, 0.174533), Vector3(3.97364e-08, -6.63173e-14, 5.68434e-14), Vector3(0, 0, -0.174533), Vector3(3.97364e-08, -6.63173e-14, 5.68434e-14)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Gunslinger:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
-"transitions": PackedFloat32Array(0.3, 1, 0.3, 1.1),
-"update": 0,
-"values": [Vector3(5.96046e-08, -1.42109e-14, 2.84217e-14), Vector3(0, 0, -0.174533), Vector3(5.96046e-08, -1.42109e-14, 2.84217e-14), Vector3(0, 0, 0.174533)]
+"values": [Vector3(-1.0472, -3.14159, 0), Vector3(-1.0472, -4.71239, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_poej0"]
+[sub_resource type="Animation" id="Animation_fiu6b"]
+resource_name = "MoveLeft2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-45, 64, 0), Vector3(0, 64, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -1.5708, 0), Vector3(-1.0472, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e05oq"]
+resource_name = "MoveLeft3"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 64, 45), Vector3(-45, 64, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, 0, 0), Vector3(-1.0472, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_we1j2"]
+resource_name = "MoveLeft4"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(45, 64, 0), Vector3(0, 64, 45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, 1.5708, 0), Vector3(-1.0472, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_04e8t"]
+resource_name = "MoveRight0"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 64, -45), Vector3(0, 64, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -3.14159, 0), Vector3(-1.0472, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nc8ug"]
+resource_name = "MoveRight2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-45, 64, 0), Vector3(0, 64, 45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -1.5708, 0), Vector3(-1.0472, -6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8qu3v"]
+resource_name = "MoveRight3"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 64, 45), Vector3(45, 64, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -6.28319, 0), Vector3(-1.0472, -4.71239, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0w3p4"]
+resource_name = "MoveRight4"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(45, 64, 0), Vector3(0, 64, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -4.71239, 0), Vector3(-1.0472, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yfbtf"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -98,37 +286,61 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(6.0656e-08, -0.0579987, -1.12126)]
+"values": [Vector3(0, 64, -45)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Wizard:rotation")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(3.97364e-08, -6.63173e-14, 5.68434e-14)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Gunslinger:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(5.96046e-08, -1.42109e-14, 2.84217e-14)]
+"values": [Vector3(-1.0472, -3.14159, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_25ans"]
+[sub_resource type="Animation" id="Animation_8wvp7"]
+resource_name = "MoveCamera"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0, 64, -45), Vector3(-45, 64, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -3.14159, 0), Vector3(-1.0472, -1.5708, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8nhk"]
 _data = {
-"CharactersDance": SubResource("Animation_ut8to"),
-"RESET": SubResource("Animation_poej0")
+"MoveCamera": SubResource("Animation_8wvp7"),
+"MoveLeft1": SubResource("Animation_lcuds"),
+"MoveLeft2": SubResource("Animation_fiu6b"),
+"MoveLeft3": SubResource("Animation_e05oq"),
+"MoveLeft4": SubResource("Animation_we1j2"),
+"MoveRight1": SubResource("Animation_04e8t"),
+"MoveRight2": SubResource("Animation_nc8ug"),
+"MoveRight3": SubResource("Animation_8qu3v"),
+"MoveRight4": SubResource("Animation_0w3p4"),
+"RESET": SubResource("Animation_yfbtf")
 }
 
 [sub_resource type="Animation" id="Animation_8vex2"]
@@ -341,6 +553,43 @@ _data = {
 "RESET": SubResource("Animation_kunrw")
 }
 
+[sub_resource type="Animation" id="Animation_7cjds"]
+resource_name = "StartGame"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(20, 256), Vector2(20, 0), Vector2(20, 16), Vector2(20, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0jrad"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_661qm"]
+_data = {
+"RESET": SubResource("Animation_0jrad"),
+"StartGame": SubResource("Animation_7cjds")
+}
+
 [node name="local_game" type="Node3D"]
 script = ExtResource("1_06to8")
 
@@ -354,33 +603,19 @@ shadow_opacity = 0.85
 shadow_blur = 1.021
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 1.4924e-07, -6.18172e-08, 2.10847e-08, 0.5, 0.866026, 1.60154e-07, 0.866025, -0.5, 0, 66.39, -44.22)
+transform = Transform3D(-1, 2.19553e-06, -1.26759e-06, 0, 0.499998, 0.866027, 2.53518e-06, 0.866026, -0.499998, 0, 64, -45)
 environment = SubResource("Environment_g8a3a")
 fov = 60.0
 size = 17.561
 near = 0.001
+script = ExtResource("3_btinm")
+orbit_radius = 90
 
-[node name="Characters" type="Node3D" parent="Camera3D"]
-transform = Transform3D(0.1, -8.88178e-16, -8.88179e-16, 8.88178e-16, 0.1, 0, 8.88178e-16, -7.88861e-30, 0.1, 6.0656e-08, -0.0579987, -1.12126)
-visible = false
-
-[node name="Wizard" type="Sprite3D" parent="Camera3D/Characters"]
-transform = Transform3D(1.5, -8.52651e-14, -9.94759e-14, 8.52651e-14, 1.5, -5.96046e-08, 9.94759e-14, 5.96046e-08, 1.5, -10.2166, -5.438, 0.908081)
-texture = ExtResource("2_qnwvk")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D/Characters"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 libraries = {
-"": SubResource("AnimationLibrary_25ans")
+"": SubResource("AnimationLibrary_a8nhk")
 }
-speed_scale = 0.5
-
-[node name="AnimationTimer" type="Timer" parent="Camera3D/Characters"]
-wait_time = 3.0
-autostart = true
-
-[node name="Gunslinger" type="Sprite3D" parent="Camera3D/Characters"]
-transform = Transform3D(1, -2.84217e-14, -1.42109e-14, 2.84217e-14, 1, -5.96046e-08, 1.42109e-14, 5.96046e-08, 1, 11.3154, -5.438, 0.92157)
-texture = ExtResource("3_0lm7p")
+blend_times = [&"MoveLeft1", &"MoveLeft1", 1.0, &"MoveLeft1", &"MoveLeft2", 1.0, &"MoveLeft1", &"MoveLeft3", 1.0, &"MoveLeft1", &"MoveLeft4", 1.0, &"MoveLeft1", &"MoveRight1", 1.0, &"MoveLeft1", &"MoveRight2", 1.0, &"MoveLeft1", &"MoveRight3", 1.0, &"MoveLeft1", &"MoveRight4", 1.0, &"MoveLeft2", &"MoveLeft1", 3.0, &"MoveLeft2", &"MoveLeft2", 3.0, &"MoveLeft2", &"MoveLeft3", 3.0, &"MoveLeft2", &"MoveLeft4", 3.0, &"MoveLeft2", &"MoveRight1", 3.0, &"MoveLeft2", &"MoveRight2", 3.0, &"MoveLeft2", &"MoveRight3", 3.0, &"MoveLeft3", &"MoveLeft1", 1.0, &"MoveLeft3", &"MoveLeft2", 1.0, &"MoveLeft3", &"MoveLeft3", 1.0, &"MoveLeft3", &"MoveLeft4", 1.0, &"MoveLeft3", &"MoveRight1", 1.0, &"MoveLeft3", &"MoveRight2", 1.0, &"MoveLeft3", &"MoveRight3", 1.0, &"MoveLeft3", &"MoveRight4", 1.0, &"MoveLeft4", &"MoveLeft1", 1.0, &"MoveLeft4", &"MoveLeft2", 1.0, &"MoveLeft4", &"MoveLeft3", 1.0, &"MoveLeft4", &"MoveLeft4", 1.0, &"MoveLeft4", &"MoveRight1", 1.0, &"MoveLeft4", &"MoveRight2", 1.0, &"MoveLeft4", &"MoveRight3", 1.0, &"MoveLeft4", &"MoveRight4", 1.0, &"MoveRight1", &"MoveCamera", 3.0, &"MoveRight1", &"MoveLeft1", 3.0, &"MoveRight1", &"MoveLeft2", 3.0, &"MoveRight1", &"MoveLeft3", 3.0, &"MoveRight1", &"MoveLeft4", 3.0, &"MoveRight1", &"MoveRight1", 3.0, &"MoveRight1", &"MoveRight2", 3.0, &"MoveRight1", &"MoveRight3", 3.0, &"MoveRight1", &"MoveRight4", 3.0, &"MoveRight2", &"MoveLeft1", 3.0, &"MoveRight2", &"MoveLeft2", 3.0, &"MoveRight2", &"MoveLeft3", 3.0, &"MoveRight2", &"MoveLeft4", 3.0, &"MoveRight2", &"MoveRight1", 3.0, &"MoveRight2", &"MoveRight2", 3.0, &"MoveRight2", &"MoveRight3", 3.0, &"MoveRight2", &"MoveRight4", 3.0, &"MoveRight3", &"MoveLeft1", 3.0, &"MoveRight3", &"MoveLeft2", 3.0, &"MoveRight3", &"MoveLeft3", 3.0, &"MoveRight3", &"MoveLeft4", 3.0, &"MoveRight3", &"MoveRight1", 3.0, &"MoveRight3", &"MoveRight2", 3.0, &"MoveRight3", &"MoveRight3", 3.0, &"MoveRight3", &"MoveRight4", 3.0, &"MoveRight4", &"MoveLeft1", 3.0, &"MoveRight4", &"MoveLeft2", 3.0, &"MoveRight4", &"MoveLeft3", 3.0, &"MoveRight4", &"MoveLeft4", 3.0, &"MoveRight4", &"MoveRight1", 3.0, &"MoveRight4", &"MoveRight2", 3.0, &"MoveRight4", &"MoveRight3", 3.0, &"MoveRight4", &"MoveRight4", 3.0]
 
 [node name="AnimationTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -393,320 +628,292 @@ one_shot = true
 [node name="Component_Symbol" parent="Players/Player" instance=ExtResource("7_mat46")]
 sticker = ExtResource("12_m377n")
 
-[node name="Component_Telekenisis" parent="Players/Player" instance=ExtResource("7_wsosb")]
+[node name="Component_Telekenisis" parent="Players/Player" instance=ExtResource("7_3mfpy")]
 
 [node name="Player2" parent="Players" instance=ExtResource("6_pqpfg")]
 
 [node name="Component_Symbol" parent="Players/Player2" instance=ExtResource("7_mat46")]
 sticker = ExtResource("8_2u2t1")
 
-[node name="Component_Sniper_Gun" parent="Players/Player2" instance=ExtResource("8_5evtd")]
-max_count = 2
-
-[node name="Component_Sniper_Gun2" parent="Players/Player2" instance=ExtResource("8_5evtd")]
+[node name="Component_Sniper_Gun" parent="Players/Player2" instance=ExtResource("9_auv02")]
 
 [node name="Player3" parent="Players" instance=ExtResource("6_pqpfg")]
 
 [node name="Component_Symbol" parent="Players/Player3" instance=ExtResource("7_mat46")]
-sticker = ExtResource("10_b7hxs")
+sticker = ExtResource("10_xhyb3")
 
-[node name="Component_Sniper_Gun" parent="Players/Player3" instance=ExtResource("8_5evtd")]
-max_count = 2
-
-[node name="Component_Telekenisis" parent="Players/Player3" instance=ExtResource("7_wsosb")]
-
-[node name="Component_Telekenisis2" parent="Players/Player3" instance=ExtResource("7_wsosb")]
+[node name="Component_Telekenisis" parent="Players/Player3" instance=ExtResource("7_3mfpy")]
 
 [node name="Player4" parent="Players" instance=ExtResource("6_pqpfg")]
 
 [node name="Component_Symbol" parent="Players/Player4" instance=ExtResource("7_mat46")]
-sticker = ExtResource("11_vu02g")
+sticker = ExtResource("11_0xdgx")
 
-[node name="Component_Sniper_Gun" parent="Players/Player4" instance=ExtResource("8_5evtd")]
-max_count = 2
-
-[node name="Component_Telekenisis" parent="Players/Player4" instance=ExtResource("7_wsosb")]
-max_count = 3
-
-[node name="Component_Sniper_Gun2" parent="Players/Player4" instance=ExtResource("8_5evtd")]
-max_count = 4
-
-[node name="Component_Sniper_Gun3" parent="Players/Player4" instance=ExtResource("8_5evtd")]
-max_count = 5
+[node name="Component_Sniper_Gun" parent="Players/Player4" instance=ExtResource("9_auv02")]
 
 [node name="Grid" type="Node3D" parent="."]
 script = ExtResource("4_ootlo")
 tiles_to_panic = 4
 
 [node name="Row" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 23)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
 
 [node name="Tile" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Tile8" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="Row2" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 16)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
 
 [node name="Tile" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Tile8" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="Row3" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 9)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
 
 [node name="Tile" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Tile8" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="Row4" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 
 [node name="Tile" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0)
 
 [node name="Tile8" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 0)
 
 [node name="Tile9" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 4, 0)
 
 [node name="Row5" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -5)
 
 [node name="Tile" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0)
 
 [node name="Tile8" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 8, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 8, 0)
 
 [node name="Tile9" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 16, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 16, 0)
 
 [node name="Row6" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 
 [node name="Tile" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4, 0)
 
 [node name="Tile7" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0)
 
 [node name="Tile8" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 12, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 12, 0)
 
 [node name="Tile9" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 12, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 12, 0)
 
 [node name="Row7" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -19)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
 
 [node name="Tile" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 4, 0)
 
 [node name="Tile7" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0)
 
 [node name="Tile8" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 0)
 
 [node name="Tile9" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 4, 0)
 
 [node name="Row8" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -26)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21)
 
 [node name="Tile" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, -4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -4, 0)
 
 [node name="Tile2" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -4, 0)
 
 [node name="Tile3" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -4, 0)
 
 [node name="Tile4" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0)
 
 [node name="Tile8" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 0)
 
 [node name="Tile9" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 4, 0)
 
 [node name="Row9" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -33)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
 
 [node name="Tile" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 12, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 12, 0)
 
 [node name="Tile5" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 
 [node name="Tile6" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Tile8" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
@@ -849,6 +1056,7 @@ mouse_filter = 1
 script = ExtResource("11_b70cy")
 
 [node name="Button" type="Button" parent="GameUI"]
+visible = false
 modulate = Color(1, 1, 1, 0.192157)
 layout_mode = 1
 offset_left = 24.0
@@ -860,7 +1068,60 @@ icon = ExtResource("15_puqe8")
 flat = true
 icon_alignment = 1
 
-[connection signal="timeout" from="Camera3D/Characters/AnimationTimer" to="Grid" method="_on_timer_timeout"]
+[node name="CenterContainer" type="CenterContainer" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="GameUI/CenterContainer"]
+self_modulate = Color(0.590515, 0.590515, 0.590515, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("13_vds30")
+
+[node name="Button" type="Button" parent="GameUI/CenterContainer/Sprite2D"]
+modulate = Color(0.780598, 0.780598, 0.780598, 1)
+anchors_preset = -1
+anchor_left = 0.496
+anchor_top = 0.385
+anchor_right = 0.496
+anchor_bottom = 0.385
+offset_left = -795.808
+offset_top = -787.48
+offset_right = -659.808
+offset_bottom = -651.48
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(4, 4)
+focus_mode = 1
+icon = ExtResource("14_8eqf3")
+flat = true
+clip_text = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Sprite2D" type="Sprite2D" parent="GameUI/CenterContainer/Sprite2D"]
+modulate = Color(0.25, 0.2475, 0.2475, 1)
+z_index = -50
+position = Vector2(-16, 154)
+scale = Vector2(12800, 640)
+texture = ExtResource("15_3yy0p")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/CenterContainer"]
+libraries = {
+"": SubResource("AnimationLibrary_661qm")
+}
+autoplay = "StartGame"
+
+[connection signal="on_end_turn" from="." to="GameUI/TurnUI" method="_on_end_turn"]
+[connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
 [connection signal="game_won" from="Grid" to="." method="_on_game_won"]
 [connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
@@ -869,3 +1130,4 @@ icon_alignment = 1
 [connection signal="pressed" from="GameUI/Control/Menu/MainMenu" to="GameUI/Control/Menu" method="_on_main_menu_pressed"]
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="GameUI/TurnUI" method="_on_loaded_player_uis"]
 [connection signal="pressed" from="GameUI/Button" to="GameUI/Control/Menu" method="_on_button_pressed"]
+[connection signal="pressed" from="GameUI/CenterContainer/Sprite2D/Button" to="." method="end_turn_alt"]

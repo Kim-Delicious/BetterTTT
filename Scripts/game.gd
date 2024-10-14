@@ -17,6 +17,8 @@ var max_turns
 var current_turn = 0
 
 var end_game := false
+
+signal on_end_turn
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
@@ -57,6 +59,7 @@ func _next_turn() -> void:
 	
 	if end_game:
 		return
+		
 	
 	current_turn += 1
 	
@@ -65,6 +68,8 @@ func _next_turn() -> void:
 		
 	players.get_child(current_turn).on_turn = true
 	players.get_child(current_turn).refresh_components()
+	
+	
 	
 	
 
@@ -77,7 +82,16 @@ func _on_end_turn(which_player) -> void:
 
 	###Workaround, find better way later?
 	animation_timer.start()
+	
+func end_turn_alt() -> void:
 
+	var which_player = players.get_child(current_turn)
+	which_player.on_turn = false
+
+	###Workaround, find better way later?
+	animation_timer.start()
+	
+	on_end_turn.emit(players.get_child(current_turn))
 
 
 
