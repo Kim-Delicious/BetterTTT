@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bxlkylk5tdhqi"]
+[gd_scene load_steps=46 format=3 uid="uid://bxlkylk5tdhqi"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_06to8"]
 [ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_uvcfh"]
@@ -6,19 +6,21 @@
 [ext_resource type="Script" path="res://Scripts/grid.gd" id="4_ootlo"]
 [ext_resource type="PackedScene" uid="uid://b713dr5lk5kx8" path="res://Scenes/Tile.tscn" id="5_s5ntu"]
 [ext_resource type="PackedScene" uid="uid://cbma1jhpjxi3g" path="res://Scenes/player.tscn" id="6_pqpfg"]
-[ext_resource type="PackedScene" uid="uid://bpe1b22b4n8sa" path="res://Scenes/Player Components/component_telekenesis.tscn" id="7_3mfpy"]
 [ext_resource type="PackedScene" uid="uid://c8830abg8xqe1" path="res://Scenes/Player Components/component_symbol.tscn" id="7_mat46"]
-[ext_resource type="Texture2D" uid="uid://djdn4duau8afd" path="res://Textures/Sticker_Mult.png" id="8_2u2t1"]
+[ext_resource type="PackedScene" uid="uid://depr43jp6rxjx" path="res://Scenes/Player Components/component_telekenesis_column.tscn" id="7_q4wf1"]
+[ext_resource type="PackedScene" uid="uid://bwq3j8tmvenuh" path="res://Scenes/Player Components/component_telekenesis_row.tscn" id="8_avgw2"]
 [ext_resource type="Script" path="res://Scripts/game_menu.gd" id="9_a78xj"]
-[ext_resource type="PackedScene" uid="uid://dhnwsfns7rhc0" path="res://Scenes/Player Components/component_sniper_gun.tscn" id="9_auv02"]
-[ext_resource type="Texture2D" uid="uid://cdxypi6r1nx3f" path="res://Textures/Sticker_Tri.png" id="10_xhyb3"]
-[ext_resource type="Texture2D" uid="uid://8vtvwqm8hj75" path="res://Textures/Sticker_Diamond.png" id="11_0xdgx"]
+[ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="11_atruc"]
 [ext_resource type="Script" path="res://Scripts/turn_ui.gd" id="11_b70cy"]
+[ext_resource type="Texture2D" uid="uid://bbhrle7pxmvkn" path="res://Textures/SilloutteBanner2.png" id="11_fo6m1"]
 [ext_resource type="Texture2D" uid="uid://eqcwcewpa7ia" path="res://Textures/Sticker_Circle.png" id="12_m377n"]
+[ext_resource type="StyleBox" uid="uid://ddcao77yu21dh" path="res://Resources/StyleBox/long_button_pressed.tres" id="13_2r5ff"]
 [ext_resource type="Texture2D" uid="uid://bn73b2cre5yb5" path="res://Textures/CenterUI.png" id="13_vds30"]
+[ext_resource type="StyleBox" uid="uid://g7w0n7dgricu" path="res://Resources/StyleBox/long_button_hover.tres" id="14_2b6aw"]
 [ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="14_8eqf3"]
-[ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="15_3yy0p"]
+[ext_resource type="StyleBox" uid="uid://c80qni2878hrn" path="res://Resources/StyleBox/long_button_normal.tres" id="15_ned7m"]
 [ext_resource type="Texture2D" uid="uid://bpqe4lf65inor" path="res://Textures/MenuSticker.png" id="15_puqe8"]
+[ext_resource type="Texture2D" uid="uid://c1frhtfgbmvdy" path="res://Textures/SilloutteBanner.png" id="19_jysul"]
 
 [sub_resource type="Sky" id="Sky_i4i7v"]
 sky_material = ExtResource("2_uvcfh")
@@ -49,6 +51,34 @@ fog_depth_begin = 66.3
 fog_depth_end = 629.7
 volumetric_fog_density = 0.0
 volumetric_fog_length = 0.7
+
+[sub_resource type="Animation" id="Animation_8wvp7"]
+resource_name = "MoveCamera"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0, 64, -45), Vector3(-45, 64, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -3.14159, 0), Vector3(-1.0472, -1.5708, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_lcuds"]
 resource_name = "MoveLeft1"
@@ -301,34 +331,6 @@ tracks/1/keys = {
 "values": [Vector3(-1.0472, -3.14159, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_8wvp7"]
-resource_name = "MoveCamera"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector3(0, 64, -45), Vector3(-45, 64, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(3, 1),
-"update": 0,
-"values": [Vector3(-1.0472, -3.14159, 0), Vector3(-1.0472, -1.5708, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8nhk"]
 _data = {
 "MoveCamera": SubResource("Animation_8wvp7"),
@@ -553,20 +555,130 @@ _data = {
 "RESET": SubResource("Animation_kunrw")
 }
 
-[sub_resource type="Animation" id="Animation_7cjds"]
-resource_name = "StartGame"
+[sub_resource type="Animation" id="Animation_d182t"]
+resource_name = "Open"
 length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0.0333333, 1.06667),
+"transitions": PackedFloat32Array(0.35, 1),
 "update": 0,
-"values": [Vector2(20, 256), Vector2(20, 0), Vector2(20, 16), Vector2(20, 0)]
+"values": [Vector2(-288, 1232), Vector2(704, -480)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.26667),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-528, 1728), Vector2(472, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l08jx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(704, -480)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(472, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wkhru"]
+resource_name = "Close"
+length = 1.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 1.3),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(704, -480), Vector2(1608, -2048)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 1.3),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(472, 0), Vector2(1448, -1688)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5dpd"]
+_data = {
+"Close": SubResource("Animation_wkhru"),
+"Open": SubResource("Animation_d182t"),
+"RESET": SubResource("Animation_l08jx")
 }
 
 [sub_resource type="Animation" id="Animation_0jrad"]
@@ -582,6 +694,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7cjds"]
+resource_name = "StartGame"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(20, 256), Vector2(20, 0), Vector2(20, 16), Vector2(20, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_661qm"]
@@ -628,35 +756,52 @@ one_shot = true
 [node name="Component_Symbol" parent="Players/Player" instance=ExtResource("7_mat46")]
 sticker = ExtResource("12_m377n")
 
-[node name="Component_Telekenisis" parent="Players/Player" instance=ExtResource("7_3mfpy")]
+[node name="Component_Telekenisis_Column" parent="Players/Player" instance=ExtResource("7_q4wf1")]
+max_count = 4
+
+[node name="Component_Telekenisis_Row" parent="Players/Player" instance=ExtResource("8_avgw2")]
+max_count = 4
 
 [node name="Player2" parent="Players" instance=ExtResource("6_pqpfg")]
 
 [node name="Component_Symbol" parent="Players/Player2" instance=ExtResource("7_mat46")]
-sticker = ExtResource("8_2u2t1")
+sticker = ExtResource("12_m377n")
 
-[node name="Component_Sniper_Gun" parent="Players/Player2" instance=ExtResource("9_auv02")]
+[node name="Component_Telekenisis_Column" parent="Players/Player2" instance=ExtResource("7_q4wf1")]
+max_count = 4
+
+[node name="Component_Telekenisis_Row" parent="Players/Player2" instance=ExtResource("8_avgw2")]
+max_count = 4
 
 [node name="Player3" parent="Players" instance=ExtResource("6_pqpfg")]
 
 [node name="Component_Symbol" parent="Players/Player3" instance=ExtResource("7_mat46")]
-sticker = ExtResource("10_xhyb3")
+sticker = ExtResource("12_m377n")
 
-[node name="Component_Telekenisis" parent="Players/Player3" instance=ExtResource("7_3mfpy")]
+[node name="Component_Telekenisis_Column" parent="Players/Player3" instance=ExtResource("7_q4wf1")]
+max_count = 4
+
+[node name="Component_Telekenisis_Row" parent="Players/Player3" instance=ExtResource("8_avgw2")]
+max_count = 4
 
 [node name="Player4" parent="Players" instance=ExtResource("6_pqpfg")]
 
 [node name="Component_Symbol" parent="Players/Player4" instance=ExtResource("7_mat46")]
-sticker = ExtResource("11_0xdgx")
+sticker = ExtResource("12_m377n")
 
-[node name="Component_Sniper_Gun" parent="Players/Player4" instance=ExtResource("9_auv02")]
+[node name="Component_Telekenisis_Column" parent="Players/Player4" instance=ExtResource("7_q4wf1")]
+max_count = 4
+
+[node name="Component_Telekenisis_Row" parent="Players/Player4" instance=ExtResource("8_avgw2")]
+max_count = 4
 
 [node name="Grid" type="Node3D" parent="."]
+process_mode = 1
 script = ExtResource("4_ootlo")
 tiles_to_panic = 4
 
 [node name="Row" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 32, 28)
 
 [node name="Tile" parent="Grid/Row" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
@@ -685,7 +830,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="Row2" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 28, 21)
 
 [node name="Tile" parent="Grid/Row2" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
@@ -714,7 +859,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="Row3" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 14)
 
 [node name="Tile" parent="Grid/Row3" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
@@ -743,7 +888,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="Row4" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 20, 7)
 
 [node name="Tile" parent="Grid/Row4" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
@@ -772,6 +917,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 4, 0)
 
 [node name="Row5" type="Node3D" parent="Grid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
 
 [node name="Tile" parent="Grid/Row5" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
@@ -800,7 +946,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 8, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 16, 0)
 
 [node name="Row6" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, -7)
 
 [node name="Tile" parent="Grid/Row6" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
@@ -829,7 +975,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 12, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 12, 0)
 
 [node name="Row7" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -14)
 
 [node name="Tile" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
@@ -858,7 +1004,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 4, 0)
 
 [node name="Row8" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -21)
 
 [node name="Tile" parent="Grid/Row8" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -4, 0)
@@ -887,7 +1033,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 4, 0)
 
 [node name="Row9" type="Node3D" parent="Grid"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 28)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
 
 [node name="Tile" parent="Grid/Row9" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
@@ -926,11 +1072,9 @@ mouse_filter = 1
 
 [node name="Control" type="Control" parent="GameUI"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1012,38 +1156,120 @@ theme_override_font_sizes/font_size = 72
 text = "Back to Selection Screen
 "
 
-[node name="Menu" type="VBoxContainer" parent="GameUI/Control"]
+[node name="Background" type="TextureRect" parent="GameUI/Control"]
+process_mode = 3
 visible = false
 top_level = true
+z_index = 101
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -211.5
-offset_top = -87.0
-offset_right = 211.5
-offset_bottom = 87.0
+offset_left = 128.0
+offset_top = -804.0
+offset_right = 373.0
+offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = 0.523599
+scale = Vector2(2, 2)
+texture = ExtResource("11_fo6m1")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Menu" type="VBoxContainer" parent="GameUI/Control/Background"]
+top_level = true
+z_index = 101
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -324.0
+offset_right = 315.0
+offset_bottom = 98.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.523599
 size_flags_horizontal = 4
 size_flags_vertical = 4
-alignment = 1
 script = ExtResource("9_a78xj")
 
-[node name="Label" type="Label" parent="GameUI/Control/Menu"]
-modulate = Color(0.236334, 0.236334, 0.236334, 1)
+[node name="Label" type="Label" parent="GameUI/Control/Background/Menu"]
+modulate = Color(0.14, 0.0527333, 0.0448, 1)
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 96
 text = "Paused"
 horizontal_alignment = 1
+uppercase = true
 
-[node name="MainMenu" type="Button" parent="GameUI/Control/Menu"]
+[node name="HSeparator4" type="HSeparator" parent="GameUI/Control/Background/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="GameUI/Control/Background/Menu"]
+modulate = Color(0.9, 0.3528, 0.216, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 54
+theme_override_styles/hover_pressed = ExtResource("13_2r5ff")
+theme_override_styles/hover = ExtResource("14_2b6aw")
+theme_override_styles/pressed = ExtResource("13_2r5ff")
+theme_override_styles/normal = ExtResource("15_ned7m")
+text = "Resume
+"
+
+[node name="HSeparator5" type="HSeparator" parent="GameUI/Control/Background/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="GameUI/Control/Background/Menu"]
+modulate = Color(0.9, 0.3528, 0.216, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+theme_override_styles/hover_pressed = ExtResource("13_2r5ff")
+theme_override_styles/hover = ExtResource("14_2b6aw")
+theme_override_styles/pressed = ExtResource("13_2r5ff")
+theme_override_styles/normal = ExtResource("15_ned7m")
+text = "Settings
+"
+
+[node name="HSeparator6" type="HSeparator" parent="GameUI/Control/Background/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="GameUI/Control/Background/Menu"]
+modulate = Color(0.9, 0.3528, 0.216, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 54
+theme_override_styles/hover = ExtResource("14_2b6aw")
+theme_override_styles/pressed = ExtResource("13_2r5ff")
+theme_override_styles/normal = ExtResource("15_ned7m")
 text = "Exit Game
 "
+
+[node name="HSeparator7" type="HSeparator" parent="GameUI/Control/Background/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Shadow" type="TextureRect" parent="GameUI/Control/Background"]
+modulate = Color(0.27, 0.27, 0.27, 0.333333)
+show_behind_parent = true
+layout_mode = 0
+offset_left = 226.277
+offset_top = 7.92299
+offset_right = 258.277
+offset_bottom = 1000.51
+texture = ExtResource("11_atruc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Control/Background"]
+libraries = {
+"": SubResource("AnimationLibrary_s5dpd")
+}
+next/Close = &"RESET"
 
 [node name="TurnUI" type="Control" parent="GameUI"]
 layout_mode = 1
@@ -1068,7 +1294,7 @@ icon = ExtResource("15_puqe8")
 flat = true
 icon_alignment = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="GameUI"]
+[node name="NextTurnButton" type="CenterContainer" parent="GameUI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1081,12 +1307,12 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="GameUI/CenterContainer"]
+[node name="Sprite2D" type="Sprite2D" parent="GameUI/NextTurnButton"]
 self_modulate = Color(0.590515, 0.590515, 0.590515, 1)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("13_vds30")
 
-[node name="Button" type="Button" parent="GameUI/CenterContainer/Sprite2D"]
+[node name="Button" type="Button" parent="GameUI/NextTurnButton/Sprite2D"]
 modulate = Color(0.780598, 0.780598, 0.780598, 1)
 anchors_preset = -1
 anchor_left = 0.496
@@ -1107,18 +1333,37 @@ clip_text = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Sprite2D" type="Sprite2D" parent="GameUI/CenterContainer/Sprite2D"]
-modulate = Color(0.25, 0.2475, 0.2475, 1)
-z_index = -50
-position = Vector2(-16, 154)
-scale = Vector2(12800, 640)
-texture = ExtResource("15_3yy0p")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/CenterContainer"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/NextTurnButton"]
 libraries = {
 "": SubResource("AnimationLibrary_661qm")
 }
 autoplay = "StartGame"
+
+[node name="Background" type="Control" parent="GameUI/NextTurnButton"]
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="GameUI/NextTurnButton/Background"]
+modulate = Color(0.25, 0.2475, 0.2475, 1)
+z_index = -50
+position = Vector2(-24, -4)
+scale = Vector2(2, 2)
+texture = ExtResource("19_jysul")
+
+[node name="Sprite2D2" type="Sprite2D" parent="GameUI/NextTurnButton/Background"]
+modulate = Color(0.25, 0.2475, 0.2475, 1)
+z_index = -50
+position = Vector2(1010, -4)
+rotation = 1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("19_jysul")
+
+[node name="Sprite2D3" type="Sprite2D" parent="GameUI/NextTurnButton/Background"]
+modulate = Color(0.25, 0.2475, 0.2475, 1)
+z_index = -50
+position = Vector2(-1010, -4)
+rotation = -1.5708
+scale = Vector2(2, 2)
+texture = ExtResource("19_jysul")
 
 [connection signal="on_end_turn" from="." to="GameUI/TurnUI" method="_on_end_turn"]
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
@@ -1126,8 +1371,8 @@ autoplay = "StartGame"
 [connection signal="game_won" from="Grid" to="." method="_on_game_won"]
 [connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
 [connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]
-[connection signal="pressed" from="GameUI/Control/Game/MatchEnd/Button" to="GameUI/Control/Menu" method="_on_main_menu_pressed"]
-[connection signal="pressed" from="GameUI/Control/Menu/MainMenu" to="GameUI/Control/Menu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameUI/Control/Game/MatchEnd/Button" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameUI/Control/Background/Menu/MainMenu" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="GameUI/TurnUI" method="_on_loaded_player_uis"]
-[connection signal="pressed" from="GameUI/Button" to="GameUI/Control/Menu" method="_on_button_pressed"]
-[connection signal="pressed" from="GameUI/CenterContainer/Sprite2D/Button" to="." method="end_turn_alt"]
+[connection signal="pressed" from="GameUI/Button" to="GameUI/Control/Background/Menu" method="_on_button_pressed"]
+[connection signal="pressed" from="GameUI/NextTurnButton/Sprite2D/Button" to="." method="end_turn_alt"]

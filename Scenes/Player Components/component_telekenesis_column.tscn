@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://depr43jp6rxjx"]
+
+[ext_resource type="Script" path="res://Scripts/Player Components/component_telekenesis_column.gd" id="1_4c8u6"]
+[ext_resource type="Texture2D" uid="uid://c5vqa8jw3lcjk" path="res://Textures/TelekenisisColumnSticker.png" id="2_0qmpe"]
+
+[node name="Component_Telekenisis_Column" type="Node"]
+script = ExtResource("1_4c8u6")
+sticker = ExtResource("2_0qmpe")

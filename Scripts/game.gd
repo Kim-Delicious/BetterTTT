@@ -35,6 +35,16 @@ func _process(_delta: float) -> void:
 	
 	pass
 	
+	
+	
+func _input(event: InputEvent) -> void:
+	
+	if(event.is_action_pressed("NextTurn")):
+		end_turn_alt()
+	
+	
+	
+	
 func connect_players_signals() -> void:
 	
 	for player in players.get_children():

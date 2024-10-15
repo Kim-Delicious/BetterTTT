@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwq3j8tmvenuh"]
+
+[ext_resource type="Script" path="res://Scripts/Player Components/component_telekenesis_row.gd" id="1_6skl2"]
+[ext_resource type="Texture2D" uid="uid://cq8qvav0du4k6" path="res://Textures/TelekenisisSticker.png" id="2_psisq"]
+
+[node name="Component_Telekenisis_Row" type="Node"]
+script = ExtResource("1_6skl2")
+sticker = ExtResource("2_psisq")

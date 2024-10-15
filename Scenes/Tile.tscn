@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://b713dr5lk5kx8"]
+[gd_scene load_steps=26 format=3 uid="uid://b713dr5lk5kx8"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_m4vp3"]
 [ext_resource type="Texture2D" uid="uid://dnojfum3ucyrp" path="res://Textures/SandTile.png" id="1_tblmr"]
 [ext_resource type="PackedScene" uid="uid://cgc5nfkuvu0s8" path="res://Scenes/symbol.tscn" id="2_oplua"]
 [ext_resource type="PackedScene" uid="uid://b66hh1fv6762b" path="res://Scenes/Button3D.tscn" id="4_6yu4t"]
+[ext_resource type="Texture2D" uid="uid://clp184ule0q5c" path="res://Textures/MouseHoverOverlay.png" id="5_taiah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dy22v"]
 albedo_texture = ExtResource("1_tblmr")
@@ -405,6 +406,47 @@ material = SubResource("StandardMaterial3D_vygrd")
 radius = 1.0
 height = 2.0
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1n3kl"]
+emission_energy_multiplier = 14.79
+
+[sub_resource type="Animation" id="Animation_qbcef"]
+resource_name = "Idle"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.03333, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.75, 0.75, 0.75, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ytghy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gy36r"]
+_data = {
+"Idle": SubResource("Animation_qbcef"),
+"RESET": SubResource("Animation_ytghy")
+}
+
 [node name="Tile" type="Node3D"]
 script = ExtResource("1_m4vp3")
 
@@ -435,4 +477,21 @@ amount = 128
 process_material = SubResource("ParticleProcessMaterial_86l7g")
 draw_pass_1 = SubResource("SphereMesh_dmtvj")
 
+[node name="MouseHoverSprite" type="Sprite3D" parent="AnimationTarget"]
+transform = Transform3D(0.78, 0, 0, 0, -3.40949e-08, -0.78, 0, 0.78, -3.40949e-08, 0, 0.504, 0)
+visible = false
+material_overlay = SubResource("StandardMaterial3D_1n3kl")
+cast_shadow = 0
+gi_mode = 0
+texture = ExtResource("5_taiah")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimationTarget/MouseHoverSprite"]
+libraries = {
+"": SubResource("AnimationLibrary_gy36r")
+}
+autoplay = "Idle"
+
+[connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]
 [connection signal="animation_finished" from="AnimationTarget/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="mouse_entered" from="AnimationTarget/Button3D" to="." method="_on_button_3d_mouse_entered"]
+[connection signal="mouse_exited" from="AnimationTarget/Button3D" to="." method="_on_button_3d_mouse_exited"]
