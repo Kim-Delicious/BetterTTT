@@ -43,6 +43,10 @@ func use_component(on_which_tile) -> void:
 		
 func select_first_available_component() -> void:
 	
+	if get_child(component_index).count > 0:
+		return
+		
+	
 	for i in range(get_child_count()):
 		var component = get_child(i)
 		
@@ -56,6 +60,17 @@ func select_first_available_component() -> void:
 	component_index = 0
 	select_component.emit(self)
 	out_of_resources.emit(self)
+	
+func select_clicked_component(which_index) -> void:
+	
+	var component = get_child(which_index)
+		
+	if(!component.available):
+		return
+	
+	component_index = which_index
+	select_component.emit(self)
+	
 
 
 	

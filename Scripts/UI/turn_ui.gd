@@ -37,7 +37,6 @@ func load_player_uis() -> void:
 			
 			player_ui.add_missing_center_pieces(j, i, player)
 		
-	print(get_child_count())
 	
 	loaded_player_uis.emit()
 	

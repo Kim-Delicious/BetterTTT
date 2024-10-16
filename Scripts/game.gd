@@ -27,6 +27,7 @@ func _ready() -> void:
 	max_turns = players.get_child_count()
 	
 	connect_players_signals()
+	connect_players_uis_signals()
 	connect_tile_signals()
 	_assign_players_ids()
 
@@ -50,6 +51,32 @@ func connect_players_signals() -> void:
 	for player in players.get_children():
 		if not player.out_of_resources.is_connected(_on_end_turn):
 			player.out_of_resources.connect(_on_end_turn)
+
+func connect_players_uis_signals() -> void:
+	
+
+	var game_ui = find_child("GameUI")
+	var turn_ui = game_ui.get_child(1)
+	
+	for player_ui in turn_ui.get_children():
+		
+		var player_index = player_ui.get_index()
+		var player = players.get_child(player_index)
+		
+		var symbol = player_ui.player_symbol
+		
+		if not symbol.pushed_on.is_connected(player.select_clicked_component):
+			symbol.pushed_on.connect(player.select_clicked_component)
+			
+		
+		for i in range(1, player_ui.inventory.get_child_count() - 1):
+			var sticker = player_ui.inventory.get_child(i).get_child(0)
+			if not sticker.pushed_on.is_connected(player.select_clicked_component):
+				
+				
+				sticker.pushed_on.connect(player.select_clicked_component)
+			
+
 
 func connect_tile_signals() -> void:
 	

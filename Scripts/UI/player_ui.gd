@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player_symbol: Sprite2D = $DisplayAnchor/TurnDial/AbilitySticker
+@onready var player_symbol: TextureButton = $DisplayAnchor/TurnDial/Node/AbilitySticker
 @onready var inventory: Control = $DisplayAnchor/Inventory
 @onready var animation_player: AnimationPlayer = $DisplayAnchor/AnimationPlayer
 
@@ -45,19 +45,19 @@ func add_missing_center_pieces(label_index, player_id, player) -> void:
 		
 	
 func set_symbol_texture(symbol_texture) -> void:
-	player_symbol.texture = symbol_texture
+	player_symbol.texture_normal = symbol_texture
 	
 func set_ability_sticker_texture(label_index, texture) -> void:
 		
 	var ability_sticker = inventory.get_child(label_index).get_child(0)
-	ability_sticker.texture = texture
+	ability_sticker.texture_normal = texture
 	
 func update_selection_indicator(which_player) -> void:
 	
 	if !which_player.on_turn:
 		return
 		
-	$DisplayAnchor/TurnDial/AbilitySticker.get_child(1).play("HideIndicator")
+	$DisplayAnchor/TurnDial/Node/AbilitySticker.get_child(1).play("HideIndicator")
 		
 	for i in range(1, inventory.get_child_count()-1):
 		var ability_sticker = inventory.get_child(i).get_child(0)
@@ -67,9 +67,8 @@ func update_selection_indicator(which_player) -> void:
 		
 	if which_player.component_index == 0:
 		
-		#var ability_sticker = $DisplayAnchor/TurnDial/PlayerSymbol
-		#ability_sticker.get_child(1).play("ShowIndicator")
-		pass
+		$DisplayAnchor/TurnDial/Node/AbilitySticker.get_child(1).play("ShowIndicator")#var ability_sticker = $DisplayAnchor/TurnDial/PlayerSymbol
+
 		
 	else:
 		
