@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://bxlkylk5tdhqi"]
+[gd_scene load_steps=46 format=3 uid="uid://bxlkylk5tdhqi"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_06to8"]
 [ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_uvcfh"]
@@ -7,8 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b713dr5lk5kx8" path="res://Scenes/Tile.tscn" id="5_s5ntu"]
 [ext_resource type="PackedScene" uid="uid://cbma1jhpjxi3g" path="res://Scenes/player.tscn" id="6_pqpfg"]
 [ext_resource type="PackedScene" uid="uid://c8830abg8xqe1" path="res://Scenes/Player Components/component_symbol.tscn" id="7_mat46"]
-[ext_resource type="PackedScene" uid="uid://depr43jp6rxjx" path="res://Scenes/Player Components/component_telekenesis_column.tscn" id="7_q4wf1"]
-[ext_resource type="PackedScene" uid="uid://bwq3j8tmvenuh" path="res://Scenes/Player Components/component_telekenesis_row.tscn" id="8_avgw2"]
 [ext_resource type="Script" path="res://Scripts/game_menu.gd" id="9_a78xj"]
 [ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="11_atruc"]
 [ext_resource type="Script" path="res://Scripts/UI/turn_ui.gd" id="11_b70cy"]
@@ -731,6 +729,7 @@ shadow_enabled = true
 shadow_normal_bias = 10.0
 shadow_opacity = 0.85
 shadow_blur = 1.021
+directional_shadow_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-1, 2.19553e-06, -1.26759e-06, 0, 0.499998, 0.866027, 2.53518e-06, 0.866026, -0.499998, 0, 64, -45)
@@ -752,56 +751,23 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Players" type="Node" parent="."]
+process_mode = 3
 
 [node name="Player" parent="Players" instance=ExtResource("6_pqpfg")]
 
-[node name="Component_Symbol" parent="Players/Player" instance=ExtResource("7_mat46")]
+[node name="Component_Symbol2" parent="Players/Player" instance=ExtResource("7_mat46")]
+symbol_type = 0
 sticker = ExtResource("12_m377n")
 
-[node name="Component_Telekenisis_Column" parent="Players/Player" instance=ExtResource("7_q4wf1")]
-
-[node name="Component_Telekenisis_Row" parent="Players/Player" instance=ExtResource("8_avgw2")]
-
-[node name="Component_Telekenisis_Row2" parent="Players/Player" instance=ExtResource("8_avgw2")]
-
-[node name="Component_Telekenisis_Row3" parent="Players/Player" instance=ExtResource("8_avgw2")]
-
-[node name="Component_Telekenisis_Row4" parent="Players/Player" instance=ExtResource("8_avgw2")]
-
-[node name="Component_Telekenisis_Row5" parent="Players/Player" instance=ExtResource("8_avgw2")]
+[node name="Component_Symbol3" parent="Players/Player" instance=ExtResource("7_mat46")]
+symbol_type = 1
+max_count = 10
+sticker = ExtResource("12_m377n")
 
 [node name="Player2" parent="Players" instance=ExtResource("6_pqpfg")]
 
-[node name="Component_Symbol" parent="Players/Player2" instance=ExtResource("7_mat46")]
-sticker = ExtResource("12_m377n")
-
-[node name="Component_Telekenisis_Column" parent="Players/Player2" instance=ExtResource("7_q4wf1")]
-max_count = 4
-
-[node name="Component_Telekenisis_Row" parent="Players/Player2" instance=ExtResource("8_avgw2")]
-max_count = 4
-
-[node name="Player3" parent="Players" instance=ExtResource("6_pqpfg")]
-
-[node name="Component_Symbol" parent="Players/Player3" instance=ExtResource("7_mat46")]
-sticker = ExtResource("12_m377n")
-
-[node name="Component_Telekenisis_Column" parent="Players/Player3" instance=ExtResource("7_q4wf1")]
-max_count = 4
-
-[node name="Component_Telekenisis_Row" parent="Players/Player3" instance=ExtResource("8_avgw2")]
-max_count = 4
-
-[node name="Player4" parent="Players" instance=ExtResource("6_pqpfg")]
-
-[node name="Component_Symbol" parent="Players/Player4" instance=ExtResource("7_mat46")]
-sticker = ExtResource("12_m377n")
-
-[node name="Component_Telekenisis_Column" parent="Players/Player4" instance=ExtResource("7_q4wf1")]
-max_count = 4
-
-[node name="Component_Telekenisis_Row" parent="Players/Player4" instance=ExtResource("8_avgw2")]
-max_count = 4
+[node name="Component_Symbol2" parent="Players/Player2" instance=ExtResource("7_mat46")]
+max_count = 0
 
 [node name="Grid" type="Node3D" parent="."]
 process_mode = 1
@@ -986,7 +952,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 12, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, -14)
 
 [node name="Tile" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5742, 0, 0)
 
 [node name="Tile2" parent="Grid/Row7" instance=ExtResource("5_s5ntu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
@@ -1168,7 +1134,7 @@ text = "Back to Selection Screen
 process_mode = 3
 visible = false
 top_level = true
-z_index = 101
+z_index = 121
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1189,7 +1155,7 @@ stretch_mode = 1
 
 [node name="Menu" type="VBoxContainer" parent="GameUI/Control/Background"]
 top_level = true
-z_index = 101
+z_index = 121
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -1280,6 +1246,7 @@ libraries = {
 next/Close = &"RESET"
 
 [node name="TurnUI" type="Control" parent="GameUI"]
+process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1303,6 +1270,7 @@ flat = true
 icon_alignment = 1
 
 [node name="NextTurnButton" type="CenterContainer" parent="GameUI"]
+process_mode = 1
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -1377,7 +1345,10 @@ texture = ExtResource("19_jysul")
 [connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
 [connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]
 [connection signal="pressed" from="GameUI/Control/Game/MatchEnd/Button" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameUI/Control/Background/Menu/Resume" to="GameUI/Control/Background/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="GameUI/Control/Background/Menu/MainMenu" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
+[connection signal="done_with_anim" from="GameUI/TurnUI" to="." method="_on_turn_ui_done_with_anim"]
+[connection signal="loaded_player_uis" from="GameUI/TurnUI" to="." method="_on_turn_ui_loaded_player_uis"]
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="GameUI/TurnUI" method="_on_loaded_player_uis"]
 [connection signal="pressed" from="GameUI/Button" to="GameUI/Control/Background/Menu" method="_on_button_pressed"]
 [connection signal="pressed" from="GameUI/NextTurnButton/Sprite2D/Button" to="." method="end_turn_alt"]

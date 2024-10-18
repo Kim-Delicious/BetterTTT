@@ -4,4 +4,3 @@
 
 [node name="Component_Symbol" type="Node"]
 script = ExtResource("1_1h2rr")
-count = null

@@ -13,10 +13,10 @@ func take_action(_wsource_node, on_which_tile) -> void:
 	if count <= 0:
 		return
 		
-	if not on_which_tile.visible:
+	if on_which_tile.visible == false:
 		return
 		
-	if not on_which_tile.get_child(0).get_child(0).visible: # MeshInstance3D
+	if on_which_tile.get_child(0).get_child(0).visible == false: # MeshInstance3D
 		return
 		
 	if on_which_tile.symbol.symbol_type != -1:
@@ -30,6 +30,7 @@ func shoot_tile(which_tile) -> void:
 	which_tile.can_place = false
 	which_tile.symbol.change_symbol(-1)
 	which_tile.animation_player.play("GetShot")
+	which_tile.stop_detecting_mouse()
 	
 	
 func decrement(amount = 1) -> void:

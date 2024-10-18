@@ -21,9 +21,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 		
-func refresh_components() -> void:
+func refresh_components() -> void:	
 	for component in get_children():
 		component.refresh()
+	component_index = 0
 		
 func use_component(on_which_tile) -> void:
 	if not on_turn:

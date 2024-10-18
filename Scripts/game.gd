@@ -17,12 +17,11 @@ var max_turns
 var current_turn = 0
 
 var end_game := false
-
+var _start_game := true
 signal on_end_turn
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
-	players.get_child(0).on_turn = true
 	
 	max_turns = players.get_child_count()
 	
@@ -30,6 +29,8 @@ func _ready() -> void:
 	connect_players_uis_signals()
 	connect_tile_signals()
 	_assign_players_ids()
+	
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -39,6 +40,8 @@ func _process(_delta: float) -> void:
 	
 	
 func _input(event: InputEvent) -> void:
+	
+	
 	
 	if(event.is_action_pressed("NextTurn")):
 		end_turn_alt()
@@ -105,13 +108,6 @@ func _next_turn() -> void:
 		
 	players.get_child(current_turn).on_turn = true
 	players.get_child(current_turn).refresh_components()
-	
-	
-	
-	
-
-
-
 
 
 func _on_end_turn(which_player) -> void:
@@ -169,3 +165,20 @@ func _on_game_won(tile_array: Array) -> void:
 
 	game_win_label.text = "Player " + str(player_index + 1) + " won!"
 	turn_text_animation_player.play("GameWon")
+
+
+func _on_turn_ui_done_with_anim(anim_name: String) -> void:
+	if(anim_name == "BeginGame"):
+		get_tree().paused = false
+		_start_game = false
+		players.process_mode = Node.PROCESS_MODE_INHERIT
+		find_child("GameUI").get_child(1).process_mode = Node.PROCESS_MODE_INHERIT
+		players.get_child(0).on_turn = true
+		
+		
+		print("Game has finished starting!")
+
+
+func _on_turn_ui_loaded_player_uis() -> void:
+	get_tree().paused = true
+	

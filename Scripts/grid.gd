@@ -13,6 +13,7 @@ signal panic_time
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_connect_grid_to_all_tile_signals()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	pass
@@ -151,8 +152,7 @@ func do_tiles_match_diagonally_bottom_up(row_index, tile_index, max_length, the_
 				
 	if is_array_internally_identical(symbol_array):
 		the_signal.emit(tile_array)
-		
-
+	
 
 func _connect_grid_to_all_tile_signals() -> void:
 	

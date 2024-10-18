@@ -6,14 +6,12 @@ signal loaded_player_uis
 
 var loaded = false
 
+signal done_with_anim
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	load_player_uis()
 	connect_players_signals()
-	
-
-
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -36,6 +34,7 @@ func load_player_uis() -> void:
 		for j in range(1, player.get_child_count()): #all except the first
 			
 			player_ui.add_missing_center_pieces(j, i, player)
+
 		
 	
 	loaded_player_uis.emit()
@@ -102,6 +101,9 @@ func connect_players_signals() -> void:
 		var player_ui = get_child(i)
 		if not player.select_component.is_connected(player_ui.update_selection_indicator):
 			player.select_component.connect(player_ui.update_selection_indicator)
+			
+		if not player_ui.player_ui_anim_fin.is_connected(on_player_ui_anim_fin):
+			player_ui.player_ui_anim_fin.connect(on_player_ui_anim_fin)
 	
 		
 func _on_end_turn(which_player) -> void:
@@ -113,7 +115,12 @@ func animate_end_turn(which_player) -> void:
 	var player_ui = get_child(which_player.id)
 	
 	player_ui.animation_player.play("EndTurn")
-	player_ui.player_symbol.get_child(1).play("HideIndicator")
+	
+	if which_player.component_index == 0:
+		player_ui.player_symbol.get_child(1).play("HideIndicator")
+	else:
+		var current_sticker = player_ui.inventory.get_child(which_player.component_index).get_child(0)
+		current_sticker.get_child(1).play("HideIndicator")
 	
 	var next_player_ui
 	if which_player.id >= players.get_child_count() - 1:
@@ -122,4 +129,7 @@ func animate_end_turn(which_player) -> void:
 		next_player_ui = get_child(which_player.id + 1)
 		
 	next_player_ui.animation_player.play("BeginTurn")
+	
+func on_player_ui_anim_fin(anim_name: StringName) -> void:
+	done_with_anim.emit(anim_name)
 	

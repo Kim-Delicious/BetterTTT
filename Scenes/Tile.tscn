@@ -1,17 +1,19 @@
 [gd_scene load_steps=26 format=3 uid="uid://b713dr5lk5kx8"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_m4vp3"]
-[ext_resource type="Texture2D" uid="uid://dnojfum3ucyrp" path="res://Textures/SandTile.png" id="1_tblmr"]
 [ext_resource type="PackedScene" uid="uid://cgc5nfkuvu0s8" path="res://Scenes/symbol.tscn" id="2_oplua"]
+[ext_resource type="Shader" uid="uid://bw6fe710xjoe7" path="res://Resources/Shaders/Tile.tres" id="2_tlo8o"]
 [ext_resource type="PackedScene" uid="uid://b66hh1fv6762b" path="res://Scenes/Button3D.tscn" id="4_6yu4t"]
 [ext_resource type="Texture2D" uid="uid://clp184ule0q5c" path="res://Textures/MouseHoverOverlay.png" id="5_taiah"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dy22v"]
-albedo_texture = ExtResource("1_tblmr")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p14sw"]
+render_priority = 0
+shader = ExtResource("2_tlo8o")
 
 [sub_resource type="BoxMesh" id="BoxMesh_bi2t7"]
+resource_local_to_scene = true
 lightmap_size_hint = Vector2i(14, 21)
-material = SubResource("StandardMaterial3D_dy22v")
+material = SubResource("ShaderMaterial_p14sw")
 
 [sub_resource type="Animation" id="Animation_7jmbb"]
 resource_name = "AddSticker"
@@ -42,11 +44,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationTarget/GPUParticles3D:emitting")
-tracks/2/interp = 2
+tracks/2/path = NodePath("Poof:emitting")
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.733333, 0.866667),
+"times": PackedFloat32Array(0, 0.7, 0.966667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [false, true, false]
@@ -94,38 +96,26 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationTarget/GPUParticles3D:emitting")
+tracks/3/path = NodePath("AnimationTarget:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.33333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AnimationTarget/MeshInstance3D:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AnimationTarget/GPUParticles3D:amount")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.366667, 1),
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Poof:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.266667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [256, 128, 128]
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_bgpm8"]
@@ -268,62 +258,50 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AnimationTarget/GPUParticles3D:emitting")
+tracks/2/path = NodePath("AnimationTarget:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector3(0, 0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("AnimationTarget:position")
+tracks/3/path = NodePath("AnimationTarget:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, 0, 0)]
+"values": [Vector3(6, 12, 6)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("AnimationTarget:scale")
+tracks/4/path = NodePath("AnimationTarget:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(6, 12, 6)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("AnimationTarget/MeshInstance3D:visible")
+tracks/5/path = NodePath("Poof:emitting")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AnimationTarget/GPUParticles3D:amount")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [128]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_dr0e5"]
@@ -367,45 +345,6 @@ _data = {
 "WinningThree": SubResource("Animation_dr0e5")
 }
 
-[sub_resource type="Curve" id="Curve_v3pua"]
-max_value = 3.0
-_data = [Vector2(0, 0.0334573), 4.45959, 4.45959, 0, 0, Vector2(0.0146341, 3), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_py1ss"]
-curve = SubResource("Curve_v3pua")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_86l7g"]
-emission_shape_scale = Vector3(1, 0, 1)
-direction = Vector3(0, 0, 0)
-spread = 180.0
-flatness = 1.0
-initial_velocity_min = 1.0
-initial_velocity_max = 3.0
-gravity = Vector3(0, 0, 0)
-linear_accel_min = -10.0
-linear_accel_max = -10.0
-scale_min = 0.25
-scale_max = 2.0
-scale_over_velocity_max = 1000.0
-scale_over_velocity_curve = SubResource("CurveTexture_py1ss")
-hue_variation_min = -0.53
-hue_variation_max = 0.67
-collision_mode = 1
-collision_friction = 0.0
-collision_bounce = 0.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vygrd"]
-roughness = 0.0
-clearcoat = 0.0
-clearcoat_roughness = 1.0
-distance_fade_max_distance = 1.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_dmtvj"]
-material = SubResource("StandardMaterial3D_vygrd")
-radius = 1.0
-height = 2.0
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1n3kl"]
 emission_energy_multiplier = 14.79
 
@@ -447,6 +386,45 @@ _data = {
 "RESET": SubResource("Animation_ytghy")
 }
 
+[sub_resource type="Curve" id="Curve_v3pua"]
+max_value = 3.0
+_data = [Vector2(0, 0.0334573), 4.45959, 4.45959, 0, 0, Vector2(0.0146341, 3), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_py1ss"]
+curve = SubResource("Curve_v3pua")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_86l7g"]
+emission_shape_scale = Vector3(1, 0, 1)
+direction = Vector3(0, 0, 0)
+spread = 180.0
+flatness = 1.0
+initial_velocity_min = 1.0
+initial_velocity_max = 3.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -10.0
+linear_accel_max = -10.0
+scale_min = 0.25
+scale_max = 2.0
+scale_over_velocity_max = 1000.0
+scale_over_velocity_curve = SubResource("CurveTexture_py1ss")
+hue_variation_min = -0.53
+hue_variation_max = 0.67
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vygrd"]
+roughness = 0.0
+clearcoat = 0.0
+clearcoat_roughness = 1.0
+distance_fade_max_distance = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_dmtvj"]
+material = SubResource("StandardMaterial3D_vygrd")
+radius = 1.0
+height = 2.0
+
 [node name="Tile" type="Node3D"]
 script = ExtResource("1_m4vp3")
 
@@ -469,13 +447,7 @@ speed_scale = 2.0
 transform = Transform3D(2.414e-07, 0, 0.25, 0, 0.25, 0, -0.25, 0, 2.414e-07, 0, 1, 0)
 
 [node name="Button3D" parent="AnimationTarget" instance=ExtResource("4_6yu4t")]
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="AnimationTarget"]
-transform = Transform3D(1, 0, 0, 0, -1, -8.74228e-08, 0, 8.74228e-08, -1, 0, 0.418618, 0)
-emitting = false
-amount = 128
-process_material = SubResource("ParticleProcessMaterial_86l7g")
-draw_pass_1 = SubResource("SphereMesh_dmtvj")
+visibility_parent = NodePath("../MeshInstance3D")
 
 [node name="MouseHoverSprite" type="Sprite3D" parent="AnimationTarget"]
 transform = Transform3D(0.78, 0, 0, 0, -3.40949e-08, -0.78, 0, 0.78, -3.40949e-08, 0, 0.504, 0)
@@ -490,6 +462,14 @@ libraries = {
 "": SubResource("AnimationLibrary_gy36r")
 }
 autoplay = "Idle"
+
+[node name="Poof" type="GPUParticles3D" parent="."]
+transform = Transform3D(6, -3.04221e-05, 1.52111e-05, -1.52111e-05, -12, 1.4162e-05, 1.52111e-05, -2.98977e-05, -6, 1.27352e-05, 3.02342, 1.27353e-05)
+visible = false
+emitting = false
+amount = 64
+process_material = SubResource("ParticleProcessMaterial_86l7g")
+draw_pass_1 = SubResource("SphereMesh_dmtvj")
 
 [connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]
 [connection signal="animation_finished" from="AnimationTarget/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

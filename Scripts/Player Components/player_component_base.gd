@@ -2,8 +2,17 @@ class_name PlayerComponent
 
 extends Node
 
-@export var max_count = 1
-var count
+@export var max_count: int = 1:
+	set(amount):
+		max_count = clamp(amount, 1, 9)
+	get:
+		return max_count
+		
+var count:
+	set(amount):
+		count = clamp(amount, 0, max_count)
+	get:
+		return count
 
 var available
 
@@ -19,8 +28,9 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	pass
 	
+	
 func refresh() -> void:
-		pass
+	pass
 		
 func take_action(_source_node, _on_which_tile) -> void:
 	pass

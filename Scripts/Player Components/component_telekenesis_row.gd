@@ -14,6 +14,12 @@ func take_action(_source_node, on_which_tile) -> void:
 	if count <= 0:
 		return
 		
+	if on_which_tile.visible == false:
+		return
+		
+	if on_which_tile.get_child(0).get_child(0).visible == false: # MeshInstance3D
+		return
+		
 	slide_row_or_column(on_which_tile)
 	
 func slide_row_or_column(which_tile) -> void:

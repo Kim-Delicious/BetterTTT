@@ -8,6 +8,8 @@ enum SymbolType {Empty = -1, Circle, Mult, Tri, Diamond}
 @onready var sprite_3d: Sprite3D = $Sprite3D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
+var placed_by_index
+
 	
 signal mid_tile_place
 

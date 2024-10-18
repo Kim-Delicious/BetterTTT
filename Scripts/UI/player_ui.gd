@@ -4,6 +4,7 @@ extends Control
 @onready var inventory: Control = $DisplayAnchor/Inventory
 @onready var animation_player: AnimationPlayer = $DisplayAnchor/AnimationPlayer
 
+signal player_ui_anim_fin
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -42,7 +43,8 @@ func add_missing_center_pieces(label_index, player_id, player) -> void:
 			last_center.add_sibling(piece_copy)
 			piece_copy.position.x = -64 - spacing * (label_index-1)
 			piece_copy.z_index = last_center.z_index - 1
-		
+			
+					
 	
 func set_symbol_texture(symbol_texture) -> void:
 	player_symbol.texture_normal = symbol_texture
@@ -76,9 +78,8 @@ func update_selection_indicator(which_player) -> void:
 		ability_sticker.get_child(1).play("ShowIndicator")
 		
 		
-	
 
-		
-		
-	
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	player_ui_anim_fin.emit(anim_name)
 	

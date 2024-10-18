@@ -88,120 +88,120 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:visible")
-tracks/5/interp = 1
+tracks/5/enabled = false
+tracks/5/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Start:position")
+tracks/5/interp = 2
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 2.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"times": PackedFloat32Array(2.13333, 2.6),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-50, 0), Vector2(0, 0)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Start:position")
+tracks/6/enabled = false
+tracks/6/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Center:position")
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(2.13333, 2.6),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(-50, 0), Vector2(0, 0)]
+"values": [Vector2(-50, 0), Vector2(64, 0)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Center:position")
+tracks/7/enabled = false
+tracks/7/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/End:position")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(2.13333, 2.6),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(-50, 0), Vector2(64, 0)]
+"values": [Vector2(-50, 0), Vector2(128, 0)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/End:position")
+tracks/8/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:position")
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(2.13333, 2.6),
-"transitions": PackedFloat32Array(0.5, 1),
+"times": PackedFloat32Array(2.1, 2.36667, 2.53334),
+"transitions": PackedFloat32Array(1, 2, 1),
 "update": 0,
-"values": [Vector2(-50, 0), Vector2(128, 0)]
+"values": [Vector2(200, -112), Vector2(270, -112), Vector2(248, -112)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:position")
+tracks/9/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:scale")
 tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(2.1, 2.56666, 2.73333),
-"transitions": PackedFloat32Array(1, 2, 1),
+"times": PackedFloat32Array(2.1, 2.36667, 2.53334, 2.76667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(248, -112), Vector2(270, -112), Vector2(248, -112)]
+"values": [Vector2(0.25, 2), Vector2(4, 2), Vector2(2, 2), Vector2(2, 2)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:scale")
-tracks/10/interp = 2
+tracks/10/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial:scale")
+tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(2.1, 2.56666, 2.73333, 2.96666),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(2.5, 2), Vector2(3, 2), Vector2(2, 2), Vector2(2, 2)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial:scale")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "times": PackedFloat32Array(2.1, 2.13333, 2.26667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(0.48, 0.48), Vector2(0.5, 0.5)]
 }
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("PlayerUI1/DisplayAnchor/AnimatedCharacterSprite:position")
-tracks/12/interp = 2
-tracks/12/loop_wrap = true
-tracks/12/keys = {
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("PlayerUI1/DisplayAnchor/AnimatedCharacterSprite:position")
+tracks/11/interp = 2
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(4.23333, 4.53333, 4.73333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(-185, 400), Vector2(165, 45), Vector2(165, 45)]
 }
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial/Node/AbilitySticker/Sprite2D:modulate")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial/Node/AbilitySticker/Sprite2D:modulate")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
 "times": PackedFloat32Array(4.1, 4.23333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.14902, 0.505882, 0.164706, 0), Color(0.123402, 0.739866, 0.559639, 0.666667)]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Center:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(1.26667, 2.13333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 tracks/14/type = "value"
 tracks/14/imported = false
 tracks/14/enabled = true
-tracks/14/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Center:visible")
+tracks/14/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:visible")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/keys = {
-"times": PackedFloat32Array(1.26667, 2.23333),
+"times": PackedFloat32Array(0, 2.13333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -413,139 +413,139 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:visible")
+tracks/2/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Start:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Start:position")
+tracks/3/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Center:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(64, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Center:position")
+tracks/4/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/End:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(64, 0)]
+"values": [Vector2(128, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/End:position")
+tracks/5/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(128, 0)]
+"values": [Vector2(248, -57)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:position")
+tracks/6/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:scale")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(248, -57)]
+"values": [Vector2(2, 2)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:scale")
+tracks/7/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2, 2)]
+"update": 1,
+"values": [true]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial:visible")
+tracks/8/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial:scale")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial:scale")
+tracks/9/path = NodePath("PlayerUI1:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.5, 0.5)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("PlayerUI1:modulate")
+tracks/10/path = NodePath("PlayerUI1/DisplayAnchor/AnimatedCharacterSprite:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(185.333, 46.6667)]
 }
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("PlayerUI1/DisplayAnchor/AnimatedCharacterSprite:position")
+tracks/11/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial/Node:scale")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(185.333, 46.6667)]
+"values": [Vector2(3, 3)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
 tracks/12/enabled = true
-tracks/12/path = NodePath("PlayerUI1/DisplayAnchor/TurnDial/Node:scale")
+tracks/12/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Center:visible")
 tracks/12/interp = 1
 tracks/12/loop_wrap = true
 tracks/12/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, 3)]
+"update": 1,
+"values": [true]
 }
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
-tracks/13/path = NodePath("PlayerUI1/DisplayAnchor/Inventory/Center:visible")
+tracks/13/path = NodePath("PlayerUI1/DisplayAnchor/Inventory:visible")
 tracks/13/interp = 1
 tracks/13/loop_wrap = true
 tracks/13/keys = {
@@ -589,23 +589,22 @@ z_index = -20
 material = SubResource("CanvasItemMaterial_grqqq")
 layout_mode = 3
 anchors_preset = 0
-offset_left = 266.883
+offset_left = 270.0
 offset_top = -112.0
-offset_right = 266.883
+offset_right = 270.0
 offset_bottom = -112.0
-scale = Vector2(3.07351, 2)
+scale = Vector2(4, 2)
 
 [node name="Start" type="Sprite2D" parent="DisplayAnchor/Inventory"]
-position = Vector2(-7.81229, 0)
 texture = ExtResource("1_74rkx")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 64)
 
 [node name="Center" type="Sprite2D" parent="DisplayAnchor/Inventory"]
-position = Vector2(46.188, 0)
+position = Vector2(64, 0)
 texture = ExtResource("1_74rkx")
 region_enabled = true
-region_rect = Rect2(64, 0, 64, 64)
+region_rect = Rect2(128, 0, 64, 64)
 
 [node name="AbilitySticker" parent="DisplayAnchor/Inventory/Center" instance=ExtResource("4_7ftmd")]
 anchors_preset = 8
@@ -622,7 +621,8 @@ grow_vertical = 2
 texture_normal = null
 
 [node name="End" type="Sprite2D" parent="DisplayAnchor/Inventory"]
-position = Vector2(100.188, 0)
+visible = false
+position = Vector2(128, 0)
 texture = ExtResource("1_74rkx")
 region_enabled = true
 region_rect = Rect2(128, 0, 64, 64)
@@ -651,3 +651,5 @@ libraries = {
 "": SubResource("AnimationLibrary_5dwy3")
 }
 autoplay = "BeginGame"
+
+[connection signal="animation_finished" from="DisplayAnchor/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

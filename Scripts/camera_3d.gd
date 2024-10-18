@@ -41,14 +41,19 @@ func _process(_delta: float) -> void:
 	
 func _input(event: InputEvent) -> void:
 	
+	if event.is_action("AngleCameraUp"):
+		orbit_radius -= 1
+		rotate_around_center(0, 0)
+		
+	elif event.is_action("AngleCameraDown"):
+		orbit_radius += 1
+		rotate_around_center(0, 0)
 	
 	if(event.is_action("ZoomInCamera")):
-		orbit_radius -= 1
 		position.y -= 1
 		rotate_around_center(0, 0)
 		
-	if(event.is_action("ZoomOutCamera")):
-		orbit_radius += 1
+	elif(event.is_action("ZoomOutCamera")):
 		position.y += 1
 		rotate_around_center(0, 0)
 	

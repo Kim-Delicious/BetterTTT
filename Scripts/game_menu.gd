@@ -8,6 +8,9 @@ func _input(event: InputEvent) -> void:
 		open_close_menu()
 	
 func open_close_menu() -> void:
+	var local_game = $"../../../.."
+	if local_game._start_game:
+		return
 	
 	if get_parent().visible:
 		animation_player.play("Close")
@@ -19,6 +22,8 @@ func open_close_menu() -> void:
 func _on_button_pressed() -> void:
 	open_close_menu()
 
+func _on_resume_pressed() -> void:
+	open_close_menu()
 
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false

@@ -93,16 +93,30 @@ func get_raycast():
 func reset_original_position() -> void:
 	original_position = position
 
+func start_dectecting_mouse() -> void:
+	mouse_hover_sprite.show()
+	do_detect_mouse = true
+	
+func stop_detecting_mouse() -> void:
+	mouse_hover_sprite.hide()
+	do_detect_mouse = false
+	do_return_to_normal = true
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	symbol._on_animation_player_animation_finished(anim_name)
 
 
 func _on_button_3d_mouse_entered() -> void:
-	mouse_hover_sprite.show()
-	do_detect_mouse = true
+	if visible == false || get_child(0).get_child(0).visible == false:
+		return
+		
+	start_dectecting_mouse()
+	
 
 
 func _on_button_3d_mouse_exited() -> void:
-	mouse_hover_sprite.hide()
-	do_detect_mouse = false
-	do_return_to_normal = true
+	if visible == false || get_child(0).visible == false  || get_child(0).get_child(0).visible == false:
+		return
+		
+	stop_detecting_mouse()
+	
