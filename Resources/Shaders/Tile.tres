@@ -27,7 +27,7 @@ op_type = 2
 operator = 1
 
 [sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_81whl"]
-default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 1.0]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
 op_type = 2
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_gxhfb"]
@@ -69,7 +69,7 @@ default_input_values = [0, 0.03, 1, 0.0]
 operator = 2
 
 [sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_eks55"]
-default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 1.0]
+default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
 op_type = 2
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_lyqnb"]
@@ -237,7 +237,7 @@ void fragment() {
 
 
 // VectorCompose:33
-	float n_in33p3 = 1.00000;
+	float n_in33p3 = 0.00000;
 	vec4 n_out33p0 = vec4(n_out37p0, n_out37p0, n_out37p0, n_in33p3);
 
 
@@ -259,7 +259,7 @@ void fragment() {
 
 
 // VectorCompose:19
-	float n_in19p3 = 1.00000;
+	float n_in19p3 = 0.00000;
 	vec4 n_out19p0 = vec4(n_out25p0, n_out25p0, n_out25p0, n_in19p3);
 
 
@@ -281,7 +281,6 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-1018.07, 243.024)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_gxhfb")
 nodes/fragment/2/position = Vector2(-1900, -40)
 nodes/fragment/4/node = SubResource("VisualShaderNodeColorOp_fbl3q")

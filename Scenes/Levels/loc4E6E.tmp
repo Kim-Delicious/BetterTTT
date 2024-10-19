@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bxlkylk5tdhqi"]
+[gd_scene load_steps=52 format=3 uid="uid://bxlkylk5tdhqi"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_06to8"]
 [ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_uvcfh"]
@@ -21,15 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="14_8eqf3"]
 [ext_resource type="StyleBox" uid="uid://c80qni2878hrn" path="res://Resources/StyleBox/long_button_normal.tres" id="15_ned7m"]
 [ext_resource type="Texture2D" uid="uid://bpqe4lf65inor" path="res://Textures/MenuSticker.png" id="15_puqe8"]
-[ext_resource type="Texture2D" uid="uid://v47031s4wuu2" path="res://Textures/SilloutteBanner5.png" id="18_q1xe2"]
 [ext_resource type="Texture2D" uid="uid://c1frhtfgbmvdy" path="res://Textures/SilloutteBanner.png" id="19_jysul"]
-[ext_resource type="Texture2D" uid="uid://c7q0mxa3r33ku" path="res://Textures/GameWin.png" id="19_vv6ds"]
-[ext_resource type="Texture2D" uid="uid://b5he1a17t8v0t" path="res://Textures/GameWinBorder.png" id="20_d1q3r"]
 [ext_resource type="Texture2D" uid="uid://dth2r76lyigkf" path="res://Textures/NextTurnStickerUp.png" id="20_wkc2i"]
-[ext_resource type="Shader" path="res://Resources/Shaders/animated_title_2.gdshader" id="21_cviv2"]
-[ext_resource type="Texture2D" uid="uid://cikvpgwt7em1q" path="res://Textures/GameWin_mask.png" id="22_5mcf8"]
 [ext_resource type="Texture2D" uid="uid://brj6vlivsows8" path="res://Textures/NextTurnStickerUpHover.png" id="22_tputg"]
-[ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="23_4f6gy"]
 
 [sub_resource type="Sky" id="Sky_i4i7v"]
 sky_material = ExtResource("2_uvcfh")
@@ -357,6 +351,78 @@ _data = {
 [sub_resource type="Animation" id="Animation_8vex2"]
 resource_name = "GameWon"
 length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MatchEnd/EndLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/MatchEnd/EndLabel:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0333333, 0.7, 1.2, 1.76667),
+"transitions": PackedFloat32Array(0.170755, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-404, 500), Vector2(-404, -1000), Vector2(-404, -24), Vector2(-404, -24)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/MatchEnd/EndLabel:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.25, 0.25), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MatchEnd/Button:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/MatchEnd/Button:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.8, 2.53333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/MatchEnd/Button:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.63333, 2, 2.56667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-407, 500), Vector2(-407, 166), Vector2(-407, 166)]
+}
 
 [sub_resource type="Animation" id="Animation_akta4"]
 resource_name = "NextTurn"
@@ -412,12 +478,164 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(-236, -44)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control/MatchEnd/EndLabel:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Control/MatchEnd/EndLabel:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Control/MatchEnd/EndLabel:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Control/MatchEnd/Button:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Control/MatchEnd/Button:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Control/MatchEnd/Button:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-407, 166)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7q68k"]
 _data = {
 "GameWon": SubResource("Animation_8vex2"),
 "NextTurn": SubResource("Animation_akta4"),
 "RESET": SubResource("Animation_kunrw")
+}
+
+[sub_resource type="Animation" id="Animation_wkhru"]
+resource_name = "Close"
+length = 1.33
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333334, 1.3),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(704, -480), Vector2(1608, -2048)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.26667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 1.3),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(472, 0), Vector2(1448, -1688)]
+}
+
+[sub_resource type="Animation" id="Animation_d182t"]
+resource_name = "Open"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 1.06667),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-288, 1232), Vector2(704, -480)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.26667),
+"transitions": PackedFloat32Array(0.35, 1),
+"update": 0,
+"values": [Vector2(-528, 1728), Vector2(472, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_l08jx"]
@@ -459,102 +677,16 @@ tracks/2/keys = {
 "values": [Vector2(472, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_7w00k"]
-resource_name = "Open"
-length = 0.8667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.566667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-273, 1212), Vector2(704, -480), Vector2(704, -480)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.566667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-497, 1678), Vector2(472, 0), Vector2(472, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_5x22l"]
-resource_name = "Close"
-length = 0.8667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.766667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.733333, 0.866667),
-"transitions": PackedFloat32Array(1, 10, 1),
-"update": 0,
-"values": [Vector2(704, -480), Vector2(1691, -2190), Vector2(-273, 1212)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 0.733333, 0.866667),
-"transitions": PackedFloat32Array(1, 10, 1),
-"update": 0,
-"values": [Vector2(472, 0), Vector2(1426, -1652), Vector2(-497, 1678)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s5dpd"]
 _data = {
-"Close": SubResource("Animation_5x22l"),
-"Open": SubResource("Animation_7w00k"),
+"Close": SubResource("Animation_wkhru"),
+"Open": SubResource("Animation_d182t"),
 "RESET": SubResource("Animation_l08jx")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dukbb"]
-shader = ExtResource("21_cviv2")
-shader_parameter/direction = Vector2(0, 1)
-shader_parameter/speed = 0.75
-shader_parameter/noise_texture = ExtResource("23_4f6gy")
-
-[sub_resource type="Animation" id="Animation_1tqpt"]
+[sub_resource type="Animation" id="Animation_gbnyy"]
 resource_name = "EndGame"
-length = 5.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -562,61 +694,25 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(2.13333, 2.36667, 2.46667, 2.83333, 2.9, 2.96667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.233333, 0.5, 0.633334),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(198.4, -1000), Vector2(198.4, 96), Vector2(198.4, -32), Vector2(198.4, 64), Vector2(198.4, 52), Vector2(198.4, 64)]
+"values": [Vector2(-711, -338), Vector2(-200, 192), Vector2(-200, 162), Vector2(-200, 162)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 4
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.13333, 2.36667, 2.46667, 2.56667, 2.66667, 2.76667, 2.83333),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.133333, 0.233333, 0.333333, 0.5, 0.633334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, -0.0174533, 0.0174533, -0.0174533, 0.00872665, 0.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../NextTurnButton/Sprite2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(2.36667, 2.6, 2.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(20, 0), Vector2(20, 956), Vector2(20, 1200)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../TurnUI:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 2.36667, 2.56667, 2.96667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 600), Vector2(0, 600)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(2.13333, 2.16667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"values": [-0.523599, 0.0, 0.0349066, 0.0, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_pmmhj"]
+[sub_resource type="Animation" id="Animation_7g73r"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -628,7 +724,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(115.2, 32)]
+"values": [Vector2(0, 162)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -642,47 +738,11 @@ tracks/1/keys = {
 "update": 0,
 "values": [0.0]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../TurnUI:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../NextTurnButton/Sprite2D:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(924, 956)]
-}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_16cfl"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cuvjn"]
 _data = {
-"EndGame": SubResource("Animation_1tqpt"),
-"RESET": SubResource("Animation_pmmhj")
+"EndGame": SubResource("Animation_gbnyy"),
+"RESET": SubResource("Animation_7g73r")
 }
 
 [sub_resource type="Animation" id="Animation_0jrad"]
@@ -761,7 +821,6 @@ process_mode = 3
 
 [node name="Component_Symbol2" parent="Players/Player" instance=ExtResource("7_mat46")]
 symbol_type = 0
-max_count = 10
 sticker = ExtResource("12_m377n")
 
 [node name="Component_Telekenisis_Column" parent="Players/Player" instance=ExtResource("7_ix7hb")]
@@ -1109,7 +1168,6 @@ autoplay = "NextTurn"
 [node name="Background" type="TextureRect" parent="GameUI/Control"]
 process_mode = 3
 visible = false
-self_modulate = Color(1, 0.3965, 0.29, 1)
 top_level = true
 z_index = 121
 layout_mode = 1
@@ -1220,135 +1278,42 @@ texture = ExtResource("11_atruc")
 libraries = {
 "": SubResource("AnimationLibrary_s5dpd")
 }
+next/Close = &"RESET"
 
-[node name="MatchEnd" type="TextureRect" parent="GameUI/Control"]
-process_mode = 3
-visible = false
-self_modulate = Color(0.639216, 0.286275, 0.109804, 1)
-top_level = true
-z_index = 121
+[node name="MatchEnd" type="PanelContainer" parent="GameUI/Control"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.9
-anchor_bottom = 0.9
-offset_top = -32.8
-offset_right = -0.00012207
-offset_bottom = -32.8
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.85
+offset_right = 576.0
 grow_horizontal = 2
-pivot_offset = Vector2(460.8, 259.2)
-texture = ExtResource("18_q1xe2")
-expand_mode = 1
-stretch_mode = 1
+grow_vertical = 2
 
-[node name="Shadow" type="TextureRect" parent="GameUI/Control/MatchEnd"]
-self_modulate = Color(0, 0, 0, 0.392157)
-show_behind_parent = true
-layout_mode = 1
-offset_right = 1572.0
-offset_bottom = 828.0
-texture = ExtResource("20_d1q3r")
-expand_mode = 1
+[node name="Button" type="Button" parent="GameUI/Control/MatchEnd"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Back to Selection Screen
+"
 
-[node name="Border" type="TextureRect" parent="GameUI/Control/MatchEnd"]
-layout_mode = 1
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 1556.0
-offset_bottom = 812.0
-texture = ExtResource("20_d1q3r")
-
-[node name="Game!" type="TextureRect" parent="GameUI/Control/MatchEnd"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -412.8
-offset_top = 64.0
-offset_right = 1223.2
-offset_bottom = 692.0
-grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("19_vv6ds")
-
-[node name="Winner" type="Label" parent="GameUI/Control/MatchEnd/Game!"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -424.0
-offset_top = -15.0
-offset_right = 424.0
-offset_bottom = 160.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.75, 0.5625, 0.375, 1)
+[node name="EndLabel" type="Label" parent="GameUI/Control/MatchEnd"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
 theme_override_font_sizes/font_size = 128
 text = "Player X Won!"
-
-[node name="FireEffect_Mask" type="TextureRect" parent="GameUI/Control/MatchEnd/Game!"]
-clip_children = 1
-z_index = 1
-texture_filter = 1
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -814.8
-offset_right = 2419.2
-offset_bottom = 1260.0
-grow_horizontal = 2
-scale = Vector2(0.505, 0.5)
-texture = ExtResource("22_5mcf8")
-metadata/_edit_lock_ = true
-
-[node name="Noise" type="TextureRect" parent="GameUI/Control/MatchEnd/Game!/FireEffect_Mask"]
-modulate = Color(1, 0.376, 0.04, 0.403922)
-material = SubResource("ShaderMaterial_dukbb")
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -1617.0
-offset_right = 1617.0
-offset_bottom = 1260.0
-grow_horizontal = 2
-texture = ExtResource("22_5mcf8")
-
-[node name="Continue" type="Button" parent="GameUI/Control/MatchEnd"]
-modulate = Color(0.9, 0.540385, 0.216, 1)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -420.8
-offset_top = -202.2
-offset_right = -1.79996
-offset_bottom = -128.2
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-theme_override_font_sizes/font_size = 54
-theme_override_styles/hover = ExtResource("14_2b6aw")
-theme_override_styles/pressed = ExtResource("13_2r5ff")
-theme_override_styles/normal = ExtResource("15_ned7m")
-text = "Next
-"
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Control/MatchEnd"]
 libraries = {
-"": SubResource("AnimationLibrary_16cfl")
+"": SubResource("AnimationLibrary_cuvjn")
 }
+autoplay = "EndGame"
 
 [node name="TurnUI" type="Control" parent="GameUI"]
 process_mode = 3
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1449,7 +1414,7 @@ texture = ExtResource("19_jysul")
 [connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]
 [connection signal="pressed" from="GameUI/Control/Background/Menu/Resume" to="GameUI/Control/Background/Menu" method="_on_resume_pressed"]
 [connection signal="pressed" from="GameUI/Control/Background/Menu/MainMenu" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
-[connection signal="pressed" from="GameUI/Control/MatchEnd/Continue" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="GameUI/Control/MatchEnd/Button" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
 [connection signal="done_with_anim" from="GameUI/TurnUI" to="." method="_on_turn_ui_done_with_anim"]
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="." method="_on_turn_ui_loaded_player_uis"]
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="GameUI/TurnUI" method="_on_loaded_player_uis"]

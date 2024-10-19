@@ -8,9 +8,9 @@ extends Node3D
 @onready var turn_text_animation_player: AnimationPlayer = $GameUI/Control/Game/AnimationPlayer
 @onready var turn_text_label: Label = $GameUI/Control/Game/TurnLabel
 
-@onready var game_win_label: Label = $GameUI/Control/Game/MatchEnd/EndLabel
 
 @onready var animation_timer: Timer = $AnimationTimer
+@onready var end_animation_player: AnimationPlayer = $GameUI/Control/MatchEnd/AnimationPlayer
 
 
 var max_turns
@@ -163,8 +163,10 @@ func _on_game_won(tile_array: Array) -> void:
 	for tile in tile_array:
 		tile.play_animation("WinningThree")
 
-	game_win_label.text = "Player " + str(player_index + 1) + " won!"
-	turn_text_animation_player.play("GameWon")
+	var label = $"GameUI/Control/MatchEnd/Game!/Winner"
+	label.text = "Player " + str(player_index + 1) + " Won!"
+	
+	end_animation_player.play("EndGame")
 
 
 func _on_turn_ui_done_with_anim(anim_name: String) -> void:
