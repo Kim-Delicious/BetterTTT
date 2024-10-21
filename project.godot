@@ -12,13 +12,17 @@ config_version=5
 
 config/name="BetterTTT"
 config/description="Tic-Tac-Toe... But better!"
-run/main_scene="res://Scenes/Levels/local_game.tscn"
+run/main_scene="res://Scenes/Levels/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Textures/icon.svg"
 
 [display]
 
 window/size/mode=3
+
+[gui]
+
+theme/custom_font="res://Resources/Fonts/impact.ttf"
 
 [importer_defaults]
 

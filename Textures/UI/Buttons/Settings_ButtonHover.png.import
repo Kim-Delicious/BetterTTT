@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4t3gqoqpvuk7"
-path="res://.godot/imported/BlankButtonToPush.png-bb07983a05da0b3056c2725f75f8b899.ctex"
+uid="uid://curca3jytw1oh"
+path="res://.godot/imported/Settings_ButtonHover.png-05d4b94b2a4c8eb34a1ca54a1f5e532e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textures/BlankButtonToPush.png"
-dest_files=["res://.godot/imported/BlankButtonToPush.png-bb07983a05da0b3056c2725f75f8b899.ctex"]
+source_file="res://Textures/UI/Buttons/Settings_ButtonHover.png"
+dest_files=["res://.godot/imported/Settings_ButtonHover.png-05d4b94b2a4c8eb34a1ca54a1f5e532e.ctex"]
 
 [params]
 
