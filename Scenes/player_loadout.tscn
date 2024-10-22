@@ -1,0 +1,240 @@
+[gd_scene load_steps=8 format=3 uid="uid://dshfn2my2h20"]
+
+[ext_resource type="Script" path="res://Scripts/player_loadout.gd" id="1_v31vo"]
+[ext_resource type="Texture2D" uid="uid://dbs376b482r5h" path="res://Textures/Border.png" id="2_yyfju"]
+[ext_resource type="Texture2D" uid="uid://cq8qvav0du4k6" path="res://Textures/TelekenisisSticker.png" id="3_uesw3"]
+[ext_resource type="Texture2D" uid="uid://c5vqa8jw3lcjk" path="res://Textures/TelekenisisColumnSticker.png" id="4_p0d5w"]
+[ext_resource type="Texture2D" uid="uid://bjmrpjmoc3m0a" path="res://Textures/SniperSticker.png" id="5_xjafy"]
+[ext_resource type="Texture2D" uid="uid://bbm4plo53y170" path="res://Textures/BlankSticker.png" id="6_hph8h"]
+[ext_resource type="Texture2D" uid="uid://c4ctkdjiofpt1" path="res://Textures/SillouetteWizard_Grayscale.png" id="7_48uxx"]
+
+[node name="Player" type="Panel"]
+custom_minimum_size = Vector2(300, 340)
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_v31vo")
+
+[node name="Control" type="Control" parent="."]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Control/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="PlayerName" type="Label" parent="Control/VBoxContainer"]
+self_modulate = Color(0.258861, 0.400312, 1, 1)
+layout_mode = 2
+theme_override_font_sizes/font_size = 96
+text = "name"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="Control/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+modulate = Color(0.258861, 0.400312, 1, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_yyfju")
+expand_icon = true
+
+[node name="Button2" type="Button" parent="Control/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(0.979732, 0.365297, 0.365297, 1)
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_yyfju")
+expand_icon = true
+
+[node name="HSeparator3" type="HSeparator" parent="Control/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+columns = 3
+
+[node name="AbilitySticker" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("3_uesw3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AbilitySticker2" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("4_p0d5w")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AbilitySticker3" type="TextureButton" parent="Control/VBoxContainer/HBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 2
+mouse_filter = 1
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("5_xjafy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Sillouette" type="TextureRect" parent="Control"]
+self_modulate = Color(0.13, 0.13, 0.13, 1)
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -313.0
+offset_right = 115.0
+offset_bottom = 352.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_filter = 2
+mouse_default_cursor_shape = 10
+texture = ExtResource("7_48uxx")
+expand_mode = 1
+flip_h = true
+
+[node name="Inventory" type="Control" parent="."]
+custom_minimum_size = Vector2(256, 128)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 312.0
+grow_vertical = 0
+mouse_filter = 1
+
+[node name="MainSticker" type="TextureButton" parent="Inventory"]
+visibility_layer = 2
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -96.0
+offset_right = 96.0
+offset_bottom = 32.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_hph8h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AbilitySticker" type="TextureButton" parent="Inventory"]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = -64.0
+offset_right = 192.0
+offset_bottom = 32.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_hph8h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AbilitySticker2" type="TextureButton" parent="Inventory"]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = -64.0
+offset_right = 256.0
+offset_bottom = 32.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_hph8h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AbilitySticker3" type="TextureButton" parent="Inventory"]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 224.0
+offset_top = -64.0
+offset_right = 320.0
+offset_bottom = 32.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_hph8h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="AbilitySticker4" type="TextureButton" parent="Inventory"]
+visible = false
+custom_minimum_size = Vector2(96, 96)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 288.0
+offset_top = -64.0
+offset_right = 384.0
+offset_bottom = 32.0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("6_hph8h")
+ignore_texture_size = true
+stretch_mode = 0
+
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer2/Button" to="." method="update_character" binds= [0]]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer2/Button2" to="." method="update_character" binds= [1]]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/GridContainer/AbilitySticker" to="." method="add_or_change_abilities" binds= [0]]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/GridContainer/AbilitySticker2" to="." method="add_or_change_abilities" binds= [1]]
+[connection signal="pressed" from="Control/VBoxContainer/HBoxContainer/GridContainer/AbilitySticker3" to="." method="add_or_change_abilities" binds= [2]]
+[connection signal="pressed" from="Inventory/MainSticker" to="." method="update_main_sticker"]
+[connection signal="pressed" from="Inventory/AbilitySticker" to="." method="remove_abilities" binds= [0]]
+[connection signal="pressed" from="Inventory/AbilitySticker2" to="." method="remove_abilities" binds= [1]]
+[connection signal="pressed" from="Inventory/AbilitySticker3" to="." method="remove_abilities" binds= [2]]
+[connection signal="pressed" from="Inventory/AbilitySticker4" to="." method="remove_abilities" binds= [3]]

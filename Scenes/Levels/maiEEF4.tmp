@@ -170,6 +170,7 @@ texture = ExtResource("4_yfp25")
 expand_mode = 1
 
 [node name="MainMenu" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -317,7 +318,6 @@ texture_pressed = ExtResource("19_wuym8")
 texture_hover = ExtResource("20_lbj6f")
 
 [node name="SelectionMenu" type="TextureRect" parent="."]
-visible = false
 self_modulate = Color(0.41, 0.685333, 1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -334,6 +334,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="MapSelection" type="Control" parent="SelectionMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -366,21 +367,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 840
 text = "MAP"
-vertical_alignment = 1
-
-[node name="MapLabel" type="Label" parent="SelectionMenu/MapSelection"]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -465.5
-offset_top = 48.0
-offset_right = 465.5
-offset_bottom = 205.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 128
-text = "WHERE SHALL YOU FIGHT?"
-horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="SelectionMenu/MapSelection"]
@@ -510,7 +496,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PlayerSelection" type="Control" parent="SelectionMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -566,11 +551,11 @@ theme_override_font_sizes/font_size = 64
 text = "<
 "
 
-[node name="PlayerNumberCounter" type="Label" parent="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 128
-text = "2-Player Game"
+text = "X-Player Game"
 
 [node name="Button" type="Button" parent="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -713,15 +698,6 @@ libraries = {
 [connection signal="pressed" from="MainMenu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="SettingsMenu/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map1" to="." method="pick_map" binds= [0]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map2" to="." method="pick_map" binds= [1]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map3" to="." method="pick_map" binds= [2]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map4" to="." method="pick_map" binds= [3]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map5" to="." method="pick_map" binds= [4]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map6" to="." method="pick_map" binds= [5]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map7" to="." method="pick_map" binds= [6]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map8" to="." method="pick_map" binds= [7]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map9" to="." method="pick_map" binds= [8]]
 [connection signal="pressed" from="SelectionMenu/MapSelection/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="SelectionMenu/MapSelection/NextButton" to="." method="selection_next"]
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer/Button2" to="." method="remove_player"]
