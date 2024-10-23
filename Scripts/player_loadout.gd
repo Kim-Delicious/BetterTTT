@@ -17,8 +17,6 @@ enum Ability {Empty = -1, TeleRow, TeleColumn, Sniper}
 @onready var inventory: Control = $Inventory
 @onready var player_name = $Control/VBoxContainer/PlayerName
 
-var max_abilities = 3
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_main_sticker_image()
@@ -85,7 +83,7 @@ func add_or_change_abilities(which_button) -> void:
 	
 	print(which_button)
 	
-	if abilities.size() < max_abilities:
+	if abilities.size() < GlobalGame.max_abilities:
 		abilities.append(which_button)
 		set_ability_images()
 		return

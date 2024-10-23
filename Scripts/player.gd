@@ -1,6 +1,8 @@
 extends Node3D
 
 
+var character: SpriteFrames
+
 var primary_actions = 1
 var secondary_actions = 0
 

@@ -400,118 +400,82 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("PlayerUI4/DisplayAnchor/Inventory/Start:position")
+tracks/2/path = NodePath("PlayerUI4/DisplayAnchor/Inventory:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(248, -57)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("PlayerUI4/DisplayAnchor/Inventory/Center:position")
+tracks/3/path = NodePath("PlayerUI4/DisplayAnchor/Inventory:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(64, 0)]
+"values": [Vector2(2, 2)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("PlayerUI4/DisplayAnchor/Inventory/End:position")
+tracks/4/path = NodePath("PlayerUI4/DisplayAnchor/TurnDial:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(128, 0)]
+"update": 1,
+"values": [true]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PlayerUI4/DisplayAnchor/Inventory:position")
+tracks/5/path = NodePath("PlayerUI4/DisplayAnchor/TurnDial:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(248, -57)]
+"values": [Vector2(0.5, 0.5)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("PlayerUI4/DisplayAnchor/Inventory:scale")
+tracks/6/path = NodePath("PlayerUI4:modulate")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2, 2)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PlayerUI4/DisplayAnchor/TurnDial:visible")
+tracks/7/path = NodePath("PlayerUI4/DisplayAnchor/TurnDial/Node/AbilitySticker:scale")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Vector2(3, 3)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("PlayerUI4/DisplayAnchor/TurnDial:scale")
+tracks/8/path = NodePath("PlayerUI4/DisplayAnchor/Inventory:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.5, 0.5)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("PlayerUI4:modulate")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("PlayerUI4/DisplayAnchor/TurnDial/Node/AbilitySticker:scale")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(3, 3)]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("PlayerUI4/DisplayAnchor/Inventory:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -547,19 +511,18 @@ scale = Vector2(0.75, 0.75)
 
 [node name="AnimatedCharacterSprite" type="AnimatedSprite2D" parent="DisplayAnchor"]
 z_index = -100
-position = Vector2(-362.667, -10.6667)
+position = Vector2(185.333, 400)
 sprite_frames = SubResource("SpriteFrames_ljdhd")
-flip_h = true
 
 [node name="Inventory" type="Control" parent="DisplayAnchor"]
 z_index = -20
 material = SubResource("CanvasItemMaterial_grqqq")
 layout_mode = 3
 anchors_preset = 0
-offset_left = -248.0
-offset_top = -112.0
-offset_right = -248.0
-offset_bottom = -112.0
+offset_left = 248.0
+offset_top = -57.0
+offset_right = 248.0
+offset_bottom = -57.0
 scale = Vector2(2, 2)
 
 [node name="Start" type="Sprite2D" parent="DisplayAnchor/Inventory"]
@@ -590,7 +553,7 @@ texture_normal = null
 [node name="End" type="Sprite2D" parent="DisplayAnchor/Inventory"]
 visible = false
 z_index = -1
-position = Vector2(128, 0)
+position = Vector2(-128, 0)
 scale = Vector2(-1, -1)
 texture = ExtResource("3_0p5al")
 region_enabled = true
@@ -598,12 +561,14 @@ region_rect = Rect2(128, 0, 64, 64)
 
 [node name="TurnDial" type="Sprite2D" parent="DisplayAnchor"]
 z_index = 1
-position = Vector2(-128, -136)
+position = Vector2(128, -100)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ug2kj")
 
 [node name="Node" type="Node2D" parent="DisplayAnchor/TurnDial"]
-scale = Vector2(6, 6)
+visible = false
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.25, 0.25)
 
 [node name="AbilitySticker" parent="DisplayAnchor/TurnDial/Node" instance=ExtResource("4_pwwqh")]
 anchors_preset = 8

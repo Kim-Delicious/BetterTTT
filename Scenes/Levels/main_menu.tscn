@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://c74edjjjeexmm"]
+[gd_scene load_steps=42 format=3 uid="uid://c74edjjjeexmm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_gxgxq"]
 [ext_resource type="Texture2D" uid="uid://bb13fyijl4ufv" path="res://Textures/SilloutteBanner6.png" id="2_m3mow"]
@@ -25,6 +25,9 @@
 [ext_resource type="Texture2D" uid="uid://01fy5pek7lyb" path="res://Textures/UI/Buttons/Next_Button.png" id="23_peabo"]
 [ext_resource type="Texture2D" uid="uid://cojdnkvquf77s" path="res://Textures/UI/Buttons/Next_ButtonPressed.png" id="24_lcvgt"]
 [ext_resource type="PackedScene" uid="uid://dshfn2my2h20" path="res://Scenes/player_loadout.tscn" id="25_6eesv"]
+[ext_resource type="Texture2D" uid="uid://c4t3gqoqpvuk7" path="res://Textures/UI/Buttons/BlankButton.png" id="26_r0g5q"]
+[ext_resource type="Texture2D" uid="uid://ug746c5t1j25" path="res://Textures/UI/Buttons/BlankButtonPressed.png" id="27_22oxf"]
+[ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="28_grksd"]
 
 [sub_resource type="Animation" id="Animation_ttkw3"]
 length = 0.001
@@ -109,14 +112,71 @@ resource_name = "OpenSettings"
 [sub_resource type="Animation" id="Animation_35sne"]
 resource_name = "Startup"
 
+[sub_resource type="Animation" id="Animation_v0xjy"]
+resource_name = "FadeOut"
+length = 0.433
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_268gs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Screen:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n4ner"]
 _data = {
 "CloseMain": SubResource("Animation_ijygi"),
 "ClosePlay": SubResource("Animation_fdq8b"),
 "CloseSettings": SubResource("Animation_117rn"),
+"FadeOut": SubResource("Animation_v0xjy"),
 "OpenMain": SubResource("Animation_1xvfp"),
 "OpenPlay": SubResource("Animation_fe1sk"),
 "OpenSettings": SubResource("Animation_01xma"),
+"RESET": SubResource("Animation_268gs"),
 "Startup": SubResource("Animation_35sne")
 }
 
@@ -681,6 +741,27 @@ texture_hover = ExtResource("20_lbj6f")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="SpecialButton" type="TextureButton" parent="SelectionMenu/PlayerSelection"]
+self_modulate = Color(0.61, 0.3599, 0.494315, 1)
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -156.0
+offset_top = -96.0
+offset_right = 264.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("26_r0g5q")
+texture_pressed = ExtResource("27_22oxf")
+texture_hover = ExtResource("26_r0g5q")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="PlayButton" type="TextureButton" parent="SelectionMenu/PlayerSelection"]
 self_modulate = Color(0.3599, 0.523846, 0.61, 1)
 layout_mode = 1
@@ -700,6 +781,118 @@ texture_pressed = ExtResource("9_d80or")
 texture_hover = ExtResource("10_3l2ny")
 ignore_texture_size = true
 
+[node name="SpecialRules" type="Control" parent="SelectionMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SelectionMenu/SpecialRules"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectionMenu/SpecialRules/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Tiles" type="HBoxContainer" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Button" type="Button" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Tiles"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "<"
+
+[node name="Label" type="Label" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Tiles"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "TILES TO WIN: 5
+"
+
+[node name="Button2" type="Button" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Tiles"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = ">"
+
+[node name="MaxAbilities" type="HBoxContainer" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Button" type="Button" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/MaxAbilities"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "<"
+
+[node name="Label" type="Label" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/MaxAbilities"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "MAX ABILITY STICKERS: 2"
+
+[node name="Button2" type="Button" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/MaxAbilities"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = ">"
+
+[node name="Chaos" type="HBoxContainer" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Button" type="Button" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "<"
+
+[node name="Label" type="Label" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "CHAOS FACTOR: 0%"
+
+[node name="Button2" type="Button" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = ">"
+
+[node name="HSeparator2" type="HSeparator" parent="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="BackButton" type="TextureButton" parent="SelectionMenu/SpecialRules"]
+self_modulate = Color(0.3599, 0.523846, 0.61, 1)
+custom_minimum_size = Vector2(256, 64)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -96.0
+offset_right = 452.0
+grow_vertical = 0
+scale = Vector2(0.75, 0.75)
+texture_normal = ExtResource("18_syefm")
+texture_pressed = ExtResource("19_wuym8")
+texture_hover = ExtResource("20_lbj6f")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 
@@ -707,6 +900,19 @@ anchor_mode = 0
 libraries = {
 "": SubResource("AnimationLibrary_n4ner")
 }
+
+[node name="Screen" type="TextureRect" parent="."]
+self_modulate = Color(0, 0, 0, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("28_grksd")
+expand_mode = 1
+stretch_mode = 1
 
 [connection signal="pressed" from="MainMenu/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="MainMenu/Play" to="." method="_on_play_pressed"]
@@ -727,4 +933,13 @@ libraries = {
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer/Button2" to="." method="remove_player"]
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer/Button" to="." method="add_player"]
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/BackButton" to="." method="selection_back"]
+[connection signal="pressed" from="SelectionMenu/PlayerSelection/SpecialButton" to="." method="show_special"]
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/PlayButton" to="." method="_on_final_play_button_pressed"]
+[connection signal="pressed" from="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Tiles/Button" to="." method="increment_win_tiles" binds= [-1]]
+[connection signal="pressed" from="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Tiles/Button2" to="." method="increment_win_tiles" binds= [1]]
+[connection signal="pressed" from="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/MaxAbilities/Button" to="." method="increment_max_abilities" binds= [-1]]
+[connection signal="pressed" from="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/MaxAbilities/Button2" to="." method="increment_max_abilities" binds= [1]]
+[connection signal="pressed" from="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos/Button" to="." method="increment_chaos_factor" binds= [-0.1]]
+[connection signal="pressed" from="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos/Button2" to="." method="increment_chaos_factor" binds= [0.1]]
+[connection signal="pressed" from="SelectionMenu/SpecialRules/BackButton" to="." method="hide_special"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

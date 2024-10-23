@@ -1,7 +1,5 @@
 extends Node3D
 
-@onready var animation_timer: Timer = $"../AnimationTimer"
-
 signal tile_clicked
 signal game_won
 signal panic_time
@@ -13,6 +11,9 @@ signal panic_time
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_connect_grid_to_all_tile_signals()
+	
+	tiles_to_win = GlobalGame.tiles_to_win
+	tiles_to_panic = GlobalGame.tiles_to_win - 1
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

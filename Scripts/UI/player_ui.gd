@@ -3,6 +3,8 @@ extends Control
 @onready var player_symbol: TextureButton = $DisplayAnchor/TurnDial/Node/AbilitySticker
 @onready var inventory: Control = $DisplayAnchor/Inventory
 @onready var animation_player: AnimationPlayer = $DisplayAnchor/AnimationPlayer
+@onready var character_sprite: AnimatedSprite2D = $DisplayAnchor/AnimatedCharacterSprite
+
 
 signal player_ui_anim_fin
 # Called when the node enters the scene tree for the first time.

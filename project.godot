@@ -16,6 +16,10 @@ run/main_scene="res://Scenes/Levels/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://Textures/icon.svg"
 
+[autoload]
+
+GlobalGame="*res://Scripts/global_game.gd"
+
 [display]
 
 window/size/mode=3

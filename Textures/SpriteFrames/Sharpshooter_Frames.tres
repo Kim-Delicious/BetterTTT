@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://cmopp144wbvuc"]
+
+[ext_resource type="Texture2D" uid="uid://d1fe3tbj02pbb" path="res://Textures/SillouetteGunslinger.png" id="1_e8b4s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7460a"]
+atlas = ExtResource("1_e8b4s")
+region = Rect2(0, 0, 834, 888)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7460a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

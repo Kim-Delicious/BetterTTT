@@ -1,25 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6nsmtmqmj0b8"]
+[gd_scene load_steps=13 format=3 uid="uid://c6nsmtmqmj0b8"]
 
 [ext_resource type="Texture2D" uid="uid://26hxrikjooy1" path="res://Textures/inventory.png" id="1_74rkx"]
 [ext_resource type="Script" path="res://Scripts/UI/player_ui.gd" id="1_goatr"]
-[ext_resource type="Texture2D" uid="uid://d1fe3tbj02pbb" path="res://Textures/SillouetteGunslinger.png" id="2_immiw"]
+[ext_resource type="SpriteFrames" uid="uid://cmopp144wbvuc" path="res://Textures/SpriteFrames/Sharpshooter_Frames.tres" id="2_hlx6q"]
 [ext_resource type="PackedScene" uid="uid://irhtrmjy0jep" path="res://Scenes/UI/ability_sticker.tscn" id="4_7ftmd"]
 [ext_resource type="Texture2D" uid="uid://b8w5ah14x3qfs" path="res://Textures/TurnDisc.png" id="4_ceglh"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7460a"]
-atlas = ExtResource("2_immiw")
-region = Rect2(0, 0, 834, 888)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rsd4q"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7460a")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_grqqq"]
 
@@ -580,8 +565,8 @@ scale = Vector2(0.75, 0.75)
 
 [node name="AnimatedCharacterSprite" type="AnimatedSprite2D" parent="DisplayAnchor"]
 z_index = -100
-position = Vector2(-185, 400)
-sprite_frames = SubResource("SpriteFrames_rsd4q")
+position = Vector2(185.333, 46.6667)
+sprite_frames = ExtResource("2_hlx6q")
 flip_h = true
 
 [node name="Inventory" type="Control" parent="DisplayAnchor"]
@@ -589,11 +574,11 @@ z_index = -20
 material = SubResource("CanvasItemMaterial_grqqq")
 layout_mode = 3
 anchors_preset = 0
-offset_left = 270.0
-offset_top = -112.0
-offset_right = 270.0
-offset_bottom = -112.0
-scale = Vector2(4, 2)
+offset_left = 248.0
+offset_top = -57.0
+offset_right = 248.0
+offset_bottom = -57.0
+scale = Vector2(2, 2)
 
 [node name="Start" type="Sprite2D" parent="DisplayAnchor/Inventory"]
 texture = ExtResource("1_74rkx")
@@ -629,12 +614,12 @@ region_rect = Rect2(128, 0, 64, 64)
 
 [node name="TurnDial" type="Sprite2D" parent="DisplayAnchor"]
 z_index = 1
-position = Vector2(128, -136)
+position = Vector2(128, -100)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_ceglh")
 
 [node name="Node" type="Node2D" parent="DisplayAnchor/TurnDial"]
-scale = Vector2(6, 6)
+scale = Vector2(3, 3)
 
 [node name="AbilitySticker" parent="DisplayAnchor/TurnDial/Node" instance=ExtResource("4_7ftmd")]
 anchors_preset = 8

@@ -1,36 +1,32 @@
-[gd_scene load_steps=57 format=3 uid="uid://8l7yqt52o5v5"]
+[gd_scene load_steps=53 format=3 uid="uid://dolo7nift3lgr"]
 
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_jgg2e"]
-[ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_m8plu"]
-[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_hy703"]
-[ext_resource type="PackedScene" uid="uid://cbma1jhpjxi3g" path="res://Scenes/player.tscn" id="4_8lyh7"]
-[ext_resource type="PackedScene" uid="uid://c8830abg8xqe1" path="res://Scenes/Player Components/component_symbol.tscn" id="5_l6qw1"]
-[ext_resource type="Texture2D" uid="uid://eqcwcewpa7ia" path="res://Textures/Sticker_Circle.png" id="6_g2blt"]
-[ext_resource type="PackedScene" uid="uid://depr43jp6rxjx" path="res://Scenes/Player Components/component_telekenesis_column.tscn" id="7_ts237"]
-[ext_resource type="Script" path="res://Scripts/grid.gd" id="10_14ieb"]
-[ext_resource type="PackedScene" uid="uid://b713dr5lk5kx8" path="res://Scenes/Tile.tscn" id="11_8cg2u"]
-[ext_resource type="Texture2D" uid="uid://bbhrle7pxmvkn" path="res://Textures/SilloutteBanner2.png" id="12_h64qv"]
-[ext_resource type="Script" path="res://Scripts/game_menu.gd" id="13_daft8"]
-[ext_resource type="StyleBox" uid="uid://ddcao77yu21dh" path="res://Resources/StyleBox/long_button_pressed.tres" id="14_8ukyw"]
-[ext_resource type="StyleBox" uid="uid://g7w0n7dgricu" path="res://Resources/StyleBox/long_button_hover.tres" id="15_aw33c"]
-[ext_resource type="StyleBox" uid="uid://c80qni2878hrn" path="res://Resources/StyleBox/long_button_normal.tres" id="16_dtcgp"]
-[ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="17_i3mlh"]
-[ext_resource type="Texture2D" uid="uid://v47031s4wuu2" path="res://Textures/SilloutteBanner5.png" id="18_br4uv"]
-[ext_resource type="Texture2D" uid="uid://b5he1a17t8v0t" path="res://Textures/GameWinBorder.png" id="19_n3rdt"]
-[ext_resource type="Texture2D" uid="uid://c7q0mxa3r33ku" path="res://Textures/GameWin.png" id="20_a6inf"]
-[ext_resource type="Texture2D" uid="uid://cikvpgwt7em1q" path="res://Textures/GameWin_mask.png" id="21_rd256"]
-[ext_resource type="Shader" path="res://Resources/Shaders/animated_title_2.gdshader" id="22_x8ima"]
-[ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="23_sfxxj"]
-[ext_resource type="Script" path="res://Scripts/UI/turn_ui.gd" id="24_om7ky"]
-[ext_resource type="Texture2D" uid="uid://bpqe4lf65inor" path="res://Textures/MenuSticker.png" id="25_4psyu"]
-[ext_resource type="Texture2D" uid="uid://bn73b2cre5yb5" path="res://Textures/CenterUI.png" id="26_2vv6p"]
-[ext_resource type="Texture2D" uid="uid://dth2r76lyigkf" path="res://Textures/NextTurnStickerUp.png" id="27_hpi5q"]
-[ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="28_dwxbt"]
-[ext_resource type="Texture2D" uid="uid://brj6vlivsows8" path="res://Textures/NextTurnStickerUpHover.png" id="29_hkudb"]
-[ext_resource type="Texture2D" uid="uid://c1frhtfgbmvdy" path="res://Textures/SilloutteBanner.png" id="30_uwmou"]
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_7lw2w"]
+[ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_6xp8i"]
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_plhv6"]
+[ext_resource type="Script" path="res://Scripts/grid.gd" id="8_83gr4"]
+[ext_resource type="PackedScene" uid="uid://b713dr5lk5kx8" path="res://Scenes/Tile.tscn" id="9_06qhn"]
+[ext_resource type="Texture2D" uid="uid://bbhrle7pxmvkn" path="res://Textures/SilloutteBanner2.png" id="10_lkjkh"]
+[ext_resource type="Script" path="res://Scripts/game_menu.gd" id="11_1p07y"]
+[ext_resource type="StyleBox" uid="uid://ddcao77yu21dh" path="res://Resources/StyleBox/long_button_pressed.tres" id="12_d4a8u"]
+[ext_resource type="StyleBox" uid="uid://g7w0n7dgricu" path="res://Resources/StyleBox/long_button_hover.tres" id="13_jyvpu"]
+[ext_resource type="StyleBox" uid="uid://c80qni2878hrn" path="res://Resources/StyleBox/long_button_normal.tres" id="14_x3v11"]
+[ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="15_rv0e7"]
+[ext_resource type="Texture2D" uid="uid://v47031s4wuu2" path="res://Textures/SilloutteBanner5.png" id="16_1ic0i"]
+[ext_resource type="Texture2D" uid="uid://b5he1a17t8v0t" path="res://Textures/GameWinBorder.png" id="17_04myb"]
+[ext_resource type="Texture2D" uid="uid://c7q0mxa3r33ku" path="res://Textures/GameWin.png" id="18_mghmk"]
+[ext_resource type="Texture2D" uid="uid://cikvpgwt7em1q" path="res://Textures/GameWin_mask.png" id="19_0gg4t"]
+[ext_resource type="Shader" path="res://Resources/Shaders/animated_title_2.gdshader" id="20_015ne"]
+[ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="21_laajs"]
+[ext_resource type="Script" path="res://Scripts/UI/turn_ui.gd" id="22_y4rcq"]
+[ext_resource type="Texture2D" uid="uid://bpqe4lf65inor" path="res://Textures/MenuSticker.png" id="23_57opt"]
+[ext_resource type="Texture2D" uid="uid://bn73b2cre5yb5" path="res://Textures/CenterUI.png" id="24_qotfg"]
+[ext_resource type="Texture2D" uid="uid://dth2r76lyigkf" path="res://Textures/NextTurnStickerUp.png" id="25_oyi6v"]
+[ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="26_68mpo"]
+[ext_resource type="Texture2D" uid="uid://brj6vlivsows8" path="res://Textures/NextTurnStickerUpHover.png" id="27_hwkwn"]
+[ext_resource type="Texture2D" uid="uid://c1frhtfgbmvdy" path="res://Textures/SilloutteBanner.png" id="28_epkpd"]
 
 [sub_resource type="Sky" id="Sky_i4i7v"]
-sky_material = ExtResource("2_m8plu")
+sky_material = ExtResource("2_6xp8i")
 radiance_size = 6
 
 [sub_resource type="Environment" id="Environment_g8a3a"]
@@ -545,10 +541,10 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dukbb"]
-shader = ExtResource("22_x8ima")
+shader = ExtResource("20_015ne")
 shader_parameter/direction = Vector2(0, 1)
 shader_parameter/speed = 0.75
-shader_parameter/noise_texture = ExtResource("23_sfxxj")
+shader_parameter/noise_texture = ExtResource("21_laajs")
 
 [sub_resource type="Animation" id="Animation_1tqpt"]
 resource_name = "EndGame"
@@ -721,7 +717,7 @@ _data = {
 }
 
 [node name="local_game" type="Node3D"]
-script = ExtResource("1_jgg2e")
+script = ExtResource("1_7lw2w")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-1, 8.74228e-08, 0, -7.57103e-08, -0.866025, 0.5, 4.37114e-08, 0.5, 0.866025, -3, 33, 0)
@@ -739,7 +735,7 @@ environment = SubResource("Environment_g8a3a")
 fov = 60.0
 size = 17.561
 near = 0.001
-script = ExtResource("3_hy703")
+script = ExtResource("3_plhv6")
 orbit_radius = 30
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
@@ -755,102 +751,94 @@ one_shot = true
 [node name="Players" type="Node" parent="."]
 process_mode = 3
 
-[node name="Player" parent="Players" instance=ExtResource("4_8lyh7")]
-
-[node name="Component_Symbol2" parent="Players/Player" instance=ExtResource("5_l6qw1")]
-symbol_type = 0
-sticker = ExtResource("6_g2blt")
-
-[node name="Component_Telekenisis_Column" parent="Players/Player" instance=ExtResource("7_ts237")]
-
 [node name="Grid" type="Node3D" parent="."]
 process_mode = 1
-script = ExtResource("10_14ieb")
+script = ExtResource("8_83gr4")
 tiles_to_panic = 4
 
 [node name="Row" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 14)
 
-[node name="Tile" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
+[node name="Tile" parent="Grid/Row" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
-[node name="Tile2" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
+[node name="Tile2" parent="Grid/Row" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
-[node name="Tile3" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
+[node name="Tile3" parent="Grid/Row" instance=ExtResource("9_06qhn")]
 
-[node name="Tile4" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
+[node name="Tile4" parent="Grid/Row" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
-[node name="Tile5" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
+[node name="Tile5" parent="Grid/Row" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Row2" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 7)
 
-[node name="Tile" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
+[node name="Tile" parent="Grid/Row2" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
-[node name="Tile2" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
+[node name="Tile2" parent="Grid/Row2" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
-[node name="Tile3" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
+[node name="Tile3" parent="Grid/Row2" instance=ExtResource("9_06qhn")]
 
-[node name="Tile4" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
+[node name="Tile4" parent="Grid/Row2" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
-[node name="Tile5" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
+[node name="Tile5" parent="Grid/Row2" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Row3" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 
-[node name="Tile" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
+[node name="Tile" parent="Grid/Row3" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
-[node name="Tile2" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
+[node name="Tile2" parent="Grid/Row3" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
-[node name="Tile3" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
+[node name="Tile3" parent="Grid/Row3" instance=ExtResource("9_06qhn")]
 
-[node name="Tile4" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
+[node name="Tile4" parent="Grid/Row3" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
-[node name="Tile5" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
+[node name="Tile5" parent="Grid/Row3" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Row4" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -7)
 
-[node name="Tile" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
+[node name="Tile" parent="Grid/Row4" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
-[node name="Tile2" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
+[node name="Tile2" parent="Grid/Row4" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
-[node name="Tile3" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
+[node name="Tile3" parent="Grid/Row4" instance=ExtResource("9_06qhn")]
 
-[node name="Tile4" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
+[node name="Tile4" parent="Grid/Row4" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
-[node name="Tile5" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
+[node name="Tile5" parent="Grid/Row4" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Row5" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -14)
 
-[node name="Tile" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
+[node name="Tile" parent="Grid/Row5" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
-[node name="Tile2" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
+[node name="Tile2" parent="Grid/Row5" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
-[node name="Tile3" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
+[node name="Tile3" parent="Grid/Row5" instance=ExtResource("9_06qhn")]
 
-[node name="Tile4" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
+[node name="Tile4" parent="Grid/Row5" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
-[node name="Tile5" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
+[node name="Tile5" parent="Grid/Row5" instance=ExtResource("9_06qhn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="GameUI" type="Control" parent="."]
@@ -917,7 +905,7 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.523599
 scale = Vector2(2, 2)
-texture = ExtResource("12_h64qv")
+texture = ExtResource("10_lkjkh")
 expand_mode = 1
 stretch_mode = 1
 
@@ -939,7 +927,7 @@ grow_vertical = 2
 rotation = 0.523599
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("13_daft8")
+script = ExtResource("11_1p07y")
 
 [node name="Label" type="Label" parent="GameUI/Control/Background/Menu"]
 modulate = Color(0.14, 0.0527333, 0.0448, 1)
@@ -957,10 +945,10 @@ layout_mode = 2
 modulate = Color(0.9, 0.3528, 0.216, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 54
-theme_override_styles/hover_pressed = ExtResource("14_8ukyw")
-theme_override_styles/hover = ExtResource("15_aw33c")
-theme_override_styles/pressed = ExtResource("14_8ukyw")
-theme_override_styles/normal = ExtResource("16_dtcgp")
+theme_override_styles/hover_pressed = ExtResource("12_d4a8u")
+theme_override_styles/hover = ExtResource("13_jyvpu")
+theme_override_styles/pressed = ExtResource("12_d4a8u")
+theme_override_styles/normal = ExtResource("14_x3v11")
 text = "Resume
 "
 
@@ -972,10 +960,10 @@ layout_mode = 2
 modulate = Color(0.9, 0.3528, 0.216, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 54
-theme_override_styles/hover_pressed = ExtResource("14_8ukyw")
-theme_override_styles/hover = ExtResource("15_aw33c")
-theme_override_styles/pressed = ExtResource("14_8ukyw")
-theme_override_styles/normal = ExtResource("16_dtcgp")
+theme_override_styles/hover_pressed = ExtResource("12_d4a8u")
+theme_override_styles/hover = ExtResource("13_jyvpu")
+theme_override_styles/pressed = ExtResource("12_d4a8u")
+theme_override_styles/normal = ExtResource("14_x3v11")
 text = "Settings
 "
 
@@ -987,9 +975,9 @@ layout_mode = 2
 modulate = Color(0.9, 0.3528, 0.216, 1)
 layout_mode = 2
 theme_override_font_sizes/font_size = 54
-theme_override_styles/hover = ExtResource("15_aw33c")
-theme_override_styles/pressed = ExtResource("14_8ukyw")
-theme_override_styles/normal = ExtResource("16_dtcgp")
+theme_override_styles/hover = ExtResource("13_jyvpu")
+theme_override_styles/pressed = ExtResource("12_d4a8u")
+theme_override_styles/normal = ExtResource("14_x3v11")
 text = "Exit Game
 "
 
@@ -1005,7 +993,7 @@ offset_left = 226.277
 offset_top = 7.92299
 offset_right = 258.277
 offset_bottom = 1000.51
-texture = ExtResource("17_i3mlh")
+texture = ExtResource("15_rv0e7")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Control/Background"]
 libraries = {
@@ -1029,7 +1017,7 @@ offset_right = -0.00012207
 offset_bottom = -32.8
 grow_horizontal = 2
 pivot_offset = Vector2(460.8, 259.2)
-texture = ExtResource("18_br4uv")
+texture = ExtResource("16_1ic0i")
 expand_mode = 1
 stretch_mode = 1
 
@@ -1039,7 +1027,7 @@ show_behind_parent = true
 layout_mode = 1
 offset_right = 1572.0
 offset_bottom = 828.0
-texture = ExtResource("19_n3rdt")
+texture = ExtResource("17_04myb")
 expand_mode = 1
 
 [node name="Border" type="TextureRect" parent="GameUI/Control/MatchEnd"]
@@ -1048,7 +1036,7 @@ offset_left = -16.0
 offset_top = -16.0
 offset_right = 1556.0
 offset_bottom = 812.0
-texture = ExtResource("19_n3rdt")
+texture = ExtResource("17_04myb")
 
 [node name="Game!" type="TextureRect" parent="GameUI/Control/MatchEnd"]
 z_index = 1
@@ -1062,7 +1050,7 @@ offset_right = 1223.2
 offset_bottom = 692.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("20_a6inf")
+texture = ExtResource("18_mghmk")
 
 [node name="Winner" type="Label" parent="GameUI/Control/MatchEnd/Game!"]
 layout_mode = 1
@@ -1095,7 +1083,7 @@ offset_right = 2419.2
 offset_bottom = 1260.0
 grow_horizontal = 2
 scale = Vector2(0.505, 0.5)
-texture = ExtResource("21_rd256")
+texture = ExtResource("19_0gg4t")
 metadata/_edit_lock_ = true
 
 [node name="Noise" type="TextureRect" parent="GameUI/Control/MatchEnd/Game!/FireEffect_Mask"]
@@ -1109,7 +1097,7 @@ offset_left = -1617.0
 offset_right = 1617.0
 offset_bottom = 1260.0
 grow_horizontal = 2
-texture = ExtResource("21_rd256")
+texture = ExtResource("19_0gg4t")
 
 [node name="Continue" type="Button" parent="GameUI/Control/MatchEnd"]
 modulate = Color(0.9, 0.540385, 0.216, 1)
@@ -1127,9 +1115,9 @@ grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 54
-theme_override_styles/hover = ExtResource("15_aw33c")
-theme_override_styles/pressed = ExtResource("14_8ukyw")
-theme_override_styles/normal = ExtResource("16_dtcgp")
+theme_override_styles/hover = ExtResource("13_jyvpu")
+theme_override_styles/pressed = ExtResource("12_d4a8u")
+theme_override_styles/normal = ExtResource("14_x3v11")
 text = "Next
 "
 
@@ -1147,7 +1135,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-script = ExtResource("24_om7ky")
+script = ExtResource("22_y4rcq")
 metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="GameUI"]
@@ -1159,7 +1147,7 @@ offset_top = 24.0
 offset_right = 48.0
 offset_bottom = 55.0
 scale = Vector2(0.75, 0.75)
-icon = ExtResource("25_4psyu")
+icon = ExtResource("23_57opt")
 flat = true
 icon_alignment = 1
 
@@ -1179,7 +1167,7 @@ grow_vertical = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="GameUI/NextTurnButton"]
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("26_2vv6p")
+texture = ExtResource("24_qotfg")
 
 [node name="Button" type="TextureButton" parent="GameUI/NextTurnButton/Sprite2D"]
 modulate = Color(0.780598, 0.780598, 0.780598, 1)
@@ -1196,9 +1184,9 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(4, 4)
 focus_mode = 1
-texture_normal = ExtResource("27_hpi5q")
-texture_pressed = ExtResource("28_dwxbt")
-texture_hover = ExtResource("29_hkudb")
+texture_normal = ExtResource("25_oyi6v")
+texture_pressed = ExtResource("26_68mpo")
+texture_hover = ExtResource("27_hwkwn")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/NextTurnButton"]
 libraries = {
@@ -1214,7 +1202,7 @@ modulate = Color(0.25, 0.2475, 0.2475, 1)
 z_index = -50
 position = Vector2(-24, -4)
 scale = Vector2(2, 2)
-texture = ExtResource("30_uwmou")
+texture = ExtResource("28_epkpd")
 
 [node name="Sprite2D2" type="Sprite2D" parent="GameUI/NextTurnButton/Background"]
 modulate = Color(0.25, 0.2475, 0.2475, 1)
@@ -1222,7 +1210,7 @@ z_index = -50
 position = Vector2(1010, -4)
 rotation = 1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("30_uwmou")
+texture = ExtResource("28_epkpd")
 
 [node name="Sprite2D3" type="Sprite2D" parent="GameUI/NextTurnButton/Background"]
 modulate = Color(0.25, 0.2475, 0.2475, 1)
@@ -1230,7 +1218,7 @@ z_index = -50
 position = Vector2(-1010, -4)
 rotation = -1.5708
 scale = Vector2(2, 2)
-texture = ExtResource("30_uwmou")
+texture = ExtResource("28_epkpd")
 
 [connection signal="on_end_turn" from="." to="GameUI/TurnUI" method="_on_end_turn"]
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]

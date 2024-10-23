@@ -10,17 +10,22 @@ signal done_with_anim
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	load_player_uis()
-	connect_players_signals()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if loaded:
 		update_sticker_counts()
 
+func setup_uis() -> void:
+	load_player_uis()
+	connect_players_signals()
+
 
 func load_player_uis() -> void:
+		
 	for i in range(players.get_child_count()):
+		
 		
 		var player_number: String = str(i + 1)
 	
@@ -34,6 +39,9 @@ func load_player_uis() -> void:
 		for j in range(1, player.get_child_count()): #all except the first
 			
 			player_ui.add_missing_center_pieces(j, i, player)
+			
+			
+		player_ui.character_sprite.sprite_frames = players.get_child(i).character
 
 		
 	
@@ -46,7 +54,7 @@ func update_sticker_counts() -> void:
 		
 		var player = players.get_child(i)	
 		var player_ui = get_child(i)
-		
+				
 		player_ui.update_symbol_text_count(player.get_child(0).count)
 		
 		for j in range(1, player.get_child_count()): #all except the first

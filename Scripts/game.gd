@@ -1,6 +1,6 @@
 extends Node3D
 
-
+@onready var animation_timer: Timer = $AnimationTimer
 @onready var grid: Node3D = $Grid
 
 @onready var players: Node = $Players
@@ -9,7 +9,6 @@ extends Node3D
 @onready var turn_text_label: Label = $GameUI/Control/Game/TurnLabel
 
 
-@onready var animation_timer: Timer = $AnimationTimer
 @onready var end_animation_player: AnimationPlayer = $GameUI/Control/MatchEnd/AnimationPlayer
 
 
@@ -22,13 +21,12 @@ signal on_end_turn
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	for setup in GlobalGame.ready_players:
+		add_player(setup.character, setup.main_sticker, setup.abilities)
+		#print("Setup Player: " + str(players.get_child_count()) )
+		
+	call_deferred("setup_game")
 	
-	max_turns = players.get_child_count()
-	
-	connect_players_signals()
-	connect_players_uis_signals()
-	connect_tile_signals()
-	_assign_players_ids()
 	
 
 
@@ -46,6 +44,82 @@ func _input(event: InputEvent) -> void:
 	if(event.is_action_pressed("NextTurn")):
 		end_turn_alt()
 	
+	
+func setup_game() -> void:
+	max_turns = players.get_child_count()
+	
+	var game_ui = find_child("GameUI")
+	var turn_ui = game_ui.get_child(1)
+	
+	turn_ui.setup_uis()
+	call_deferred("connect_players_signals")
+	call_deferred("connect_players_uis_signals")
+	call_deferred("connect_tile_signals")
+	call_deferred("_assign_players_ids")
+	
+	
+func add_player(character, main_sticker, abilities) -> void:
+	
+	var new_player = preload("res://Scenes/player.tscn").instantiate()
+
+	
+	# Character
+	new_player.character = get_character_sprite_frames_from_id(character)
+	
+	# main_sticker
+	
+	new_player.add_child(get_main_sticker_from_id(main_sticker) )
+	
+	# Abilities
+	
+	for sticker in abilities:
+		var component = get_player_component(sticker)
+		new_player.add_child(component)
+		
+	players.add_child(new_player)
+	
+func get_player_component(component_id) -> Node:
+	
+	match component_id:
+		# telerow
+		0:
+			return preload("res://Scenes/Player Components/component_telekenesis_row.tscn").instantiate()
+
+		# telecolumn
+		1:
+			return preload("res://Scenes/Player Components/component_telekenesis_column.tscn").instantiate()
+
+		# sniper	
+		2:
+			return preload("res://Scenes/Player Components/component_sniper_gun.tscn").instantiate()
+
+
+		_:
+			return null
+		
+func get_character_sprite_frames_from_id(character_id) -> SpriteFrames:
+	
+	match character_id:
+		
+		# Wizard
+		0:
+			return preload("res://Textures/SpriteFrames/Wizard_Frames.tres")
+			
+		#Sharpshooter
+		1:
+			return preload("res://Textures/SpriteFrames/Sharpshooter_Frames.tres")
+			
+		_:
+			return null
+	
+func get_main_sticker_from_id(sticker_id) -> Node:
+	
+	var component = preload("res://Scenes/Player Components/component_symbol.tscn").instantiate()
+
+	component.symbol_type = sticker_id
+	
+	return component
+
 	
 	
 	
