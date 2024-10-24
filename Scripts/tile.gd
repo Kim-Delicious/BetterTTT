@@ -4,6 +4,11 @@ extends Node3D
 @onready var animation_player: AnimationPlayer = $AnimationTarget/AnimationPlayer
 @onready var button_3d: StaticBody3D = $AnimationTarget/Button3D
 @onready var mouse_hover_sprite: Sprite3D = $AnimationTarget/MouseHoverSprite
+@onready var mesh_instance_3d: MeshInstance3D = $AnimationTarget/MeshInstance3D
+
+@onready var components: Node = $Components
+
+@export var components_to_add: Array
 
 @onready var original_position = position
 var can_place = true
@@ -13,7 +18,10 @@ var do_return_to_normal = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	
+	for path in components_to_add:
+		var component: Node = load(path).instantiate()
+		components.add_child(component)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 
@@ -29,7 +37,6 @@ func _process(_delta: float) -> void:
 func play_animation(anim_name: String)	-> void:
 	animation_player.play(anim_name)
 	symbol.animation_player.play(anim_name)
-	
 	
 func rotate_towards_cursor() -> void:
 	
@@ -102,6 +109,17 @@ func stop_detecting_mouse() -> void:
 	do_detect_mouse = false
 	do_return_to_normal = true
 
+func action_on_components(callable_action: Callable, action_arguments) -> void:
+	
+	if components == null:
+		return
+	
+	for component in components.get_children():
+		
+		component.on_action(callable_action, action_arguments)
+
+
+
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	symbol._on_animation_player_animation_finished(anim_name)
 
@@ -112,7 +130,6 @@ func _on_button_3d_mouse_entered() -> void:
 		
 	start_dectecting_mouse()
 	
-
 
 func _on_button_3d_mouse_exited() -> void:
 	if visible == false || get_child(0).visible == false  || get_child(0).get_child(0).visible == false:

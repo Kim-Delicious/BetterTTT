@@ -19,6 +19,7 @@ config/icon="res://Textures/icon.svg"
 [autoload]
 
 GlobalGame="*res://Scripts/global_game.gd"
+GlobalSettings="*res://Scripts/global_settings.gd"
 
 [display]
 

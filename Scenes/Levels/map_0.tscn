@@ -1,29 +1,19 @@
-[gd_scene load_steps=56 format=3 uid="uid://bxlkylk5tdhqi"]
+[gd_scene load_steps=35 format=3 uid="uid://bxlkylk5tdhqi"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_tn2bb"]
 [ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_wi1jl"]
 [ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_slyyb"]
 [ext_resource type="Script" path="res://Scripts/grid.gd" id="4_ly60x"]
 [ext_resource type="PackedScene" uid="uid://b713dr5lk5kx8" path="res://Scenes/Tile.tscn" id="5_yn3cf"]
-[ext_resource type="Texture2D" uid="uid://bbhrle7pxmvkn" path="res://Textures/SilloutteBanner2.png" id="6_nqhcm"]
-[ext_resource type="Script" path="res://Scripts/game_menu.gd" id="7_jo4iq"]
-[ext_resource type="StyleBox" uid="uid://ddcao77yu21dh" path="res://Resources/StyleBox/long_button_pressed.tres" id="8_guf6q"]
-[ext_resource type="StyleBox" uid="uid://g7w0n7dgricu" path="res://Resources/StyleBox/long_button_hover.tres" id="9_7xr14"]
-[ext_resource type="StyleBox" uid="uid://c80qni2878hrn" path="res://Resources/StyleBox/long_button_normal.tres" id="10_mfuaa"]
+[ext_resource type="PackedScene" uid="uid://eb1fd5eu0f66" path="res://Scenes/UI/in_game_menu.tscn" id="6_j154i"]
+[ext_resource type="PackedScene" uid="uid://cf2hu0v7iwkms" path="res://Scenes/UI/end_screen.tscn" id="11_4mqmf"]
 [ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="11_7tudg"]
-[ext_resource type="Texture2D" uid="uid://v47031s4wuu2" path="res://Textures/SilloutteBanner5.png" id="12_djcej"]
-[ext_resource type="Texture2D" uid="uid://b5he1a17t8v0t" path="res://Textures/GameWinBorder.png" id="13_ryga5"]
-[ext_resource type="Texture2D" uid="uid://c7q0mxa3r33ku" path="res://Textures/GameWin.png" id="14_qnmbb"]
-[ext_resource type="Texture2D" uid="uid://cikvpgwt7em1q" path="res://Textures/GameWin_mask.png" id="15_lel4e"]
-[ext_resource type="Shader" path="res://Resources/Shaders/animated_title_2.gdshader" id="16_bobc5"]
 [ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="17_xuvbr"]
 [ext_resource type="Script" path="res://Scripts/UI/turn_ui.gd" id="18_2h5fe"]
-[ext_resource type="Texture2D" uid="uid://bpqe4lf65inor" path="res://Textures/MenuSticker.png" id="19_sp1wa"]
 [ext_resource type="Texture2D" uid="uid://bn73b2cre5yb5" path="res://Textures/CenterUI.png" id="20_76uup"]
 [ext_resource type="Texture2D" uid="uid://dth2r76lyigkf" path="res://Textures/NextTurnStickerUp.png" id="21_rgg15"]
 [ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="22_3aalu"]
 [ext_resource type="Texture2D" uid="uid://brj6vlivsows8" path="res://Textures/NextTurnStickerUpHover.png" id="23_8xmmc"]
-[ext_resource type="Texture2D" uid="uid://c1frhtfgbmvdy" path="res://Textures/SilloutteBanner.png" id="24_wnn8l"]
 
 [sub_resource type="Sky" id="Sky_i4i7v"]
 sky_material = ExtResource("2_wi1jl")
@@ -348,223 +338,25 @@ _data = {
 "RESET": SubResource("Animation_yfbtf")
 }
 
-[sub_resource type="Animation" id="Animation_8vex2"]
-resource_name = "GameWon"
-length = 3.0
-
-[sub_resource type="Animation" id="Animation_akta4"]
-resource_name = "NextTurn"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Game/TurnLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.366667, 1.6, 1.96667),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Game/TurnLabel:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.333333, 1.2),
-"transitions": PackedFloat32Array(3.13834, 1, 1),
-"update": 0,
-"values": [Vector2(-236, -500), Vector2(-236, -180), Vector2(-236, -180)]
-}
-
-[sub_resource type="Animation" id="Animation_kunrw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/Game/TurnLabel:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/Game/TurnLabel:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-236, -44)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7q68k"]
-_data = {
-"GameWon": SubResource("Animation_8vex2"),
-"NextTurn": SubResource("Animation_akta4"),
-"RESET": SubResource("Animation_kunrw")
-}
-
-[sub_resource type="Animation" id="Animation_5x22l"]
-resource_name = "Close"
-length = 0.8667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.766667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 0.733333, 0.866667),
-"transitions": PackedFloat32Array(1, 10, 1),
-"update": 0,
-"values": [Vector2(704, -480), Vector2(1691, -2190), Vector2(-273, 1212)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.0333333, 0.733333, 0.866667),
-"transitions": PackedFloat32Array(1, 10, 1),
-"update": 0,
-"values": [Vector2(472, 0), Vector2(1426, -1652), Vector2(-497, 1678)]
-}
-
-[sub_resource type="Animation" id="Animation_7w00k"]
-resource_name = "Open"
-length = 0.8667
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.166667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.566667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-273, 1212), Vector2(704, -480), Vector2(704, -480)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu:position")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.566667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-497, 1678), Vector2(472, 0), Vector2(472, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_l08jx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(704, -480)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(472, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_s5dpd"]
-_data = {
-"Close": SubResource("Animation_5x22l"),
-"Open": SubResource("Animation_7w00k"),
-"RESET": SubResource("Animation_l08jx")
-}
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dukbb"]
-shader = ExtResource("16_bobc5")
-shader_parameter/direction = Vector2(0, 1)
-shader_parameter/speed = 0.75
-shader_parameter/noise_texture = ExtResource("17_xuvbr")
-
-[sub_resource type="Animation" id="Animation_1tqpt"]
+[sub_resource type="Animation" id="Animation_83ud4"]
 resource_name = "EndGame"
-length = 5.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("MatchEnd:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(2.13333, 2.36667, 2.46667, 2.83333, 2.9, 2.96667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(198.4, -1000), Vector2(198.4, 96), Vector2(198.4, -32), Vector2(198.4, 64), Vector2(198.4, 52), Vector2(198.4, 64)]
+"values": [Vector2(345.6, -2000), Vector2(345.6, 132), Vector2(345.6, -4), Vector2(345.6, 100), Vector2(345.6, 88), Vector2(345.6, 100)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
+tracks/1/path = NodePath("MatchEnd:rotation")
 tracks/1/interp = 4
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -576,19 +368,19 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../NextTurnButton/Sprite2D:position")
+tracks/2/path = NodePath("MatchEnd:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.36667, 2.6, 2.8),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(20, 0), Vector2(20, 956), Vector2(20, 1200)]
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("../../TurnUI:position")
+tracks/3/path = NodePath("../TurnUI:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -600,34 +392,35 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath(".:visible")
+tracks/4/path = NodePath("NextTurnButton/TextureRect:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(2.13333, 2.16667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
+"times": PackedFloat32Array(0, 2.36667, 2.56667, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 32), Vector2(0, 32), Vector2(0, 632), Vector2(0, 632)]
 }
 
-[sub_resource type="Animation" id="Animation_pmmhj"]
+[sub_resource type="Animation" id="Animation_kxlfd"]
+resource_name = "RESET"
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("MatchEnd:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(115.2, 32)]
+"values": [Vector2(115.2, -2000)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
+tracks/1/path = NodePath("MatchEnd:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -639,7 +432,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../TurnUI:position")
+tracks/2/path = NodePath("../TurnUI:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -651,7 +444,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:visible")
+tracks/3/path = NodePath("MatchEnd:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -663,57 +456,36 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("../../NextTurnButton/Sprite2D:position")
+tracks/4/path = NodePath("NextTurnButton/TextureRect:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(924, 956)]
+"values": [Vector2(0, 32)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_16cfl"]
-_data = {
-"EndGame": SubResource("Animation_1tqpt"),
-"RESET": SubResource("Animation_pmmhj")
-}
-
-[sub_resource type="Animation" id="Animation_0jrad"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_dhx3k"]
+resource_name = "new_animation"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("MatchEnd:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(115.2, 64.8)]
 }
 
-[sub_resource type="Animation" id="Animation_7cjds"]
-resource_name = "StartGame"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.666667, 0.833333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(20, 256), Vector2(20, 0), Vector2(20, 16), Vector2(20, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_661qm"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rfywp"]
 _data = {
-"RESET": SubResource("Animation_0jrad"),
-"StartGame": SubResource("Animation_7cjds")
+"EndGame": SubResource("Animation_83ud4"),
+"RESET": SubResource("Animation_kxlfd"),
+"new_animation": SubResource("Animation_dhx3k")
 }
 
 [sub_resource type="Animation" id="Animation_xky0j"]
@@ -737,7 +509,7 @@ tracks/1/path = NodePath("GameUI/Screen:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.0333333, 1),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -767,7 +539,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s21g0"]
@@ -1003,7 +775,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 10, 0)
 
 [node name="Tile5" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
 
@@ -1086,283 +858,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Control" type="Control" parent="GameUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Game" type="Control" parent="GameUI/Control"]
-layout_mode = 2
-anchors_preset = 0
-
-[node name="TurnLabel" type="Label" parent="GameUI/Control/Game"]
-visible = false
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -236.0
-offset_top = -44.0
-offset_right = 236.0
-offset_bottom = 44.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
-text = "Player 1's Turn!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Control/Game"]
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_7q68k")
-}
-autoplay = "NextTurn"
-
-[node name="Background" type="TextureRect" parent="GameUI/Control"]
-process_mode = 3
-visible = false
-self_modulate = Color(1, 0.439, 0.34, 1)
-top_level = true
-z_index = 121
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 128.0
-offset_top = -804.0
-offset_right = 373.0
-offset_bottom = 196.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.523599
-scale = Vector2(2, 2)
-texture = ExtResource("6_nqhcm")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="Menu" type="VBoxContainer" parent="GameUI/Control/Background"]
-top_level = true
-z_index = 121
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -324.0
-offset_right = 315.0
-offset_bottom = 98.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.523599
-size_flags_horizontal = 4
-size_flags_vertical = 4
-script = ExtResource("7_jo4iq")
-
-[node name="Label" type="Label" parent="GameUI/Control/Background/Menu"]
-modulate = Color(0.14, 0.0527333, 0.0448, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 96
-text = "Paused"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="HSeparator4" type="HSeparator" parent="GameUI/Control/Background/Menu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="Resume" type="Button" parent="GameUI/Control/Background/Menu"]
-modulate = Color(0.9, 0.3528, 0.216, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 54
-theme_override_styles/hover_pressed = ExtResource("8_guf6q")
-theme_override_styles/hover = ExtResource("9_7xr14")
-theme_override_styles/pressed = ExtResource("8_guf6q")
-theme_override_styles/normal = ExtResource("10_mfuaa")
-text = "Resume
-"
-
-[node name="HSeparator5" type="HSeparator" parent="GameUI/Control/Background/Menu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="Settings" type="Button" parent="GameUI/Control/Background/Menu"]
-modulate = Color(0.9, 0.3528, 0.216, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 54
-theme_override_styles/hover_pressed = ExtResource("8_guf6q")
-theme_override_styles/hover = ExtResource("9_7xr14")
-theme_override_styles/pressed = ExtResource("8_guf6q")
-theme_override_styles/normal = ExtResource("10_mfuaa")
-text = "Settings
-"
-
-[node name="HSeparator6" type="HSeparator" parent="GameUI/Control/Background/Menu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="MainMenu" type="Button" parent="GameUI/Control/Background/Menu"]
-modulate = Color(0.9, 0.3528, 0.216, 1)
-layout_mode = 2
-theme_override_font_sizes/font_size = 54
-theme_override_styles/hover = ExtResource("9_7xr14")
-theme_override_styles/pressed = ExtResource("8_guf6q")
-theme_override_styles/normal = ExtResource("10_mfuaa")
-text = "Exit Game
-"
-
-[node name="HSeparator7" type="HSeparator" parent="GameUI/Control/Background/Menu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-
-[node name="Shadow" type="TextureRect" parent="GameUI/Control/Background"]
-modulate = Color(0.27, 0.27, 0.27, 0.333333)
-show_behind_parent = true
-layout_mode = 0
-offset_left = 226.277
-offset_top = 7.92299
-offset_right = 258.277
-offset_bottom = 1000.51
-texture = ExtResource("11_7tudg")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Control/Background"]
-libraries = {
-"": SubResource("AnimationLibrary_s5dpd")
-}
-
-[node name="MatchEnd" type="TextureRect" parent="GameUI/Control"]
-process_mode = 3
-visible = false
-self_modulate = Color(0.639216, 0.286275, 0.109804, 1)
-top_level = true
-z_index = 121
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.9
-anchor_bottom = 0.9
-offset_left = 83.2
-offset_top = -1064.8
-offset_right = 83.1998
-offset_bottom = -1064.8
-grow_horizontal = 2
-pivot_offset = Vector2(460.8, 259.2)
-texture = ExtResource("12_djcej")
-expand_mode = 1
-stretch_mode = 1
-
-[node name="Shadow" type="TextureRect" parent="GameUI/Control/MatchEnd"]
-self_modulate = Color(0, 0, 0, 0.392157)
-show_behind_parent = true
-layout_mode = 1
-offset_right = 1572.0
-offset_bottom = 828.0
-texture = ExtResource("13_ryga5")
-expand_mode = 1
-
-[node name="Border" type="TextureRect" parent="GameUI/Control/MatchEnd"]
-layout_mode = 1
-offset_left = -16.0
-offset_top = -16.0
-offset_right = 1556.0
-offset_bottom = 812.0
-texture = ExtResource("13_ryga5")
-
-[node name="Game!" type="TextureRect" parent="GameUI/Control/MatchEnd"]
-z_index = 1
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -412.8
-offset_top = 64.0
-offset_right = 1223.2
-offset_bottom = 692.0
-grow_horizontal = 2
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("14_qnmbb")
-
-[node name="Winner" type="Label" parent="GameUI/Control/MatchEnd/Game!"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -424.0
-offset_top = -15.0
-offset_right = 424.0
-offset_bottom = 160.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_colors/font_color = Color(0.75, 0.5625, 0.375, 1)
-theme_override_font_sizes/font_size = 128
-text = "Player X Won!"
-
-[node name="FireEffect_Mask" type="TextureRect" parent="GameUI/Control/MatchEnd/Game!"]
-clip_children = 1
-z_index = 1
-texture_filter = 1
-texture_repeat = 2
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -814.8
-offset_right = 2419.2
-offset_bottom = 1260.0
-grow_horizontal = 2
-scale = Vector2(0.505, 0.5)
-texture = ExtResource("15_lel4e")
-metadata/_edit_lock_ = true
-
-[node name="Noise" type="TextureRect" parent="GameUI/Control/MatchEnd/Game!/FireEffect_Mask"]
-modulate = Color(1, 0.376, 0.04, 0.403922)
-material = SubResource("ShaderMaterial_dukbb")
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -1617.0
-offset_right = 1617.0
-offset_bottom = 1260.0
-grow_horizontal = 2
-texture = ExtResource("15_lel4e")
-
-[node name="Continue" type="Button" parent="GameUI/Control/MatchEnd"]
-modulate = Color(0.9, 0.540385, 0.216, 1)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -420.8
-offset_top = -202.2
-offset_right = -1.79996
-offset_bottom = -128.2
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(2, 2)
-theme_override_font_sizes/font_size = 54
-theme_override_styles/hover = ExtResource("9_7xr14")
-theme_override_styles/pressed = ExtResource("8_guf6q")
-theme_override_styles/normal = ExtResource("10_mfuaa")
-text = "Next
-"
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Control/MatchEnd"]
-libraries = {
-"": SubResource("AnimationLibrary_16cfl")
-}
-
 [node name="TurnUI" type="Control" parent="GameUI"]
 process_mode = 3
 layout_mode = 1
@@ -1375,89 +870,142 @@ mouse_filter = 1
 script = ExtResource("18_2h5fe")
 metadata/_edit_lock_ = true
 
-[node name="Button" type="Button" parent="GameUI"]
-visible = false
-modulate = Color(1, 1, 1, 0.192157)
+[node name="Control" type="Control" parent="GameUI"]
 layout_mode = 1
-offset_left = 24.0
-offset_top = 24.0
-offset_right = 48.0
-offset_bottom = 55.0
-scale = Vector2(0.75, 0.75)
-icon = ExtResource("19_sp1wa")
-flat = true
-icon_alignment = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="NextTurnButton" type="CenterContainer" parent="GameUI"]
-process_mode = 1
+[node name="NextTurnButton" type="Control" parent="GameUI/Control"]
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -40.0
-offset_right = 20.0
+offset_left = -128.0
+offset_top = -256.0
+offset_right = 128.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="GameUI/NextTurnButton"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("20_76uup")
-
-[node name="Button" type="TextureButton" parent="GameUI/NextTurnButton/Sprite2D"]
-modulate = Color(0.780598, 0.780598, 0.780598, 1)
-anchors_preset = -1
-anchor_left = 0.496
-anchor_top = 0.385
-anchor_right = 0.496
-anchor_bottom = 0.385
-offset_left = -795.808
-offset_top = -839.48
-offset_right = -659.808
-offset_bottom = -695.48
+[node name="TextureRect" type="TextureRect" parent="GameUI/Control/NextTurnButton"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(4, 4)
+texture = ExtResource("20_76uup")
+expand_mode = 1
+
+[node name="Button" type="TextureButton" parent="GameUI/Control/NextTurnButton/TextureRect"]
+modulate = Color(0.780598, 0.780598, 0.780598, 1)
+custom_minimum_size = Vector2(128, 144)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -80.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
 focus_mode = 1
 texture_normal = ExtResource("21_rgg15")
 texture_pressed = ExtResource("22_3aalu")
 texture_hover = ExtResource("23_8xmmc")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/NextTurnButton"]
+[node name="MatchEnd" parent="GameUI/Control" instance=ExtResource("11_4mqmf")]
+visible = false
+layout_mode = 1
+offset_left = -7.62939e-06
+offset_top = -2064.8
+offset_right = 0.0
+offset_bottom = -2064.8
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="InGameMenu" parent="GameUI/Control" instance=ExtResource("6_j154i")]
+layout_mode = 1
+offset_bottom = 0.0
+mouse_filter = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Control"]
+process_mode = 3
 libraries = {
-"": SubResource("AnimationLibrary_661qm")
+"": SubResource("AnimationLibrary_rfywp")
 }
-autoplay = "StartGame"
 
-[node name="Background" type="Control" parent="GameUI/NextTurnButton"]
-layout_mode = 2
+[node name="Background" type="Control" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="GameUI/NextTurnButton/Background"]
+[node name="Sprite2D" type="TextureRect" parent="GameUI/Background"]
 modulate = Color(0.25, 0.2475, 0.2475, 1)
 z_index = -50
-position = Vector2(-24, -4)
-scale = Vector2(2, 2)
-texture = ExtResource("24_wnn8l")
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("11_7tudg")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="Sprite2D2" type="Sprite2D" parent="GameUI/NextTurnButton/Background"]
+[node name="Sprite2D2" type="TextureRect" parent="GameUI/Background"]
 modulate = Color(0.25, 0.2475, 0.2475, 1)
 z_index = -50
-position = Vector2(1010, -4)
-rotation = 1.5708
-scale = Vector2(2, 2)
-texture = ExtResource("24_wnn8l")
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_7tudg")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="GameUI/NextTurnButton/Background"]
+[node name="Sprite2D3" type="TextureRect" parent="GameUI/Background"]
 modulate = Color(0.25, 0.2475, 0.2475, 1)
 z_index = -50
-position = Vector2(-1010, -4)
-rotation = -1.5708
-scale = Vector2(2, 2)
-texture = ExtResource("24_wnn8l")
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 32.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("11_7tudg")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Screen" type="TextureRect" parent="GameUI"]
+visible = false
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -1465,6 +1013,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("17_xuvbr")
 expand_mode = 1
 stretch_mode = 1
@@ -1482,11 +1031,8 @@ autoplay = "FadeIn"
 [connection signal="game_won" from="Grid" to="." method="_on_game_won"]
 [connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
 [connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]
-[connection signal="pressed" from="GameUI/Control/Background/Menu/Resume" to="GameUI/Control/Background/Menu" method="_on_resume_pressed"]
-[connection signal="pressed" from="GameUI/Control/Background/Menu/MainMenu" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
-[connection signal="pressed" from="GameUI/Control/MatchEnd/Continue" to="GameUI/Control/Background/Menu" method="_on_main_menu_pressed"]
 [connection signal="done_with_anim" from="GameUI/TurnUI" to="." method="_on_turn_ui_done_with_anim"]
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="." method="_on_turn_ui_loaded_player_uis"]
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="GameUI/TurnUI" method="_on_loaded_player_uis"]
-[connection signal="pressed" from="GameUI/Button" to="GameUI/Control/Background/Menu" method="_on_button_pressed"]
-[connection signal="pressed" from="GameUI/NextTurnButton/Sprite2D/Button" to="." method="end_turn_alt"]
+[connection signal="pressed" from="GameUI/Control/NextTurnButton/TextureRect/Button" to="." method="end_turn_alt"]
+[connection signal="next_button_pushed" from="GameUI/Control/MatchEnd" to="GameUI/Control/InGameMenu" method="_on_main_menu_pressed"]

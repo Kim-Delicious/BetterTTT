@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ui7fdroluu77"]
+
+[ext_resource type="Script" path="res://Scripts/Tile Components/component_shootable.gd" id="1_wvb4r"]
+
+[node name="Shootable" type="Node"]
+script = ExtResource("1_wvb4r")

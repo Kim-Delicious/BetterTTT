@@ -34,7 +34,8 @@ func slide_row_or_column(which_tile) -> void:
 		if grid_x >= 0 && grid_x <= x_max:
 			# Move Column Up
 			decrement()
-			move_column(grid_x, -1)
+			#move_column(grid_x, -1)
+			which_tile.action_on_components(move_column, [grid_x, -1])
 			return
 
 	# Last Row
@@ -42,7 +43,8 @@ func slide_row_or_column(which_tile) -> void:
 		if grid_x >= 0 && grid_x <= x_max:
 			#Move Column Down
 			decrement()
-			move_column(grid_x, 1)
+			which_tile.action_on_components(move_column, [grid_x, 1])
+			#move_column(grid_x, 1)
 			return
 
 		

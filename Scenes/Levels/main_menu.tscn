@@ -100,18 +100,6 @@ resource_name = "ClosePlay"
 [sub_resource type="Animation" id="Animation_117rn"]
 resource_name = "CloseSettings"
 
-[sub_resource type="Animation" id="Animation_1xvfp"]
-resource_name = "OpenMain"
-
-[sub_resource type="Animation" id="Animation_fe1sk"]
-resource_name = "OpenPlay"
-
-[sub_resource type="Animation" id="Animation_01xma"]
-resource_name = "OpenSettings"
-
-[sub_resource type="Animation" id="Animation_35sne"]
-resource_name = "Startup"
-
 [sub_resource type="Animation" id="Animation_v0xjy"]
 resource_name = "FadeOut"
 length = 0.433
@@ -140,6 +128,15 @@ tracks/1/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_1xvfp"]
+resource_name = "OpenMain"
+
+[sub_resource type="Animation" id="Animation_fe1sk"]
+resource_name = "OpenPlay"
+
+[sub_resource type="Animation" id="Animation_01xma"]
+resource_name = "OpenSettings"
+
 [sub_resource type="Animation" id="Animation_268gs"]
 length = 0.001
 tracks/0/type = "value"
@@ -166,6 +163,9 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+
+[sub_resource type="Animation" id="Animation_35sne"]
+resource_name = "Startup"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n4ner"]
 _data = {

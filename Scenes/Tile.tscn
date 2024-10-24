@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://b713dr5lk5kx8"]
+[gd_scene load_steps=27 format=3 uid="uid://b713dr5lk5kx8"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_m4vp3"]
 [ext_resource type="PackedScene" uid="uid://cgc5nfkuvu0s8" path="res://Scenes/symbol.tscn" id="2_oplua"]
@@ -333,6 +333,22 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0.0872665, 0), Vector3(0, -0.0872665, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_aukij"]
+resource_name = "ReflectBullet"
+length = 0.9
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTarget:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector3(0, 0, 0), Vector3(0.25, 0, -0.25), Vector3(-0.25, 0, -0.25), Vector3(-0.25, 0, 0.25), Vector3(0.1, 0, 0.1), Vector3(-0.1, 0, 0.1), Vector3(-0.1, 0, -0.1), Vector3(0.1, 0, 0.1), Vector3(0, 0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h2p5"]
 _data = {
 "AddSticker": SubResource("Animation_7jmbb"),
@@ -342,6 +358,7 @@ _data = {
 "MoveRight": SubResource("Animation_drr6v"),
 "MoveUp": SubResource("Animation_4tyog"),
 "RESET": SubResource("Animation_ii0vl"),
+"ReflectBullet": SubResource("Animation_aukij"),
 "WinningThree": SubResource("Animation_dr0e5")
 }
 
@@ -427,6 +444,7 @@ height = 2.0
 
 [node name="Tile" type="Node3D"]
 script = ExtResource("1_m4vp3")
+components_to_add = ["res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/shootable.tscn"]
 
 [node name="AnimationTarget" type="Node3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 12, 0, 0, 0, 6, 0, 0, 0)
@@ -444,7 +462,6 @@ autoplay = "RESET"
 speed_scale = 2.0
 
 [node name="Symbol" parent="AnimationTarget" instance=ExtResource("2_oplua")]
-transform = Transform3D(2.414e-07, 0, 0.25, 0, 0.25, 0, -0.25, 0, 2.414e-07, 0, 1, 0)
 
 [node name="Button3D" parent="AnimationTarget" instance=ExtResource("4_6yu4t")]
 visibility_parent = NodePath("../MeshInstance3D")
@@ -470,6 +487,8 @@ emitting = false
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_86l7g")
 draw_pass_1 = SubResource("SphereMesh_dmtvj")
+
+[node name="Components" type="Node" parent="."]
 
 [connection signal="child_order_changed" from="." to="." method="_on_child_order_changed"]
 [connection signal="animation_finished" from="AnimationTarget/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

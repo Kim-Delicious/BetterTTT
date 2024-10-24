@@ -1,0 +1,255 @@
+[gd_scene load_steps=11 format=3 uid="uid://eb1fd5eu0f66"]
+
+[ext_resource type="Script" path="res://Scripts/game_menu.gd" id="1_tqgai"]
+[ext_resource type="Texture2D" uid="uid://bbhrle7pxmvkn" path="res://Textures/SilloutteBanner2.png" id="2_i5bs7"]
+[ext_resource type="StyleBox" uid="uid://ddcao77yu21dh" path="res://Resources/StyleBox/long_button_pressed.tres" id="3_v1x2s"]
+[ext_resource type="StyleBox" uid="uid://g7w0n7dgricu" path="res://Resources/StyleBox/long_button_hover.tres" id="4_y7y20"]
+[ext_resource type="StyleBox" uid="uid://c80qni2878hrn" path="res://Resources/StyleBox/long_button_normal.tres" id="5_3cflo"]
+[ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="6_e8h35"]
+
+[sub_resource type="Animation" id="Animation_qquy1"]
+resource_name = "Close"
+length = 0.8333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.466667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -128), Vector2(0, -256), Vector2(0, 4000), Vector2(0, 4000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_d8yae"]
+resource_name = "new_animation"
+length = 0.6333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 4000), Vector2(0, -128), Vector2(0, -128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_3lt5q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -128)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bqnqg"]
+_data = {
+"Close": SubResource("Animation_qquy1"),
+"Open": SubResource("Animation_d8yae"),
+"RESET": SubResource("Animation_3lt5q")
+}
+
+[node name="InGameMenu" type="HBoxContainer"]
+process_mode = 3
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+script = ExtResource("1_tqgai")
+
+[node name="VSeparator" type="VSeparator" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Background" type="TextureRect" parent="."]
+self_modulate = Color(1, 0.439216, 0.341176, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("2_i5bs7")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Background/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Menu" type="VBoxContainer" parent="Background/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HSeparator8" type="HSeparator" parent="Background/VBoxContainer/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Label" type="Label" parent="Background/VBoxContainer/Menu"]
+modulate = Color(0.14, 0.0527333, 0.0448, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 96
+text = "Paused"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="HSeparator4" type="HSeparator" parent="Background/VBoxContainer/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="Background/VBoxContainer/Menu"]
+modulate = Color(0.9, 0.3528, 0.216, 1)
+layout_mode = 2
+size_flags_horizontal = 5
+theme_override_font_sizes/font_size = 54
+theme_override_styles/hover_pressed = ExtResource("3_v1x2s")
+theme_override_styles/hover = ExtResource("4_y7y20")
+theme_override_styles/pressed = ExtResource("3_v1x2s")
+theme_override_styles/normal = ExtResource("5_3cflo")
+text = "Resume
+"
+icon_alignment = 1
+
+[node name="HSeparator5" type="HSeparator" parent="Background/VBoxContainer/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="Background/VBoxContainer/Menu"]
+modulate = Color(0.9, 0.3528, 0.216, 1)
+layout_mode = 2
+size_flags_horizontal = 5
+theme_override_font_sizes/font_size = 54
+theme_override_styles/hover_pressed = ExtResource("3_v1x2s")
+theme_override_styles/hover = ExtResource("4_y7y20")
+theme_override_styles/pressed = ExtResource("3_v1x2s")
+theme_override_styles/normal = ExtResource("5_3cflo")
+text = "Settings
+"
+
+[node name="HSeparator6" type="HSeparator" parent="Background/VBoxContainer/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="MainMenu" type="Button" parent="Background/VBoxContainer/Menu"]
+modulate = Color(0.9, 0.3528, 0.216, 1)
+z_index = 120
+layout_mode = 2
+size_flags_horizontal = 5
+theme_override_font_sizes/font_size = 54
+theme_override_styles/hover = ExtResource("4_y7y20")
+theme_override_styles/pressed = ExtResource("3_v1x2s")
+theme_override_styles/normal = ExtResource("5_3cflo")
+text = "Exit Game
+"
+
+[node name="HSeparator7" type="HSeparator" parent="Background/VBoxContainer/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="VSeparator2" type="VSeparator" parent="Background/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Shadow" type="TextureRect" parent="Background"]
+modulate = Color(0.27, 0.27, 0.27, 0.333333)
+show_behind_parent = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_right = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("6_e8h35")
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bqnqg")
+}
+
+[connection signal="pressed" from="Background/VBoxContainer/Menu/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Menu/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Background/VBoxContainer/Menu/MainMenu" to="." method="_on_main_menu_pressed"]

@@ -4,13 +4,9 @@ extends Node3D
 @onready var grid: Node3D = $Grid
 
 @onready var players: Node = $Players
+@onready var turn_ui = $GameUI/TurnUI
 
-@onready var turn_text_animation_player: AnimationPlayer = $GameUI/Control/Game/AnimationPlayer
-@onready var turn_text_label: Label = $GameUI/Control/Game/TurnLabel
-
-
-@onready var end_animation_player: AnimationPlayer = $GameUI/Control/MatchEnd/AnimationPlayer
-
+@onready var end_animation_player: AnimationPlayer = $GameUI/Control/AnimationPlayer
 
 var max_turns
 var current_turn = 0
@@ -47,10 +43,7 @@ func _input(event: InputEvent) -> void:
 	
 func setup_game() -> void:
 	max_turns = players.get_child_count()
-	
-	var game_ui = find_child("GameUI")
-	var turn_ui = game_ui.get_child(1)
-	
+		
 	turn_ui.setup_uis()
 	call_deferred("connect_players_signals")
 	call_deferred("connect_players_uis_signals")
@@ -131,9 +124,6 @@ func connect_players_signals() -> void:
 
 func connect_players_uis_signals() -> void:
 	
-
-	var game_ui = find_child("GameUI")
-	var turn_ui = game_ui.get_child(1)
 	
 	for player_ui in turn_ui.get_children():
 		
@@ -237,7 +227,7 @@ func _on_game_won(tile_array: Array) -> void:
 	for tile in tile_array:
 		tile.play_animation("WinningThree")
 
-	var label = $"GameUI/Control/MatchEnd/Game!/Winner"
+	var label =$GameUI/Control/MatchEnd.winner_label 
 	label.text = "Player " + str(player_index + 1) + " Won!"
 	
 	end_animation_player.play("EndGame")

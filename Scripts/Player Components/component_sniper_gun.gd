@@ -1,6 +1,11 @@
 extends PlayerComponent
 
 
+
+
+"""Add particle to this object instead of the the tile"""
+
+
 func _ready() -> void:
 	refresh()
 	
@@ -9,7 +14,7 @@ func refresh() -> void:
 	available = true
 
 
-func take_action(_wsource_node, on_which_tile) -> void:
+func take_action(_source_node, on_which_tile) -> void:
 	if count <= 0:
 		return
 		
@@ -23,8 +28,7 @@ func take_action(_wsource_node, on_which_tile) -> void:
 		return
 		
 	decrement()
-	
-	shoot_tile(on_which_tile)
+	on_which_tile.action_on_components(shoot_tile, [on_which_tile])
 
 func shoot_tile(which_tile) -> void:
 	which_tile.can_place = false

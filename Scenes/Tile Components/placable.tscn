@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chltsjvpp78ic"]
+
+[ext_resource type="Script" path="res://Scripts/Tile Components/component_placable.gd" id="1_hu5ek"]
+
+[node name="Placable" type="Node"]
+script = ExtResource("1_hu5ek")

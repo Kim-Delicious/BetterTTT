@@ -25,11 +25,11 @@ func take_action(source_node, on_which_tile) -> void:
 	if on_which_tile.symbol.symbol_type == -1:
 		
 		decrement()
-		stick_symbol_on_tile(source_node.id, on_which_tile)
+		on_which_tile.action_on_components(stick_symbol_on_tile, [source_node.id, on_which_tile])
 		
 	elif symbol_type == -1:
 		decrement()
-		stick_symbol_on_tile(source_node.id, on_which_tile)
+		on_which_tile.action_on_components(stick_symbol_on_tile, [source_node.id, on_which_tile])
 		
 func stick_symbol_on_tile(player_id, which_tile) -> void:
 	if which_tile.can_place:

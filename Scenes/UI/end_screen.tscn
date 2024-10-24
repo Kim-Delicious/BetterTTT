@@ -1,0 +1,191 @@
+[gd_scene load_steps=12 format=3 uid="uid://cf2hu0v7iwkms"]
+
+[ext_resource type="Texture2D" uid="uid://v47031s4wuu2" path="res://Textures/SilloutteBanner5.png" id="1_a3kgf"]
+[ext_resource type="Texture2D" uid="uid://b5he1a17t8v0t" path="res://Textures/GameWinBorder.png" id="2_ru6ug"]
+[ext_resource type="Script" path="res://Scripts/UI/end_screen.gd" id="2_yfhmg"]
+[ext_resource type="Texture2D" uid="uid://c7q0mxa3r33ku" path="res://Textures/GameWin.png" id="3_ih3gs"]
+[ext_resource type="Texture2D" uid="uid://cikvpgwt7em1q" path="res://Textures/GameWin_mask.png" id="4_ou105"]
+[ext_resource type="Shader" path="res://Resources/Shaders/animated_title_2.gdshader" id="5_nqy5p"]
+[ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="6_bnjju"]
+[ext_resource type="StyleBox" uid="uid://g7w0n7dgricu" path="res://Resources/StyleBox/long_button_hover.tres" id="7_r13ho"]
+[ext_resource type="StyleBox" uid="uid://ddcao77yu21dh" path="res://Resources/StyleBox/long_button_pressed.tres" id="8_sxsy5"]
+[ext_resource type="StyleBox" uid="uid://c80qni2878hrn" path="res://Resources/StyleBox/long_button_normal.tres" id="9_krt7t"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dukbb"]
+shader = ExtResource("5_nqy5p")
+shader_parameter/direction = Vector2(0, 1)
+shader_parameter/speed = 0.75
+shader_parameter/noise_texture = ExtResource("6_bnjju")
+
+[node name="MatchEnd" type="TextureRect"]
+process_mode = 3
+self_modulate = Color(0.639216, 0.286275, 0.109804, 1)
+top_level = true
+z_index = 121
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+offset_left = -1.2
+offset_top = -32.8
+offset_right = -1.19995
+offset_bottom = -32.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("1_a3kgf")
+expand_mode = 1
+stretch_mode = 1
+script = ExtResource("2_yfhmg")
+
+[node name="Border" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = -18.0
+offset_right = 15.4
+offset_bottom = 15.6
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ru6ug")
+expand_mode = 1
+
+[node name="Shadow" type="TextureRect" parent="Border"]
+self_modulate = Color(0, 0, 0, 0.392157)
+show_behind_parent = true
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ru6ug")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Game!" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+z_index = 1
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource("3_ih3gs")
+expand_mode = 1
+
+[node name="FireEffect_Mask" type="TextureRect" parent="HBoxContainer/VBoxContainer/Game!"]
+clip_children = 1
+z_index = 1
+texture_filter = 1
+texture_repeat = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_ou105")
+expand_mode = 1
+
+[node name="Noise" type="TextureRect" parent="HBoxContainer/VBoxContainer/Game!/FireEffect_Mask"]
+modulate = Color(1, 0.376, 0.04, 0.403922)
+material = SubResource("ShaderMaterial_dukbb")
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -1617.0
+offset_right = 1617.0
+offset_bottom = 1260.0
+grow_horizontal = 2
+texture = ExtResource("4_ou105")
+
+[node name="Winner" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.1
+theme_override_colors/font_color = Color(0.75, 0.5625, 0.375, 1)
+theme_override_font_sizes/font_size = 128
+text = "Player X Won!"
+horizontal_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VSeparator" type="VSeparator" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContinueButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.9, 0.540385, 0.216, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 54
+theme_override_styles/hover = ExtResource("7_r13ho")
+theme_override_styles/pressed = ExtResource("8_sxsy5")
+theme_override_styles/normal = ExtResource("9_krt7t")
+text = "Next
+"
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator3" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VSeparator2" type="VSeparator" parent="HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.13
+
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/HBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]

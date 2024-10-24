@@ -1,6 +1,9 @@
-extends VBoxContainer
+extends HBoxContainer
 
-@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+
+
 
 func _input(event: InputEvent) -> void:
 	
@@ -8,11 +11,11 @@ func _input(event: InputEvent) -> void:
 		open_close_menu()
 	
 func open_close_menu() -> void:
-	var local_game = $"../../../.."
+	var local_game = $"../../.."
 	if local_game._start_game:
 		return
 	
-	if get_parent().visible:
+	if visible:
 		animation_player.play("Close")
 		get_tree().paused = false
 	else:
@@ -28,3 +31,11 @@ func _on_resume_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://Scenes/Levels/main_menu.tscn")
+
+
+func _on_settings_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_continue_button_pressed() -> void:
+	pass # Replace with function body.
