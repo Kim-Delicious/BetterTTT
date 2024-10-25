@@ -118,6 +118,10 @@ func action_on_components(callable_action: Callable, action_arguments) -> void:
 		
 		component.on_action(callable_action, action_arguments)
 
+func activate_round_end_components() -> void:
+	
+	for comp in components.get_children():
+		comp.call_deferred("on_round_end")
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

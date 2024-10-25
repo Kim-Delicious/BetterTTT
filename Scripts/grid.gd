@@ -164,3 +164,14 @@ func _connect_grid_to_all_tile_signals() -> void:
 	
 func _player_clicked_on_tile(which_tile) -> void:
 	tile_clicked.emit(which_tile)
+	
+	
+func on_end_round() -> void:
+	
+	for i in range(get_child_count()):
+		
+		var row = get_child(i)
+		for j in range(row.get_child_count()):
+			var tile = row.get_child(j)
+			
+			tile.activate_round_end_components()

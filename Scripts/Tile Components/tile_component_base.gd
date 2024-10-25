@@ -2,6 +2,11 @@ class_name CustomTileComponent
 
 extends Node
 
+
+@onready var tile: Node3D = $"../../"
+
+
+
 @export var max_count: int = 1:
 	set(amount):
 		max_count = clamp(amount, 1, 9)
