@@ -36,6 +36,3 @@ func refresh() -> void:
 	
 func on_action(_callable_action: Callable, _action_arguments) -> void:
 	pass
-
-func on_round_end() -> void:
-	pass

@@ -16,12 +16,21 @@ var can_place = true
 var do_detect_mouse = false
 var do_return_to_normal = false
 
+var command_buffer: Array = []
+
+signal components_executed
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
 	for path in components_to_add:
 		var component: Node = load(path).instantiate()
 		components.add_child(component)
+			
+	for comp in components.get_children():
+		
+		if comp.has_method("on_round_end"):
+			command_buffer.append(comp.on_round_end)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 
@@ -120,8 +129,10 @@ func action_on_components(callable_action: Callable, action_arguments) -> void:
 
 func activate_round_end_components() -> void:
 	
-	for comp in components.get_children():
-		comp.call_deferred("on_round_end")
+	for command in command_buffer:
+		command.call_deferred()
+		
+	components_executed.emit.call_deferred()
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

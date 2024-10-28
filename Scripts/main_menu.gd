@@ -14,6 +14,8 @@ extends Control
 var player_num = 2
 var map_selection = 0
 
+var next_scene
+
 
 func _ready() -> void:
 	GlobalGame.refresh_game()
@@ -29,7 +31,8 @@ func _set_all_menues_invisible() -> void:
 #region Main
 
 func _on_tutorial_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Levels/tutorial.tscn")
+	next_scene = "res://Scenes/Levels/tutorial.tscn"
+	call_deferred("change_scene")
 
 
 func _on_play_pressed() -> void:
@@ -73,7 +76,7 @@ func _on_final_play_button_pressed() -> void:
 		
 		GlobalGame.ready_players.append(player_setup)
 				
-	
+	next_scene = "res://Scenes/Levels/map_" + str(map_selection) +".tscn"
 	call_deferred("change_scene")
 	
 func show_special() -> void:
@@ -209,6 +212,6 @@ func change_scene() -> void:
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if(anim_name == "FadeOut"):
-		get_tree().change_scene_to_file("res://Scenes/Levels/map_" + str(map_selection) +".tscn")
+		get_tree().change_scene_to_file(next_scene)
 
 	

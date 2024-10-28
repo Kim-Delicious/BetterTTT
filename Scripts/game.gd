@@ -24,6 +24,8 @@ func _ready() -> void:
 	call_deferred("setup_game")
 	
 	
+	$GameUI/SceneTransition.play.call_deferred("FadeIn")
+	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

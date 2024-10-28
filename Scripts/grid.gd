@@ -7,6 +7,10 @@ signal panic_time
 @export_category("Game Options")
 @export var tiles_to_panic : int = 3
 @export var tiles_to_win : int = 5
+@onready var buffer_timer: Timer = $"../BufferTimer"
+
+var round_end_component_buffer : Array =  []
+var buffer_index = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -174,4 +178,30 @@ func on_end_round() -> void:
 		for j in range(row.get_child_count()):
 			var tile = row.get_child(j)
 			
-			tile.activate_round_end_components()
+			if tile.command_buffer.size() <= 0:
+				continue
+			
+			var tile_method: Callable = tile.activate_round_end_components
+			
+			round_end_component_buffer.append(tile_method)
+		
+	iterate_through_buffer()
+
+
+func iterate_through_buffer() -> void:	
+	
+	if buffer_index > round_end_component_buffer.size() - 1:
+		
+		round_end_component_buffer.clear()
+		buffer_index = 0
+		
+		# Start next round
+		
+		return
+	print("Calling!")
+	round_end_component_buffer[buffer_index].call()
+	buffer_timer.start()
+	
+	buffer_index += 1
+	
+	
