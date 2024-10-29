@@ -707,6 +707,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row4" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 2.67923, 0)
+components_to_add = ["res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/reflect_bullet.tscn", "res://Scenes/Tile Components/cog.tscn"]
 
 [node name="Row5" type="Node3D" parent="Grid"]
 
@@ -723,7 +724,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row5" instance=ExtResource("5_yn3cf")]
-components_to_add = ["res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/cog.tscn"]
 
 [node name="Tile6" parent="Grid/Row5" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)

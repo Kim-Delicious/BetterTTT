@@ -3,23 +3,268 @@ extends CustomTileComponent
 
 var direction = -1
 
-
+const TILE_COG = preload("res://Resources/Material/tile_cog.tres")
+const TILE_COG_COUNTER = preload("res://Resources/Material/tile_cog_counter.tres")
 ### NOTE: Changes direction when shot?
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var mesh_3d: MeshInstance3D = tile.mesh_instance_3d
+	change_texture()
 	
-	var cog_mat = preload("res://Resources/Material/tile_cog.tres")
 	
-	mesh_3d.mesh.surface_set_material(0, cog_mat)
 	
+func on_action(_callable_action: Callable, _action_arguments) -> void:
+	
+	direction *= -1
+	change_texture()
 	
 func on_round_end() -> void:
 	
-	if !tile.get_child(0).visible: #MeshInstance
+	if !tile.get_child(0).visible: # MeshInstance
 		return
 	
+	
+	if direction == -1:
+		move_counter_clock()
+	else:
+		move_clockwise()
+		
+func change_texture() -> void:
+	var mesh_3d: MeshInstance3D = tile.mesh_instance_3d
+
+	
+	if direction == 1:
+	
+		mesh_3d.mesh.surface_set_material(0, TILE_COG)	
+		
+	else:
+		mesh_3d.mesh.surface_set_material(0, TILE_COG_COUNTER)	
+	
+#region CounterClockWise	
+
+func move_counter_clock() -> void:
+	var row = tile.get_parent()
+	
+	var x_index = tile.get_index()
+		
+	if x_index == 0:
+		
+		rotate_around_l()
+		return
+	elif x_index == row.get_child_count() - 1:
+		
+		rotate_around_r()
+		return
+		
+	rotate_around()
+
+func rotate_around_l() -> void:
+	
+	var row = tile.get_parent()
+	
+	### Top Left
+	move_tile(row.get_child_count()-1, -1, 0, 1, "Down")	
+	### Left
+	move_tile(row.get_child_count()-1, 0, -1, 1, "Down")
+	### Bottom Left
+	move_tile(row.get_child_count(), 1, -row.get_child_count(), 0, "LeftEdge")
+	
+	## Bottom
+	move_tile(1, 1, 0, 0, "Right")
+	## Bottom Right
+	move_tile(2, 1, -1, -1, "Up")
+	# Right
+	move_tile(2, 0, -1, -1, "Up")
+	## Top Right
+	move_tile(2, -1, -2, 0, "Left")
+	
+	#### Top
+	move_tile(1, -1, row.get_child_count()-1, 0, "RightEdge")
+	
+	tile.animation_player.play("CogLeft")
+	
+func rotate_around_r() -> void:
+	
+	var row = tile.get_parent()
+	
+	### Top Left
+	move_tile(-1, -1, 0, 1, "Down")	
+	### Left
+	move_tile(-1, 0, -1, 1, "Down")
+	### Bottom Left
+	move_tile(0, 1, 0, 0, "Right")
+	
+	## Bottom
+	move_tile(1, 1, -row.get_child_count(), 0, "LeftEdge")
+	## Bottom Right
+	move_tile(-row.get_child_count() + 2, 1, -1, -1, "Up")
+	## Right
+	move_tile(-row.get_child_count() + 2, 0, -1, -1, "Up")
+	### Top Right
+	move_tile(-row.get_child_count() + 2, -1, row.get_child_count()-1, 0, "RightEdge")
+	### Top
+	move_tile(-1, -1, 0, 0, "Left")
+	
+	tile.animation_player.play("CogLeft")		
+
+func rotate_around() -> void:
+	
+		
+	### Top Left
+	move_tile(-1, -1, 0, 1, "Down")	
+	### Left
+	move_tile(-1, 0, -1, 1, "Down")
+	### Bottom Left
+	move_tile(0, 1, 0, 0, "Right")
+	## Bottom
+	move_tile(1, 1, 0, 0, "Right")
+	## Bottom Right
+	move_tile(2, 1, -1, -1, "Up")
+	# Right
+	move_tile(2, 0, -2, -1, "Up")
+	## Top Right
+	move_tile(1, -1, -1, 0, "Left")
+	#### Top
+	move_tile(-1, -1, 0, 0, "Left")
+	
+	tile.animation_player.play("CogLeft")
+#endregion	
+	
+#region ClockWise	
+
+func move_clockwise() -> void:
+	var row = tile.get_parent()
+	
+	var x_index = tile.get_index()
+		
+	if x_index == 0:
+		
+		alt_rotate_around_l()
+		return
+	elif x_index == row.get_child_count() - 1:
+		
+		alt_rotate_around_r()
+		return
+		
+	alt_rotate_around()
+
+func alt_rotate_around_l() -> void:
+	
+	var row = tile.get_parent()
+	
+	### Bottom Left
+	move_tile(row.get_child_count()-1, 1, 0, -1, "Up")
+	### Left
+	move_tile(row.get_child_count()-1, 0, -1, -1, "Up")
+	### Top Left
+	move_tile(row.get_child_count(), -1, -row.get_child_count(), 0, "LeftEdge")	
+	
+	#### Top
+	move_tile(1, -1, 0, 0, "Right")
+	## Top Right
+	move_tile(2, -1, -1, 1, "Down")
+	# Right
+	move_tile(2, 0, -1, 1, "Down")
+	## Bottom Right
+	move_tile(2, 1, -1, 0, "Left")
+	
+	## Bottom
+	move_tile(0, 1, row.get_child_count()-1, 0, "RightEdge")
+	
+	tile.animation_player.play("CogRight")
+	
+func alt_rotate_around_r() -> void:
+	
+	var row = tile.get_parent()
+	
+	### Bottom Left
+	move_tile(-1, 1, 0, -1, "Up")
+	### Left
+	move_tile(-1, 0, -1, -1, "Up")
+	### Top Left
+	move_tile(0, -1, 0, 0, "Right")	
+	
+	#### Top
+	move_tile(1, -1, -row.get_child_count(), 0, "LeftEdge")
+	## Top Right
+	move_tile(-row.get_child_count()+2, -1, -row.get_child_count()-2, 1, "Down")
+	# Right
+	move_tile(-row.get_child_count()+2, 0, -1, 1, "Down")
+	## Bottom Right
+	move_tile(-row.get_child_count()+2, 1, -2, 0, "RightEdge")
+	
+	## Bottom
+	move_tile(-1, 1, 0, 0, "Left")
+	
+	tile.animation_player.play("CogRight")		
+
+func alt_rotate_around() -> void:
+	
+		
+	### Bottom Left
+	move_tile(-1, 1, 0, -1, "Up")
+	### Left
+	move_tile(-1, 0, -1, -1, "Up")
+	### Top Left
+	move_tile(0, -1, 0, 0, "Right")	
+	#### Top
+	move_tile(1, -1, 0, 0, "Right")
+	## Top Right
+	move_tile(2, -1, -1, 1, "Down")
+	# Right
+	move_tile(2, 0, -1, 1, "Down")
+	## Bottom Right
+	move_tile(0, 1, 0, 0, "Left")
+	## Bottom
+	move_tile(-1, 1, 0, 0, "Left")
+	
+	tile.animation_player.play("CogRight")
+#endregion	
+	
+func move_tile(target_x, target_y, next_x, next_y, anim_direction: String) -> void:
+	var row = tile.get_parent()
+	var grid = row.get_parent()
+	
+	var found_tile = get_relative_tile(target_x, target_y)
+				
+	var final_index = []
+	
+	final_index.append(found_tile.get_index() + next_x)
+	final_index.append(found_tile.get_parent().get_index() + next_y)
+		
+	move_to_new_position_and_parent(found_tile, final_index[0], final_index[1], grid)
+	
+	
+	var next_row_index = found_tile.get_parent().get_index() 
+	
+	if next_row_index + next_y > grid.get_child_count() - 1:
+		next_y = 0
+		next_row_index = 0
+	
+	
+	var ref_row = grid.get_child(next_row_index + next_y)
+	
+	match anim_direction:
+		"Left":
+			to_left(found_tile)
+		"Up":
+			to_up(found_tile)
+		"Down":
+			to_down(found_tile)
+		"Right":
+			to_right(found_tile)
+		"LeftEdge":
+			to_left_edge(found_tile, ref_row.get_child_count() - 2)
+		"RightEdge":
+			to_right_edge(found_tile, ref_row.get_child_count() - 1)
+		_:
+			return
+	
+	
+
+	
+	
+func get_relative_tile(new_x_index, new_y_index) -> Node3D:
 	
 	var row = tile.get_parent()
 	var grid = row.get_parent()
@@ -27,299 +272,35 @@ func on_round_end() -> void:
 	var x_index = tile.get_index()
 	var y_index = row.get_index()
 	
+	var final_x = x_index
+	var final_y = y_index
 	
-	print (row.get_child_count() - 1)
-	if x_index == 0:
-		
-		rotate_around_l(x_index, y_index, grid, row)
-		return
-	elif x_index == row.get_child_count() - 1:
-		
-		rotate_around_r(x_index, y_index, grid, row)
-		return
-		
-	rotate_around(x_index, y_index, grid, row)
-
-func rotate_around_l(x_index, y_index, grid, row) -> void:
 	
-	# Top Left
-		move_top_left(x_index, y_index, grid, row)
-		## Left
-		move_left.call_deferred(x_index, y_index, grid, row)
-		## Bottom Left
-		move_bottom_left_l.call_deferred(x_index, y_index, grid, row)
-		### Bottom
-		move_bottom.call_deferred(x_index+1, y_index, grid)
-		#### Bottom Right
-		move_bottom_right.call_deferred(x_index+1, y_index, grid, row)
-		#### Right
-		move_right.call_deferred(x_index+1, y_index, grid, row)
-		### Top
-		move_top_l.call_deferred(x_index, y_index, grid)
-		#### Top Right
-		move_top_right_l.call_deferred(x_index, y_index, grid, row)
 		
-		tile.animation_player.play("CogLeft")
+	if new_y_index <= -1:
+		final_y = get_top_index(y_index + new_y_index + 1, grid)
+	elif new_y_index >= 1:
+		final_y = get_bottom_index(y_index + new_y_index - 1, grid)
 		
-	
-func rotate_around_r(x_index, y_index, grid, row) -> void:
-	
-	# Top Left
-		move_top_left(x_index, y_index, grid, row)
-		## Left
-		move_left.call_deferred(x_index+1, y_index, grid, row)
-		## Bottom Left
-		move_bottom_left.call_deferred(x_index+1, y_index, grid, row)
-		### Bottom
-		move_bottom_r.call_deferred(x_index+1, y_index, grid)
-		##### Bottom Right
-		move_bottom_right_r.call_deferred(x_index+1, y_index, grid, row)
-		##### Right
-		move_right_r.call_deferred(x_index+1, y_index, grid, row)
-		###### Top Right
-		move_top_right_r.call_deferred(x_index+1, y_index, grid, row)	
-		##### Top
-		move_top.call_deferred(x_index-1, y_index, grid)
 		
-		tile.animation_player.play("CogLeft")
+	var new_row = grid.get_child(final_y)
+			
+	if new_x_index <= -1:
+			final_x = get_left_index(x_index + new_x_index + 1, new_row)
+		
+	elif new_x_index >= 1:
+		final_x = get_right_index(x_index + new_x_index - 1, new_row)
+		
+		
 		
 		
 
-func rotate_around(x_index, y_index, grid, row) -> void:
+			
+	return new_row.get_child(final_x)
 	
-	# Top Left
-	move_top_left(x_index, y_index, grid, row)
-	## Left
-	move_left.call_deferred(x_index+1, y_index, grid, row)
-	## Bottom Left
-	move_bottom_left.call_deferred(x_index+1, y_index, grid, row)
-	### Bottom
-	move_bottom.call_deferred(x_index+1, y_index, grid)
-	### Bottom Right
-	move_bottom_right.call_deferred(x_index+1, y_index, grid, row)
-	### Right
-	move_right.call_deferred(x_index+1, y_index, grid, row)
-	### Top Right
-	move_top_right.call_deferred(x_index-1, y_index, grid, row)
-	## Top
-	move_top.call_deferred(x_index-1, y_index, grid)
-	
-	tile.animation_player.play("CogLeft")
-	
-#region TopLeft
-
-func move_top_left(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_left_index(first_x_index, row)
-	var new_y_index = get_top_index(first_y_index, grid)
-	
-	var new_row = grid.get_child(new_y_index)
-	
-	var found_tile = new_row.get_child(new_x_index)
-
-	
-	move_to_new_position_and_parent(found_tile, new_x_index, new_y_index + 1, grid)
-	
-	to_down(found_tile)
-	
-	
-#endregion
-#region Left
-func move_left(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_left_index(first_x_index, row)
-	
-	var found_tile = grid.get_child(first_y_index).get_child(new_x_index)
-	
-	move_to_new_position_and_parent(found_tile, first_x_index-2, first_y_index + 1, grid)
-	
-	to_down(found_tile)
-	
-#endregion
-#region BottomLeft
-func move_bottom_left(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_left_index(first_x_index, row)
-	var new_y_index = get_bottom_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(new_x_index)
-	
-	move_to_new_position_and_parent(found_tile, new_x_index, new_y_index, grid)
-	
-	to_right(found_tile)
-	
-func move_bottom_left_l(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_left_index(first_x_index, row)
-	var new_y_index = get_bottom_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(new_x_index+1)
-	
-	move_to_new_position_and_parent(found_tile, 0, new_y_index, grid)
-	
-	var ref_row = grid.get_child(new_y_index)
-	
-	to_left_edge(found_tile, ref_row.get_child_count() - 2)
-
-
-#endregion
-#region Bottom
-func move_bottom(first_x_index, first_y_index, grid) -> void:
-	
-	var new_y_index = get_bottom_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(first_x_index)
-	
-	move_to_new_position_and_parent(found_tile, first_x_index, new_y_index, grid)
-	
-	to_right(found_tile)	
-	
-func move_bottom_r(first_x_index, first_y_index, grid) -> void:
-	
-	var new_y_index = get_bottom_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(first_x_index)
-	
-	move_to_new_position_and_parent(found_tile, 0, new_y_index, grid)
-	
-	var ref_row = grid.get_child(new_y_index)
-	
-	to_left_edge(found_tile, ref_row.get_child_count()-2)
-	
-		
-#endregion
-#region BottomRight
-func move_bottom_right(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_right_index(first_x_index, row)
-	var new_y_index = get_bottom_index(first_y_index, grid)
-	
-	if new_x_index == 0:
-		new_x_index = row.get_child_count()
-	
-	var found_tile = grid.get_child(new_y_index).get_child(new_x_index)
-		
-	move_to_new_position_and_parent(found_tile, new_x_index-1, new_y_index - 1, grid)
-	
-	to_up(found_tile)
-
-func move_bottom_right_r(_first_x_index, first_y_index, grid, _row) -> void:
-	
-	var new_x_index = 1
-	var new_y_index = get_bottom_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(new_x_index)
-	
-	move_to_new_position_and_parent(found_tile, 0, new_y_index - 1, grid)
-	
-	to_up(found_tile)
-	
-#endregion
-#region Right	
-func move_right(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_right_index(first_x_index, row)
-	
-	var found_tile = grid.get_child(first_y_index).get_child(new_x_index)
-	
-	if new_x_index == row.get_child_count()-1:
-		print(new_x_index)
-		#new_x_index -= 1
-		
-	move_to_new_position_and_parent(found_tile, new_x_index-1, first_y_index - 1, grid)
-	
-	to_up(found_tile)
-	
-func move_right_r(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_right_index(first_x_index, row) + 1
-	
-	var found_tile = grid.get_child(first_y_index).get_child(new_x_index)
-	
-	move_to_new_position_and_parent(found_tile, 0, first_y_index - 1, grid)
-	
-	to_up(found_tile)
-
-	
-#endregion
-#region TopRight
-func move_top_right(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_right_index(first_x_index, row)
-	var new_y_index = get_top_index(first_y_index, grid)
-	
-	
-	
-	var found_tile = grid.get_child(new_y_index).get_child(new_x_index)
-	
-	move_to_new_position_and_parent(found_tile, new_x_index, new_y_index, grid)
-	
-	to_left(found_tile)
-	
-func move_top_right_l(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_right_index(first_x_index, row)
-	var new_y_index = get_top_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(new_x_index)
-	
-	move_to_new_position_and_parent(found_tile, new_x_index-1, new_y_index, grid)
-	
-	to_left(found_tile)
-	
-func move_top_right_r(first_x_index, first_y_index, grid, row) -> void:
-	
-	var new_x_index = get_right_index(first_x_index, row) + 1
-	var new_y_index = get_top_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(new_x_index)
-	
-	var ref_row = grid.get_child(new_y_index)
-	
-	move_to_new_position_and_parent(found_tile, -1, new_y_index, grid)
-	
-	to_right_edge(found_tile, ref_row.get_child_count()-1)
-
-	
-#endregion
-#region Top
-func move_top(first_x_index, first_y_index, grid) -> void:
-	
-	var new_y_index = get_top_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(first_x_index)
-	
-	move_to_new_position_and_parent(found_tile, first_x_index, new_y_index, grid)
-	
-
-	to_left(found_tile)
-
-	
-func move_top_l(first_x_index, first_y_index, grid) -> void:
-	
-	var new_y_index = get_top_index(first_y_index, grid)
-	
-	var found_tile = grid.get_child(new_y_index).get_child(first_x_index)
-	
-	move_to_new_position_and_parent(found_tile, first_x_index - 1, new_y_index, grid)
-	
-	var ref_row = grid.get_child(new_y_index)
-	
-	to_right_edge(found_tile, ref_row.get_child_count()-1)
-	
-		
-#endregion
-
-
-	
-	
-
-	
-
 	
 func move_to_new_position_and_parent(starting_tile, target_x, target_y, grid) -> void:
-	
-	
+
 	var new_row: Node3D
 	
 	if starting_tile == null:
@@ -430,30 +411,33 @@ func to_right_edge(found_tile, row_size) -> void:
 	
 
 func get_left_index(x_index, row) -> int:
-	
-	if x_index - 1 >= 0:
+		
+	if x_index - 1 >= 0:		
 		return x_index - 1
 		
 	return row.get_child_count() - 1 
 	
 func get_right_index(x_index, row) -> int:
-	
-	if x_index + 1 < row.get_child_count():
+		
+	if x_index < row.get_child_count() - 1:
 		return x_index + 1
 		
 	return 0
 	
 func get_top_index(y_index, grid) -> int:
 	
+	
 	if y_index - 1 >= 0:
-		return y_index -1
+		return y_index - 1
 		
 	return grid.get_child_count() - 1
 	
 	
 func get_bottom_index(y_index, grid) -> int:
 	
-	if y_index + 1 < grid.get_child_count():
+	print(y_index)
+	
+	if y_index  < grid.get_child_count() - 1:
 		return y_index + 1
 		
 	return 0

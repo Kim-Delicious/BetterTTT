@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b713dr5lk5kx8"]
+[gd_scene load_steps=29 format=3 uid="uid://b713dr5lk5kx8"]
 
 [ext_resource type="Script" path="res://Scripts/tile.gd" id="1_m4vp3"]
 [ext_resource type="PackedScene" uid="uid://cgc5nfkuvu0s8" path="res://Scenes/symbol.tscn" id="2_oplua"]
@@ -389,10 +389,39 @@ tracks/1/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 0.0872665, 0), Vector3(0, -0.0872665, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_5lj6j"]
+resource_name = "CogRight"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationTarget:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.366667, 1, 1.6, 2.03333, 2.23333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.174533, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.74533, 0), Vector3(0, -1.5708, 0), Vector3(0, -1.5708, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationTarget/MeshInstance3D:surface_material_override/0:albedo_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.966667),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h2p5"]
 _data = {
 "AddSticker": SubResource("Animation_7jmbb"),
 "CogLeft": SubResource("Animation_ydqb8"),
+"CogRight": SubResource("Animation_5lj6j"),
 "GetShot": SubResource("Animation_f56pr"),
 "MoveDown": SubResource("Animation_bgpm8"),
 "MoveLeft": SubResource("Animation_woeo7"),
