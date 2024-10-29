@@ -122,9 +122,9 @@ func action_on_components(callable_action: Callable, action_arguments) -> void:
 	
 	if components == null:
 		return
-	
+	print(components.get_child_count())
 	for component in components.get_children():
-		
+		print(component.name)
 		component.on_action(callable_action, action_arguments)
 
 func activate_round_end_components() -> void:
@@ -133,6 +133,16 @@ func activate_round_end_components() -> void:
 		command.call_deferred()
 		
 	components_executed.emit.call_deferred()
+
+
+func replace_component(component_index, new_component_name: String) -> void:
+	
+	components.get_child(component_index).queue_free()
+	
+	var path = "res://Scenes/Tile Components/" + new_component_name + ".tscn"
+	var comp = load(path).instantiate()
+	components.add_child(comp)
+	components.move_child(comp, component_index)
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:

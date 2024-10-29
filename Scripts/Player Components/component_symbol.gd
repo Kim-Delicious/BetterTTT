@@ -36,6 +36,10 @@ func stick_symbol_on_tile(player_id, which_tile) -> void:
 		which_tile.symbol.change_symbol(symbol_type)
 		which_tile.symbol.placed_by_index = player_id
 		which_tile.play_animation("AddSticker")
+		
+		for comp : Node in which_tile.components.get_children():
+			if comp.name == "Shootable":
+				which_tile.replace_component(comp.get_index(), "reflect_bullet")
 
 func decrement(amount = 1) -> void:
 	count -= amount

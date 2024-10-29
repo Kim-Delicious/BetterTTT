@@ -23,10 +23,7 @@ func take_action(_source_node, on_which_tile) -> void:
 		
 	if on_which_tile.get_child(0).get_child(0).visible == false: # MeshInstance3D
 		return
-		
-	if on_which_tile.symbol.symbol_type != -1:
-		return
-		
+
 	decrement()
 	on_which_tile.action_on_components(shoot_tile, [on_which_tile])
 

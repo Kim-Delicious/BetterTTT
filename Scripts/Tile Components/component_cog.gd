@@ -343,12 +343,12 @@ func move_to_new_position_and_parent(starting_tile, target_x, target_y, grid) ->
 	# Work normally
 	new_x = target_x
 		
-	print("Starting position: " + str(starting_tile.get_index() ) + ", " + str(starting_tile.get_parent().get_index() ) )
+	#print("Starting position: " + str(starting_tile.get_index() ) + ", " + str(starting_tile.get_parent().get_index() ) )
 		
 	starting_tile.reparent(new_row)
 	new_row.move_child(starting_tile, new_x)
 	
-	print("Ending position: " + str(starting_tile.get_index() ) + ", " + str(starting_tile.get_parent().get_index() ) )
+	#print("Ending position: " + str(starting_tile.get_index() ) + ", " + str(starting_tile.get_parent().get_index() ) )
 		
 
 
@@ -434,9 +434,7 @@ func get_top_index(y_index, grid) -> int:
 	
 	
 func get_bottom_index(y_index, grid) -> int:
-	
-	print(y_index)
-	
+		
 	if y_index  < grid.get_child_count() - 1:
 		return y_index + 1
 		
