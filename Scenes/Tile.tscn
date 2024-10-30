@@ -53,6 +53,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true, false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Poof:amount")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3.93333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [10, 10]
+}
 
 [sub_resource type="Animation" id="Animation_ydqb8"]
 resource_name = "CogLeft"
@@ -371,6 +383,18 @@ tracks/6/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Poof:amount")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [64]
+}
 
 [sub_resource type="Animation" id="Animation_aukij"]
 resource_name = "ReflectBullet"
@@ -478,14 +502,13 @@ max_value = 3.0
 _data = [Vector2(0, 0.0334573), 4.45959, 4.45959, 0, 0, Vector2(0.0146341, 3), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_py1ss"]
+[sub_resource type="CurveTexture" id="CurveTexture_ff2xe"]
 curve = SubResource("Curve_v3pua")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_86l7g"]
 emission_shape_scale = Vector3(1, 0, 1)
-direction = Vector3(0, 0, 0)
-spread = 180.0
-flatness = 1.0
+direction = Vector3(0, -1, 0)
+spread = 71.118
 initial_velocity_min = 1.0
 initial_velocity_max = 3.0
 gravity = Vector3(0, 0, 0)
@@ -494,27 +517,27 @@ linear_accel_max = -10.0
 scale_min = 0.25
 scale_max = 2.0
 scale_over_velocity_max = 1000.0
-scale_over_velocity_curve = SubResource("CurveTexture_py1ss")
+scale_over_velocity_curve = SubResource("CurveTexture_ff2xe")
 hue_variation_min = -0.53
 hue_variation_max = 0.67
 collision_mode = 1
 collision_friction = 0.0
 collision_bounce = 0.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vygrd"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g8y0c"]
 roughness = 0.0
 clearcoat = 0.0
 clearcoat_roughness = 1.0
 distance_fade_max_distance = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_dmtvj"]
-material = SubResource("StandardMaterial3D_vygrd")
+material = SubResource("StandardMaterial3D_g8y0c")
 radius = 1.0
 height = 2.0
 
 [node name="Tile" type="Node3D"]
 script = ExtResource("1_m4vp3")
-components_to_add = ["res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/shootable.tscn"]
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn")
 
 [node name="AnimationTarget" type="Node3D" parent="."]
 transform = Transform3D(6, 0, 0, 0, 12, 0, 0, 0, 6, 0, 0, 0)
@@ -553,7 +576,6 @@ autoplay = "Idle"
 
 [node name="Poof" type="GPUParticles3D" parent="."]
 transform = Transform3D(6, -3.04221e-05, 1.52111e-05, -1.52111e-05, -12, 1.4162e-05, 1.52111e-05, -2.98977e-05, -6, 1.27352e-05, 3.02342, 1.27353e-05)
-visible = false
 emitting = false
 amount = 64
 process_material = SubResource("ParticleProcessMaterial_86l7g")

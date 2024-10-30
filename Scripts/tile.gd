@@ -8,7 +8,7 @@ extends Node3D
 
 @onready var components: Node = $Components
 
-@export var components_to_add: Array
+@export var components_to_add: PackedStringArray
 
 @onready var original_position = position
 var can_place = true
@@ -20,17 +20,24 @@ var command_buffer: Array = []
 
 signal components_executed
 
+signal interacted_with
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	for path in components_to_add:
 		var component: Node = load(path).instantiate()
 		components.add_child(component)
 			
 	for comp in components.get_children():
 		
+		comp.interacted.connect(on_component_interacted)
+		
 		if comp.has_method("on_round_end"):
 			command_buffer.append(comp.on_round_end)
+			
+			
+		if comp.has_method("after_tile_ready"):
+			comp.call_deferred("after_tile_ready")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 
@@ -122,9 +129,7 @@ func action_on_components(callable_action: Callable, action_arguments) -> void:
 	
 	if components == null:
 		return
-	print(components.get_child_count())
 	for component in components.get_children():
-		print(component.name)
 		component.on_action(callable_action, action_arguments)
 
 func activate_round_end_components() -> void:
@@ -143,6 +148,7 @@ func replace_component(component_index, new_component_name: String) -> void:
 	var comp = load(path).instantiate()
 	components.add_child(comp)
 	components.move_child(comp, component_index)
+	comp.interacted.connect(on_component_interacted)
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
@@ -161,4 +167,7 @@ func _on_button_3d_mouse_exited() -> void:
 		return
 		
 	stop_detecting_mouse()
+	
+func on_component_interacted() -> void:
+	interacted_with.emit()
 	

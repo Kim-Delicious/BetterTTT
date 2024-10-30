@@ -69,7 +69,7 @@ func move_column(which_column_index, direction = -1) -> void:
 			tile.reset_original_position()
 			
 			tile.animation_player.play("MoveUp")
-			continue
+
 			
 	else:		
 		for n in range(grid.get_child_count() - 1):
@@ -89,7 +89,6 @@ func move_column(which_column_index, direction = -1) -> void:
 						
 			tile.animation_player.play("MoveDown")
 
-			continue
 			
 	# Move Edges
 	if direction == -1:
@@ -107,6 +106,7 @@ func move_column(which_column_index, direction = -1) -> void:
 				
 		first_tile.animation_player.play("MoveUp")
 
+
 	else:
 		var last_row = grid.get_child(grid.get_child_count() - 1)
 		var last_tile = last_row.get_child(which_column_index + 1)
@@ -123,9 +123,44 @@ func move_column(which_column_index, direction = -1) -> void:
 		
 		last_tile.animation_player.play("MoveDown")
 
+	update_tile_interactions(which_column_index, direction)
+
 
 		
 	
+func update_tile_interactions(which_column_index, direction) -> void:
+	
+	if direction == -1:
+		for i in range(1, grid.get_child_count()):
+			var row = grid.get_child(i)
+			var tile = row.get_child(which_column_index)
+		
+			tile.on_component_interacted()
+			
+	else:		
+		for n in range(grid.get_child_count() - 1):
+			var i = grid.get_child_count() - 2 - n
+			
+			var row = grid.get_child(i)
+			var tile = row.get_child(which_column_index)
+
+			tile.on_component_interacted()
+
+			
+	# Move Edges
+	if direction == -1:
+		var row = grid.get_child(0)
+		var first_tile = row.get_child(which_column_index + 1)
+		
+
+		first_tile.on_component_interacted()
+
+
+	else:
+		var last_row = grid.get_child(grid.get_child_count() - 1)
+		var last_tile = last_row.get_child(which_column_index + 1)
+
+		last_tile.on_component_interacted()
 	
 
 func decrement(amount = 1) -> void:

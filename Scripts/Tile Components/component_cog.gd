@@ -17,6 +17,7 @@ func on_action(_callable_action: Callable, _action_arguments) -> void:
 	
 	direction *= -1
 	change_texture()
+	interacted.emit()
 	
 func on_round_end() -> void:
 	
@@ -28,6 +29,8 @@ func on_round_end() -> void:
 		move_counter_clock()
 	else:
 		move_clockwise()
+		
+	interacted.emit()
 		
 func change_texture() -> void:
 	var mesh_3d: MeshInstance3D = tile.mesh_instance_3d
@@ -259,6 +262,8 @@ func move_tile(target_x, target_y, next_x, next_y, anim_direction: String) -> vo
 			to_right_edge(found_tile, ref_row.get_child_count() - 1)
 		_:
 			return
+			
+	found_tile.components.get_child(0).interacted.emit()
 	
 	
 

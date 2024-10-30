@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://blrhkc4yc7l5t"]
+
+[ext_resource type="Script" path="res://Scripts/Tile Components/component_land_mine.gd" id="1_ujfjr"]
+
+[node name="LandMine" type="Node"]
+script = ExtResource("1_ujfjr")

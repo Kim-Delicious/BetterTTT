@@ -377,7 +377,6 @@ texture_pressed = ExtResource("19_wuym8")
 texture_hover = ExtResource("20_lbj6f")
 
 [node name="SelectionMenu" type="TextureRect" parent="."]
-visible = false
 self_modulate = Color(0.41, 0.685333, 1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -394,6 +393,7 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="MapSelection" type="Control" parent="SelectionMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -411,7 +411,7 @@ offset_bottom = 4.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="SelectionMenu/MapSelection"]
-modulate = Color(0.215686, 0.360784, 0.52549, 1)
+modulate = Color(0.211765, 0.352941, 0.517647, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -570,7 +570,6 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PlayerSelection" type="Control" parent="SelectionMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -579,7 +578,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Label" type="Label" parent="SelectionMenu/PlayerSelection"]
-self_modulate = Color(0.215686, 0.360784, 0.52549, 1)
+self_modulate = Color(0.211765, 0.352941, 0.517647, 1)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

@@ -62,13 +62,14 @@ func move_row(which_row_index, direction = -1) -> void:
 			tile.animation_player.play("MoveLeft")
 			tile.position.x += 7
 			tile.reset_original_position()
+
 			
 			continue
 		else:
 			tile.position.x -= 7
 			tile.animation_player.play("MoveRight")
 			tile.reset_original_position()
-			
+
 			continue
 			
 	# Move Edges
@@ -80,6 +81,7 @@ func move_row(which_row_index, direction = -1) -> void:
 		first_tile.reset_original_position()
 		
 		first_tile.animation_player.play("MoveLeft")
+
 	else:
 		var last_tile = row.get_child(row.get_child_count() - 1)
 		
@@ -90,6 +92,40 @@ func move_row(which_row_index, direction = -1) -> void:
 		
 		last_tile.animation_player.play("MoveRight")
 
+	update_tile_interactions(which_row_index, direction)
+
+func update_tile_interactions(which_row_index, direction) -> void:
+	
+	var row = grid.get_child(which_row_index)
+
+	# Move in-between tiles
+	for i in range(0, row.get_child_count()):
+		var tile = row.get_child(i)
+		if direction == -1:
+			if i == 0:
+				continue
+
+			tile.on_component_interacted()
+
+			
+			continue
+		else:
+
+			tile.on_component_interacted()
+
+			
+			continue
+			
+	# Move Edges
+	if direction == -1:
+		var first_tile = row.get_child(0)
+
+		first_tile.on_component_interacted()
+
+	else:
+		var last_tile = row.get_child(row.get_child_count() - 1)
+
+		last_tile.on_component_interacted()
 		
 		
 

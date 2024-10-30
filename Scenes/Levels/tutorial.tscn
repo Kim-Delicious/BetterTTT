@@ -605,85 +605,110 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 14)
 
 [node name="Tile" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile2" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile3" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
+components_to_add = PackedStringArray()
 
 [node name="Tile4" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile5" parent="Grid/Row" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Row2" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 7)
 
 [node name="Tile" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile2" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile3" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
+components_to_add = PackedStringArray()
 
 [node name="Tile4" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile5" parent="Grid/Row2" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Row3" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0)
 
 [node name="Tile" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile2" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile3" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
+components_to_add = PackedStringArray()
 
 [node name="Tile4" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile5" parent="Grid/Row3" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Row4" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -7)
 
 [node name="Tile" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile2" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile3" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
+components_to_add = PackedStringArray()
 
 [node name="Tile4" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile5" parent="Grid/Row4" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Row5" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, -14)
 
 [node name="Tile" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile2" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile3" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
+components_to_add = PackedStringArray()
 
 [node name="Tile4" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="Tile5" parent="Grid/Row5" instance=ExtResource("11_8cg2u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+components_to_add = PackedStringArray()
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3

@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4ctkdjiofpt1" path="res://Textures/SillouetteWizard_Grayscale.png" id="7_48uxx"]
 
 [node name="Player" type="Panel"]
+self_modulate = Color(0.211765, 0.352941, 0.517647, 1)
 custom_minimum_size = Vector2(300, 340)
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -112,6 +113,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [node name="Sillouette" type="TextureRect" parent="Control"]
+modulate = Color(0.211765, 0.352941, 0.517647, 1)
 self_modulate = Color(0.13, 0.13, 0.13, 1)
 show_behind_parent = true
 layout_mode = 1

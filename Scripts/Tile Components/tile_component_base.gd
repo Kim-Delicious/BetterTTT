@@ -21,6 +21,7 @@ var count:
 
 var available
 
+signal interacted
 
 
 func _ready() -> void:

@@ -620,6 +620,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/land_mine.tscn")
 
 [node name="Row2" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 21)
@@ -683,10 +684,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
 
 [node name="Tile" parent="Grid/Row4" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -2.56952, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row4" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 2.00064, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row4" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
@@ -706,8 +707,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row4" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 2.67923, 0)
-components_to_add = ["res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/reflect_bullet.tscn", "res://Scenes/Tile Components/cog.tscn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="Row5" type="Node3D" parent="Grid"]
 
@@ -715,7 +715,7 @@ components_to_add = ["res://Scenes/Tile Components/movable.tscn", "res://Scenes/
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row5" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -2.2775, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row5" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
@@ -735,7 +735,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row5" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, -2.0176, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/land_mine.tscn")
 
 [node name="Row6" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
@@ -744,19 +745,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row6" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 3.07217, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row6" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row6" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row6" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6, 0)
 
 [node name="Tile6" parent="Grid/Row6" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row6" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
@@ -765,13 +765,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row6" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 2.58437, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 
 [node name="Row7" type="Node3D" parent="Grid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
 
 [node name="Tile" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.5742, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
@@ -780,18 +780,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
 
 [node name="Tile6" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Tile8" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row7" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
@@ -800,29 +800,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
 
 [node name="Tile" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
 
 [node name="Tile2" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, -4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
 
 [node name="Tile3" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, -4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
 
 [node name="Tile4" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 
 [node name="Tile6" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile7" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
 
 [node name="Tile8" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 4, 0)
-components_to_add = ["res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/reflect_bullet.tscn"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row8" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
@@ -832,6 +830,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
 
 [node name="Tile" parent="Grid/Row9" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, 0, 0)
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/land_mine.tscn")
 
 [node name="Tile2" parent="Grid/Row9" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21, 0, 0)
@@ -855,6 +854,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 
 [node name="Tile9" parent="Grid/Row9" instance=ExtResource("5_yn3cf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28, 0, 0)
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/land_mine.tscn")
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
