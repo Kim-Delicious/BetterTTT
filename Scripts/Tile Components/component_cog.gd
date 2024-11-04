@@ -5,7 +5,6 @@ var direction = -1
 
 const TILE_COG = preload("res://Resources/Material/tile_cog.tres")
 const TILE_COG_COUNTER = preload("res://Resources/Material/tile_cog_counter.tres")
-### NOTE: Changes direction when shot?
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,6 +23,9 @@ func on_round_end() -> void:
 	if !tile.get_child(0).visible: # MeshInstance
 		return
 	
+	if check_for_chains():
+		animate_jammed()
+		return
 	
 	if direction == -1:
 		move_counter_clock()
@@ -35,6 +37,8 @@ func on_round_end() -> void:
 func change_texture() -> void:
 	var mesh_3d: MeshInstance3D = tile.mesh_instance_3d
 
+	
+	
 	
 	if direction == 1:
 	
@@ -265,8 +269,45 @@ func move_tile(target_x, target_y, next_x, next_y, anim_direction: String) -> vo
 			
 	found_tile.components.get_child(0).interacted.emit()
 	
+func check_for_chains() -> bool:
+		
+	for i in range(-1, 2):
+		for j in range(-1, 2):
+		
+			if i == 0 && j == 0:
+				continue
+				
+			var found_tile = get_relative_tile(i, j)
+			
+			if !found_tile.get_child(0).visible:
+				continue
+			
+			if found_tile.components.has_node("Chained"):
+				return true
 	
+	
+	
+	return false	
 
+
+func animate_jammed() -> void:
+	for i in range(-1, 2):
+		for j in range(-1, 2):
+		
+			if i == 0 && j == 0:
+				continue
+				
+			var found_tile = get_relative_tile(i, j)
+			
+			found_tile.animation_player.play("ReflectBullet")
+			
+	if direction == -1:
+		tile.animation_player.play("CogLeft")
+	else:
+		tile.animation_player.play("CogRight")
+
+		
+	
 	
 	
 func get_relative_tile(new_x_index, new_y_index) -> Node3D:

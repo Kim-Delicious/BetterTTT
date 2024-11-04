@@ -3,13 +3,17 @@ extends CustomTileComponent
 
 
 var interactions = 0
+var max_interaction = 2
 
 var neighbors: Array
 
 const LAND_MINE = preload("res://Resources/Material/land_mine.tres")
 const LAND_MINE_ADJACENT = preload("res://Resources/Material/land_mine_adjacent.tres")
+
+
+
 func _ready() -> void:
-	pass
+	available = false
 	
 
 	
@@ -23,9 +27,10 @@ func after_tile_ready() -> void:
 		if !found_tile.interacted_with.is_connected(on_neighbor_interaction):
 			found_tile.interacted_with.connect(on_neighbor_interaction)
 			
-		found_tile.mesh_instance_3d.set_surface_override_material(0, LAND_MINE_ADJACENT)
+		if found_tile.components.has_node("LandMine"):
+				continue
+		found_tile.mesh_instance_3d.material_overlay = LAND_MINE_ADJACENT
 
-	tile.mesh_instance_3d.set_surface_override_material(0, LAND_MINE)
 	tile.mesh_instance_3d.mesh.surface_set_material(0, LAND_MINE)
 		
 	
@@ -59,7 +64,10 @@ func reconnect_neighbors() -> void:
 		# Disconnect
 		if found_tile.interacted_with.is_connected(on_neighbor_interaction):
 			found_tile.interacted_with.disconnect(on_neighbor_interaction)
-			found_tile.mesh_instance_3d.set_surface_override_material(0, null)
+			if found_tile.components.has_node("LandMine"):
+				continue
+			
+			found_tile.mesh_instance_3d.material_overlay = null
 				
 	var new_neighbors = get_neighbors()
 	neighbors = new_neighbors
@@ -71,21 +79,41 @@ func reconnect_neighbors() -> void:
 		
 		if !new_tile.interacted_with.is_connected(on_neighbor_interaction):
 			new_tile.interacted_with.connect(on_neighbor_interaction)
-			new_tile.mesh_instance_3d.set_surface_override_material(0, LAND_MINE_ADJACENT)
+			
 
+			if(new_tile == tile):
+				new_tile.mesh_instance_3d.material_overlay = LAND_MINE
+				continue
+				
+			if new_tile.components.has_node("LandMine"):
+				continue
+				
+			new_tile.mesh_instance_3d.material_overlay = LAND_MINE_ADJACENT
 
+func on_turn_end() -> void:
+	
+	for found_tile in neighbors:
+		found_tile.animation_player.play("GetShot")
+		
+	available = false
 
 func on_action(_callable_action: Callable, _action_arguments) -> void:
-	#interacted.emit()
-	pass
+	if _callable_action.get_method() == "shoot_tile":
+		
+		if tile.components.has_node("ReflectBullet"):
+			return
+		
+		on_turn_end()
 	
 func on_neighbor_interaction() -> void:	
+	if !tile.get_child(0).visible:
+		return
+		
 	reconnect_neighbors()
 	
 	interactions += 1
 	
-	if interactions >= 5:
+	if interactions >= max_interaction:
+		available = true
 	
-		for found_tile in neighbors:
-			found_tile.animation_player.play("GetShot")
 	

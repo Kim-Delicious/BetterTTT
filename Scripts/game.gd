@@ -167,11 +167,13 @@ func _next_turn() -> void:
 		return
 		
 	
+	grid.call_deferred("on_end_turn")
+	
 	current_turn += 1
 	
 	if current_turn >= max_turns:
 		current_turn = 0
-		grid.on_end_round()
+		grid.call_deferred("on_end_round")
 		
 	players.get_child(current_turn).on_turn = true
 	players.get_child(current_turn).refresh_components()

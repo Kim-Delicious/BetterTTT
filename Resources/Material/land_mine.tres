@@ -1,10 +1,13 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dqdbnafgd8ts8"]
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://yymn3biawqst"]
+
+[ext_resource type="Texture2D" uid="uid://cwyqt6qi4x5ou" path="res://Textures/tile_landmine.png" id="1_vgwbm"]
 
 [resource]
 resource_local_to_scene = true
-albedo_color = Color(1, 0.0659501, 0.0659501, 1)
-metallic = 0.32
-metallic_specular = 0.0
+transparency = 2
+alpha_scissor_threshold = 0.12
+alpha_antialiasing_mode = 0
+albedo_texture = ExtResource("1_vgwbm")
 rim_tint = 0.0
 clearcoat_enabled = true
 clearcoat_roughness = 0.65

@@ -215,6 +215,25 @@ grow_vertical = 2
 texture = ExtResource("3_eroxg")
 expand_mode = 2
 
+[node name="Screen2" type="TextureRect" parent="Background"]
+self_modulate = Color(0.397596, 0.2132, 0.52, 0.470588)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = 2.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("21_6joow")
+expand_mode = 1
+stretch_mode = 1
+flip_h = true
+flip_v = true
+
 [node name="Title" type="TextureRect" parent="."]
 texture_filter = 2
 layout_mode = 1
@@ -377,6 +396,7 @@ texture_pressed = ExtResource("19_wuym8")
 texture_hover = ExtResource("20_lbj6f")
 
 [node name="SelectionMenu" type="TextureRect" parent="."]
+visible = false
 self_modulate = Color(0.41, 0.685333, 1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -393,7 +413,6 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="MapSelection" type="Control" parent="SelectionMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -522,6 +541,13 @@ texture_normal = ExtResource("4_vke2c")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="Map10" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+texture_normal = ExtResource("4_vke2c")
+ignore_texture_size = true
+stretch_mode = 0
+
 [node name="BackButton" type="TextureButton" parent="SelectionMenu/MapSelection"]
 self_modulate = Color(0.3599, 0.523846, 0.61, 1)
 layout_mode = 1
@@ -570,6 +596,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="PlayerSelection" type="Control" parent="SelectionMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -927,6 +954,7 @@ stretch_mode = 1
 [connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map7" to="." method="pick_map" binds= [6]]
 [connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map8" to="." method="pick_map" binds= [7]]
 [connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map9" to="." method="pick_map" binds= [8]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map10" to="." method="pick_map" binds= [9]]
 [connection signal="pressed" from="SelectionMenu/MapSelection/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="SelectionMenu/MapSelection/NextButton" to="." method="selection_next"]
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer/Button2" to="." method="remove_player"]

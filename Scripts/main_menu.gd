@@ -94,25 +94,27 @@ func pick_map(which_button) -> void:
 	
 	var label = $SelectionMenu/MapSelection/MapLabel
 	
-	match map_selection:
-		0:
-			label.text = str(map_selection)
-		1:
-			label.text = str(map_selection)
-		2:
-			label.text = str(map_selection)
-		3:
-			label.text = str(map_selection)
-		4:
-			label.text = str(map_selection)
-		5:
-			label.text = str(map_selection)
-		6:
-			label.text = str(map_selection)
-		7:
-			label.text = str(map_selection)
-		8:
-			label.text = str(map_selection)
+	label.text = str(map_selection)
+	
+	#match map_selection:
+		#0:
+			#
+		#1:
+			#label.text = str(map_selection)
+		#2:
+			#label.text = str(map_selection)
+		#3:
+			#label.text = str(map_selection)
+		#4:
+			#label.text = str(map_selection)
+		#5:
+			#label.text = str(map_selection)
+		#6:
+			#label.text = str(map_selection)
+		#7:
+			#label.text = str(map_selection)
+		#8:
+			#label.text = str(map_selection)
 	
 func add_player() -> void:
 	

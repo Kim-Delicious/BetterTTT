@@ -51,6 +51,10 @@ func slide_row_or_column(which_tile) -> void:
 		
 func move_column(which_column_index, direction = -1) -> void:
 	
+	if check_for_chains(which_column_index):
+		animate_all(which_column_index)
+		return
+		
 
 	# Move in-between tiles
 	
@@ -158,10 +162,32 @@ func update_tile_interactions(which_column_index, direction) -> void:
 
 	else:
 		var last_row = grid.get_child(grid.get_child_count() - 1)
-		var last_tile = last_row.get_child(which_column_index + 1)
+		var last_tile = last_row.get_child(which_column_index)
 
 		last_tile.on_component_interacted()
+
+
+func check_for_chains(which_column_index) -> bool:
 	
+	for i in range(0, grid.get_child_count()):	
+		var row = grid.get_child(i)
+		var tile = row.get_child(which_column_index)
+		
+		if !tile.get_child(0).visible:
+			continue
+		
+		if tile.components.has_node("Chained"):
+			return true
+			
+	return false
+
+func animate_all(which_column_index) -> void:
+	
+	for i in range(0, grid.get_child_count()):	
+		var row = grid.get_child(i)
+		var tile = row.get_child(which_column_index)
+		
+		tile.animation_player.play("ReflectBullet")
 
 func decrement(amount = 1) -> void:
 	count -= amount

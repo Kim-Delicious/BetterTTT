@@ -17,6 +17,7 @@ var do_detect_mouse = false
 var do_return_to_normal = false
 
 var command_buffer: Array = []
+var turn_command_buffer: Array = []
 
 signal components_executed
 
@@ -34,6 +35,9 @@ func _ready() -> void:
 		
 		if comp.has_method("on_round_end"):
 			command_buffer.append(comp.on_round_end)
+			
+		if comp.has_method("on_turn_end"):
+			turn_command_buffer.append(comp.on_turn_end)
 			
 			
 		if comp.has_method("after_tile_ready"):
@@ -133,12 +137,25 @@ func action_on_components(callable_action: Callable, action_arguments) -> void:
 		component.on_action(callable_action, action_arguments)
 
 func activate_round_end_components() -> void:
-	
 	for command in command_buffer:
 		command.call_deferred()
 		
 	components_executed.emit.call_deferred()
 
+func activate_turn_end_components() -> void:
+		
+	for command in turn_command_buffer:
+		command.call_deferred()
+				
+	components_executed.emit.call_deferred()
+
+func refresh_turn_buffer() -> void:
+	turn_command_buffer.clear()
+	for comp in components.get_children():
+		
+		if comp.available && comp.has_method("on_turn_end"):
+			turn_command_buffer.append(comp.on_turn_end)	
+	
 
 func replace_component(component_index, new_component_name: String) -> void:
 	
