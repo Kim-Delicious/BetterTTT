@@ -565,21 +565,20 @@ scale = Vector2(0.75, 0.75)
 
 [node name="AnimatedCharacterSprite" type="AnimatedSprite2D" parent="DisplayAnchor"]
 z_index = -100
-position = Vector2(-185, 400)
+position = Vector2(185.333, 46.6667)
 sprite_frames = ExtResource("2_hlx6q")
 flip_h = true
 
 [node name="Inventory" type="Control" parent="DisplayAnchor"]
-visible = false
 z_index = -20
 material = SubResource("CanvasItemMaterial_grqqq")
 layout_mode = 3
 anchors_preset = 0
-offset_left = 200.0
-offset_top = -112.0
-offset_right = 200.0
-offset_bottom = -112.0
-scale = Vector2(0.25, 2)
+offset_left = 248.0
+offset_top = -57.0
+offset_right = 248.0
+offset_bottom = -57.0
+scale = Vector2(2, 2)
 
 [node name="Start" type="Sprite2D" parent="DisplayAnchor/Inventory"]
 texture = ExtResource("1_74rkx")
@@ -615,15 +614,14 @@ region_rect = Rect2(128, 0, 64, 64)
 
 [node name="TurnDial" type="Sprite2D" parent="DisplayAnchor"]
 z_index = 1
-position = Vector2(-512, -136)
-rotation = -8.93609
+position = Vector2(128, -100)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_ceglh")
 
 [node name="Node" type="Node2D" parent="DisplayAnchor/TurnDial"]
 visible = false
 modulate = Color(1, 1, 1, 0)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(3, 3)
 
 [node name="AbilitySticker" parent="DisplayAnchor/TurnDial/Node" instance=ExtResource("4_7ftmd")]
 anchors_preset = 8
@@ -640,6 +638,5 @@ libraries = {
 "": SubResource("AnimationLibrary_5dwy3")
 }
 autoplay = "BeginGame"
-speed_scale = 4.0
 
 [connection signal="animation_finished" from="DisplayAnchor/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

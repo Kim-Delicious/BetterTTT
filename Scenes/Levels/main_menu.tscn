@@ -1,95 +1,35 @@
-[gd_scene load_steps=42 format=3 uid="uid://c74edjjjeexmm"]
+[gd_scene load_steps=41 format=3 uid="uid://c74edjjjeexmm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_gxgxq"]
 [ext_resource type="Texture2D" uid="uid://bb13fyijl4ufv" path="res://Textures/SilloutteBanner6.png" id="2_m3mow"]
 [ext_resource type="Texture2D" uid="uid://cgqqas8hmy5to" path="res://Textures/Gradient_2.png" id="3_eroxg"]
-[ext_resource type="Texture2D" uid="uid://dbs376b482r5h" path="res://Textures/Border.png" id="4_vke2c"]
 [ext_resource type="Texture2D" uid="uid://boxw1sf03stu2" path="res://Textures/UI/Title.png" id="4_yfp25"]
-[ext_resource type="Texture2D" uid="uid://nev0y5t8moyr" path="res://Textures/UI/Buttons/BlankButtonToPush_Tutorial.png" id="5_snabs"]
-[ext_resource type="Texture2D" uid="uid://buxef3vns87at" path="res://Textures/UI/Buttons/Tutorial_ButtonPressed.png" id="6_ikyio"]
-[ext_resource type="Texture2D" uid="uid://dgq7mqx70yjdi" path="res://Textures/UI/Buttons/Tutorial_ButtonHover.png" id="7_ece1e"]
 [ext_resource type="Texture2D" uid="uid://bvk7kdf35t5h4" path="res://Textures/UI/Buttons/Play_Button.png" id="8_hmcam"]
 [ext_resource type="Texture2D" uid="uid://dor5sqje5lde2" path="res://Textures/UI/Buttons/Play_ButtonPressed.png" id="9_d80or"]
 [ext_resource type="Texture2D" uid="uid://ysvppju2gy44" path="res://Textures/UI/Buttons/Play_ButtonHover.png" id="10_3l2ny"]
-[ext_resource type="Texture2D" uid="uid://wl0lqrhfvnco" path="res://Textures/UI/Buttons/Settings_Button.png" id="11_fwwra"]
-[ext_resource type="Texture2D" uid="uid://bktevq7147y18" path="res://Textures/UI/Buttons/Settings_ButtonPressed.png" id="12_jr8av"]
-[ext_resource type="Texture2D" uid="uid://curca3jytw1oh" path="res://Textures/UI/Buttons/Settings_ButtonHover.png" id="13_se65b"]
+[ext_resource type="Texture2D" uid="uid://di5drpdml38pd" path="res://Textures/MapPictures/Buttons/Border_1.png" id="13_0wb3k"]
 [ext_resource type="Texture2D" uid="uid://bylkahlk1l3to" path="res://Textures/UI/Buttons/Quit_Button.png" id="14_7n31n"]
+[ext_resource type="Texture2D" uid="uid://ctr17cqy7gwq7" path="res://Textures/MapPictures/Buttons/Border_2.png" id="14_cltxd"]
+[ext_resource type="Texture2D" uid="uid://bor8if7n8syks" path="res://Textures/MapPictures/Buttons/Border_3.png" id="15_qaqxe"]
 [ext_resource type="Texture2D" uid="uid://dtkj8hx8w2hd" path="res://Textures/UI/Buttons/Quit_ButtonPressed.png" id="15_tpj44"]
 [ext_resource type="Texture2D" uid="uid://n07vi1vjltyl" path="res://Textures/UI/Buttons/Quit_ButtonHover.png" id="16_2kn1o"]
-[ext_resource type="Texture2D" uid="uid://bbhrle7pxmvkn" path="res://Textures/SilloutteBanner2.png" id="17_5dul3"]
+[ext_resource type="Texture2D" uid="uid://3agikhpary8c" path="res://Textures/MapPictures/Buttons/Border_4.png" id="16_mxlty"]
+[ext_resource type="Texture2D" uid="uid://bbdippe2w2kbr" path="res://Textures/MapPictures/Buttons/Border_5.png" id="17_lw1oi"]
+[ext_resource type="Texture2D" uid="uid://ck0mfscnjlsmj" path="res://Textures/MapPictures/Buttons/Border_6.png" id="18_11r7m"]
 [ext_resource type="Texture2D" uid="uid://dnw5e71tx4me5" path="res://Textures/UI/Buttons/Back_Button.png" id="18_syefm"]
+[ext_resource type="Texture2D" uid="uid://ctiqp3d1qd5a" path="res://Textures/MapPictures/Buttons/Border_7.png" id="19_e7dm6"]
 [ext_resource type="Texture2D" uid="uid://ct3w6wne80ey4" path="res://Textures/UI/Buttons/Back_ButtonPressed.png" id="19_wuym8"]
+[ext_resource type="Texture2D" uid="uid://cf7bla0wx0b23" path="res://Textures/MapPictures/Buttons/Border_8.png" id="20_l42e0"]
 [ext_resource type="Texture2D" uid="uid://te3rpahfir7l" path="res://Textures/UI/Buttons/Back_ButtonHover.png" id="20_lbj6f"]
 [ext_resource type="Texture2D" uid="uid://v47031s4wuu2" path="res://Textures/SilloutteBanner5.png" id="21_6joow"]
+[ext_resource type="Texture2D" uid="uid://bhffmmdebtsxm" path="res://Textures/MapPictures/Buttons/Border_9.png" id="21_qwbxb"]
+[ext_resource type="Texture2D" uid="uid://d30knvtvjiv02" path="res://Textures/MapPictures/Buttons/Border_10.png" id="22_miadg"]
 [ext_resource type="Texture2D" uid="uid://01fy5pek7lyb" path="res://Textures/UI/Buttons/Next_Button.png" id="23_peabo"]
 [ext_resource type="Texture2D" uid="uid://cojdnkvquf77s" path="res://Textures/UI/Buttons/Next_ButtonPressed.png" id="24_lcvgt"]
 [ext_resource type="PackedScene" uid="uid://dshfn2my2h20" path="res://Scenes/player_loadout.tscn" id="25_6eesv"]
 [ext_resource type="Texture2D" uid="uid://c4t3gqoqpvuk7" path="res://Textures/UI/Buttons/BlankButton.png" id="26_r0g5q"]
 [ext_resource type="Texture2D" uid="uid://ug746c5t1j25" path="res://Textures/UI/Buttons/BlankButtonPressed.png" id="27_22oxf"]
 [ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="28_grksd"]
-
-[sub_resource type="Animation" id="Animation_ttkw3"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(352, -18.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:theme_override_colors/font_outline_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.82, 0.0176928, 0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_8m1ly"]
-resource_name = "idle"
-length = 0.75
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0333333, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(352, -18.5), Vector2(352, -22.5)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:theme_override_colors/font_outline_color")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.77, 0.0128333, 0, 1), Color(0.9, 0.165, 0, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uev0m"]
-_data = {
-"RESET": SubResource("Animation_ttkw3"),
-"idle": SubResource("Animation_8m1ly")
-}
 
 [sub_resource type="Animation" id="Animation_ijygi"]
 resource_name = "CloseMain"
@@ -234,169 +174,96 @@ stretch_mode = 1
 flip_h = true
 flip_v = true
 
-[node name="Title" type="TextureRect" parent="."]
-texture_filter = 2
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -470.4
-offset_right = 470.4
-offset_bottom = 334.934
-grow_horizontal = 2
-size_flags_horizontal = 4
-texture = ExtResource("4_yfp25")
-expand_mode = 1
-
 [node name="MainMenu" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -94.0
-offset_right = 224.0
-offset_bottom = 382.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
-
-[node name="Tutorial" type="TextureButton" parent="MainMenu"]
-self_modulate = Color(0.345, 0.69, 0.61525, 1)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("5_snabs")
-texture_pressed = ExtResource("6_ikyio")
-texture_hover = ExtResource("7_ece1e")
-
-[node name="Label" type="Label" parent="MainMenu/Tutorial"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -68.0
-offset_top = -18.5
-offset_right = 57.0
-offset_bottom = 15.5
-grow_horizontal = 0
-scale = Vector2(1, 0.85)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.247059)
-theme_override_colors/font_outline_color = Color(0.82, 0.0176928, 0, 1)
-theme_override_constants/shadow_offset_y = 4
-theme_override_constants/outline_size = 10
-theme_override_constants/shadow_outline_size = 8
-theme_override_font_sizes/font_size = 24
-text = "FIRST TIME?
-"
-horizontal_alignment = 2
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MainMenu/Tutorial/Label"]
-libraries = {
-"": SubResource("AnimationLibrary_uev0m")
-}
-autoplay = "idle"
-
-[node name="HSeparator" type="HSeparator" parent="MainMenu"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Play" type="TextureButton" parent="MainMenu"]
-self_modulate = Color(0.345, 0.69, 0.61525, 1)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("8_hmcam")
-texture_pressed = ExtResource("9_d80or")
-texture_hover = ExtResource("10_3l2ny")
-
-[node name="HSeparator2" type="HSeparator" parent="MainMenu"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Settings" type="TextureButton" parent="MainMenu"]
-self_modulate = Color(0.345, 0.69, 0.61525, 1)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("11_fwwra")
-texture_pressed = ExtResource("12_jr8av")
-texture_hover = ExtResource("13_se65b")
 
 [node name="HSeparator3" type="HSeparator" parent="MainMenu"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="QuitButton" type="TextureButton" parent="MainMenu"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainMenu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MainMenu/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="TextureRect" parent="MainMenu/HBoxContainer"]
+texture_filter = 2
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+texture = ExtResource("4_yfp25")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="VSeparator2" type="VSeparator" parent="MainMenu/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HSeparator" type="HSeparator" parent="MainMenu"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainMenu"]
+layout_mode = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="MainMenu/HBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Play" type="TextureButton" parent="MainMenu/HBoxContainer2"]
 self_modulate = Color(0.345, 0.69, 0.61525, 1)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 7
+texture_normal = ExtResource("8_hmcam")
+texture_pressed = ExtResource("9_d80or")
+texture_hover = ExtResource("10_3l2ny")
+
+[node name="VSeparator3" type="VSeparator" parent="MainMenu/HBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="QuitButton" type="TextureButton" parent="MainMenu/HBoxContainer2"]
+self_modulate = Color(0.345, 0.69, 0.61525, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 7
 texture_normal = ExtResource("14_7n31n")
 texture_pressed = ExtResource("15_tpj44")
 texture_hover = ExtResource("16_2kn1o")
 
-[node name="SettingsMenu" type="TextureRect" parent="."]
-visible = false
-self_modulate = Color(0, 1, 0.566667, 1)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -512.0
-offset_top = -928.0
-offset_right = 512.0
-offset_bottom = -32.0
-grow_horizontal = 2
-grow_vertical = 0
-texture = ExtResource("17_5dul3")
-expand_mode = 1
-stretch_mode = 1
+[node name="VSeparator2" type="VSeparator" parent="MainMenu/HBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="Title" type="Label" parent="SettingsMenu"]
-self_modulate = Color(0.345098, 0.690196, 0.615686, 1)
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -272.5
-offset_top = 38.0
-offset_right = 272.5
-offset_bottom = 115.0
-grow_horizontal = 2
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 56
-text = "Settings"
-horizontal_alignment = 1
-uppercase = true
-
-[node name="BackButton" type="TextureButton" parent="SettingsMenu"]
-self_modulate = Color(0.345098, 0.690196, 0.615686, 1)
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -210.0
-offset_top = -120.0
-offset_right = 210.0
-offset_bottom = -24.0
-grow_horizontal = 2
-grow_vertical = 0
-texture_normal = ExtResource("18_syefm")
-texture_pressed = ExtResource("19_wuym8")
-texture_hover = ExtResource("20_lbj6f")
+[node name="HSeparator4" type="HSeparator" parent="MainMenu"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
 
 [node name="SelectionMenu" type="TextureRect" parent="."]
-visible = false
 self_modulate = Color(0.41, 0.685333, 1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -420,180 +287,277 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HSeparator" type="HSeparator" parent="SelectionMenu/MapSelection"]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 4.0
-grow_horizontal = 2
-
 [node name="Label" type="Label" parent="SelectionMenu/MapSelection"]
-modulate = Color(0.211765, 0.352941, 0.517647, 1)
+modulate = Color(0.196078, 0.309804, 0.45098, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -725.0
-offset_top = -513.0
-offset_right = 725.0
-offset_bottom = 513.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 840
 text = "MAP"
+horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MapLabel" type="Label" parent="SelectionMenu/MapSelection"]
+[node name="MapPicture" type="TextureRect" parent="SelectionMenu/MapSelection"]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = -1
 anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -465.5
-offset_top = 48.0
-offset_right = 465.5
-offset_bottom = 205.0
+anchor_top = 0.25
+anchor_right = 0.9
+anchor_bottom = 0.75
 grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+expand_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectionMenu/MapSelection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="SelectionMenu/MapSelection/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SelectionMenu/MapSelection/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(384, 384)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+columns = 5
+
+[node name="Map1" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("13_0wb3k")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map2" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("14_cltxd")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map3" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("15_qaqxe")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map4" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("16_mxlty")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map5" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("17_lw1oi")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map6" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("18_11r7m")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map7" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("19_e7dm6")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map8" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("20_l42e0")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map9" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("21_qwbxb")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Map10" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 0.5
+texture_normal = ExtResource("22_miadg")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="HSeparator3" type="HSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="HSeparator2" type="HSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="VSeparator2" type="VSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="MapLabel" type="Label" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 theme_override_font_sizes/font_size = 128
 text = "WHERE SHALL YOU FIGHT?"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GridContainer" type="GridContainer" parent="SelectionMenu/MapSelection"]
-custom_minimum_size = Vector2(384, 384)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -196.0
-offset_top = -196.0
-offset_right = 196.0
-offset_bottom = 196.0
-grow_horizontal = 2
-grow_vertical = 2
-columns = 3
-
-[node name="Map1" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="HSeparator2" type="HSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_vertical = 3
 
-[node name="Map2" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="VSeparator4" type="VSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
 
-[node name="Map3" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="HSeparator5" type="HSeparator" parent="SelectionMenu/MapSelection/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
 
-[node name="Map4" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="HBoxContainer2" type="HBoxContainer" parent="SelectionMenu/MapSelection/VBoxContainer"]
 layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.25
 
-[node name="Map5" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
+[node name="VSeparator" type="VSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
 
-[node name="Map6" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Map7" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Map8" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Map9" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="Map10" type="TextureButton" parent="SelectionMenu/MapSelection/GridContainer"]
-custom_minimum_size = Vector2(128, 128)
-layout_mode = 2
-texture_normal = ExtResource("4_vke2c")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="BackButton" type="TextureButton" parent="SelectionMenu/MapSelection"]
+[node name="BackButton" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer2"]
 self_modulate = Color(0.3599, 0.523846, 0.61, 1)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = -96.0
-offset_right = 452.0
-grow_vertical = 0
-scale = Vector2(0.75, 0.75)
+custom_minimum_size = Vector2(288, 192)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 texture_normal = ExtResource("18_syefm")
 texture_pressed = ExtResource("19_wuym8")
 texture_hover = ExtResource("20_lbj6f")
 ignore_texture_size = true
+stretch_mode = 4
 
-[node name="NextButton" type="TextureButton" parent="SelectionMenu/MapSelection"]
+[node name="VSeparator3" type="VSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="NextButton" type="TextureButton" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer2"]
 self_modulate = Color(0.3599, 0.523846, 0.61, 1)
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -356.0
-offset_top = -96.0
-offset_right = 64.0
-grow_horizontal = 0
-grow_vertical = 0
-scale = Vector2(0.75, 0.75)
+custom_minimum_size = Vector2(288, 192)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
 texture_normal = ExtResource("23_peabo")
 texture_pressed = ExtResource("24_lcvgt")
 texture_hover = ExtResource("24_lcvgt")
 ignore_texture_size = true
+stretch_mode = 4
 
-[node name="HSeparator2" type="HSeparator" parent="SelectionMenu/MapSelection"]
+[node name="VSeparator2" type="VSeparator" parent="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer2"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HSeparator6" type="HSeparator" parent="SelectionMenu/MapSelection/VBoxContainer"]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(0, 32)
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -4.0
-grow_horizontal = 2
-grow_vertical = 0
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
 
 [node name="PlayerSelection" type="Control" parent="SelectionMenu"]
 visible = false
@@ -939,24 +903,22 @@ mouse_filter = 2
 texture = ExtResource("28_grksd")
 expand_mode = 1
 stretch_mode = 1
+metadata/_edit_lock_ = true
 
-[connection signal="pressed" from="MainMenu/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="MainMenu/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MainMenu/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MainMenu/QuitButton" to="." method="_on_quit_button_pressed"]
-[connection signal="pressed" from="SettingsMenu/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map1" to="." method="pick_map" binds= [0]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map2" to="." method="pick_map" binds= [1]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map3" to="." method="pick_map" binds= [2]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map4" to="." method="pick_map" binds= [3]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map5" to="." method="pick_map" binds= [4]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map6" to="." method="pick_map" binds= [5]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map7" to="." method="pick_map" binds= [6]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map8" to="." method="pick_map" binds= [7]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map9" to="." method="pick_map" binds= [8]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/GridContainer/Map10" to="." method="pick_map" binds= [9]]
-[connection signal="pressed" from="SelectionMenu/MapSelection/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="SelectionMenu/MapSelection/NextButton" to="." method="selection_next"]
+[connection signal="pressed" from="MainMenu/HBoxContainer2/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MainMenu/HBoxContainer2/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map1" to="." method="pick_map" binds= [0]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map2" to="." method="pick_map" binds= [1]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map3" to="." method="pick_map" binds= [2]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map4" to="." method="pick_map" binds= [3]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map5" to="." method="pick_map" binds= [4]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map6" to="." method="pick_map" binds= [5]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map7" to="." method="pick_map" binds= [6]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map8" to="." method="pick_map" binds= [7]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map9" to="." method="pick_map" binds= [8]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer2/GridContainer/Map10" to="." method="pick_map" binds= [9]]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="SelectionMenu/MapSelection/VBoxContainer/HBoxContainer2/NextButton" to="." method="selection_next"]
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer/Button2" to="." method="remove_player"]
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/VBoxContainer/HBoxContainer/Button" to="." method="add_player"]
 [connection signal="pressed" from="SelectionMenu/PlayerSelection/BackButton" to="." method="selection_back"]

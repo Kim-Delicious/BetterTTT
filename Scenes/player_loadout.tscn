@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dshfn2my2h20"]
 
 [ext_resource type="Script" path="res://Scripts/player_loadout.gd" id="1_v31vo"]
-[ext_resource type="Texture2D" uid="uid://dbs376b482r5h" path="res://Textures/Border.png" id="2_yyfju"]
+[ext_resource type="Texture2D" uid="uid://dbs376b482r5h" path="res://Textures/MapPictures/Buttons/Border.png" id="2_yyfju"]
 [ext_resource type="Texture2D" uid="uid://cq8qvav0du4k6" path="res://Textures/TelekenisisSticker.png" id="3_uesw3"]
 [ext_resource type="Texture2D" uid="uid://c5vqa8jw3lcjk" path="res://Textures/TelekenisisColumnSticker.png" id="4_p0d5w"]
 [ext_resource type="Texture2D" uid="uid://bjmrpjmoc3m0a" path="res://Textures/SniperSticker.png" id="5_xjafy"]

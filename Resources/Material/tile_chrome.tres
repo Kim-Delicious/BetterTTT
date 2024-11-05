@@ -5,7 +5,7 @@
 [resource]
 resource_local_to_scene = true
 transparency = 1
-albedo_color = Color(0.4, 0.4, 0.4, 0.921569)
+albedo_color = Color(0.4, 0.4, 0.4, 0.67451)
 albedo_texture = ExtResource("1_j8wya")
 metallic = 1.0
 metallic_specular = 0.0

@@ -2,7 +2,6 @@ extends Control
 
 @onready var main: VBoxContainer = $MainMenu
 
-@onready var settings: Control = $SettingsMenu
 @onready var selection: Control = $SelectionMenu
 
 @onready var player_container: HBoxContainer = $SelectionMenu/PlayerSelection/VBoxContainer/PlayerContainer
@@ -22,7 +21,6 @@ func _ready() -> void:
 
 func _set_all_menues_invisible() -> void:
 	main.hide()
-	settings.hide()
 	selection.hide()
 	
 
@@ -39,10 +37,6 @@ func _on_play_pressed() -> void:
 	main.hide()
 	selection.show()
 
-func _on_settings_pressed() -> void:
-	main.hide()
-	settings.show()
-
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
@@ -50,7 +44,6 @@ func _on_quit_button_pressed() -> void:
 #endregion
 
 func _on_back_button_pressed() -> void:
-	settings.hide()
 	selection.hide()
 	main.show()
 	
@@ -92,29 +85,34 @@ func hide_special() -> void:
 func pick_map(which_button) -> void:
 	map_selection = which_button
 	
-	var label = $SelectionMenu/MapSelection/MapLabel
+	var label = $SelectionMenu/MapSelection/VBoxContainer/HBoxContainer/VBoxContainer/MapLabel
+	var picture = $SelectionMenu/MapSelection/MapPicture
 	
-	label.text = str(map_selection)
+	picture.texture = load("res://Textures/MapPictures/map_" + str(map_selection) + ".PNG")
+
 	
-	#match map_selection:
-		#0:
-			#
-		#1:
-			#label.text = str(map_selection)
-		#2:
-			#label.text = str(map_selection)
-		#3:
-			#label.text = str(map_selection)
-		#4:
-			#label.text = str(map_selection)
-		#5:
-			#label.text = str(map_selection)
-		#6:
-			#label.text = str(map_selection)
-		#7:
-			#label.text = str(map_selection)
-		#8:
-			#label.text = str(map_selection)
+	match map_selection:
+		0:
+			label.text = "Classic 5x5"
+		1:
+			label.text = "Chained"
+		2:
+			label.text = "Chromey"
+		3:
+			label.text = "Carousel"
+		4:
+			label.text = "Touchy Subject"
+		5:
+			label.text = "Lazy River"
+		6:
+			label.text = "Inertia"
+		7:
+			label.text = "Just a Big Doughnut"
+		8:
+			label.text = "Snowflake"
+		9:
+			label.text = "Islands"
+
 	
 func add_player() -> void:
 	

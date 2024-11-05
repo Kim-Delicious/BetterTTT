@@ -568,7 +568,7 @@ fov = 60.0
 size = 17.561
 near = 0.001
 script = ExtResource("3_bwjf3")
-orbit_radius = 35
+orbit_radius = 50
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
 libraries = {

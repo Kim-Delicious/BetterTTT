@@ -31,6 +31,7 @@ default_input_values = [0, 0.0, 1, 0.0, 2, 0.0, 3, 0.0]
 op_type = 2
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_gxhfb"]
+output_port_for_preview = 0
 expanded_output_ports = [0]
 texture = ExtResource("1_s2hv6")
 
@@ -281,6 +282,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-756.845, -107.884)
 nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_gxhfb")
 nodes/fragment/2/position = Vector2(-1900, -40)
 nodes/fragment/4/node = SubResource("VisualShaderNodeColorOp_fbl3q")
@@ -288,9 +290,9 @@ nodes/fragment/4/position = Vector2(-1080, 180)
 nodes/fragment/7/node = SubResource("VisualShaderNodeColorParameter_vxyd8")
 nodes/fragment/7/position = Vector2(-1500, 1000)
 nodes/fragment/8/node = SubResource("VisualShaderNodeInput_85n6b")
-nodes/fragment/8/position = Vector2(-2600, 100)
+nodes/fragment/8/position = Vector2(-2820, 240)
 nodes/fragment/9/node = SubResource("VisualShaderNodeColorConstant_nviv8")
-nodes/fragment/9/position = Vector2(-1920, 560)
+nodes/fragment/9/position = Vector2(-2020, 840)
 nodes/fragment/10/node = SubResource("VisualShaderNodeVectorOp_ajs2p")
 nodes/fragment/10/position = Vector2(-580, 380)
 nodes/fragment/11/node = SubResource("VisualShaderNodeColorParameter_4sqab")
@@ -342,4 +344,4 @@ nodes/fragment/39/node = SubResource("VisualShaderNodeFloatOp_jdrul")
 nodes/fragment/39/position = Vector2(-2020, 1500)
 nodes/fragment/41/node = SubResource("VisualShaderNodeFloatFunc_pdnn4")
 nodes/fragment/41/position = Vector2(-1920, 2180)
-nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 8, 0, 2, 0, 9, 0, 4, 1, 4, 0, 10, 0, 10, 0, 12, 0, 12, 0, 0, 0, 19, 0, 14, 0, 11, 0, 14, 1, 13, 1, 21, 0, 21, 0, 20, 0, 25, 0, 19, 2, 25, 0, 19, 1, 25, 0, 19, 0, 27, 0, 28, 0, 26, 3, 27, 0, 7, 0, 34, 0, 33, 0, 34, 1, 34, 0, 10, 1, 20, 0, 35, 0, 28, 0, 36, 0, 35, 0, 25, 1, 32, 0, 37, 0, 37, 0, 33, 2, 37, 0, 33, 1, 37, 0, 33, 0, 20, 0, 23, 1, 24, 0, 23, 0, 36, 0, 38, 0, 38, 0, 39, 0, 39, 0, 32, 1, 23, 0, 41, 0, 41, 0, 37, 1, 14, 0, 12, 1)
+nodes/fragment/connections = PackedInt32Array(8, 0, 2, 0, 9, 0, 4, 1, 10, 0, 12, 0, 19, 0, 14, 0, 11, 0, 14, 1, 13, 1, 21, 0, 21, 0, 20, 0, 25, 0, 19, 2, 25, 0, 19, 1, 25, 0, 19, 0, 27, 0, 28, 0, 26, 3, 27, 0, 7, 0, 34, 0, 33, 0, 34, 1, 34, 0, 10, 1, 20, 0, 35, 0, 28, 0, 36, 0, 35, 0, 25, 1, 32, 0, 37, 0, 37, 0, 33, 2, 37, 0, 33, 1, 37, 0, 33, 0, 20, 0, 23, 1, 24, 0, 23, 0, 36, 0, 38, 0, 38, 0, 39, 0, 39, 0, 32, 1, 23, 0, 41, 0, 41, 0, 37, 1, 14, 0, 12, 1, 12, 0, 0, 0, 4, 0, 10, 0, 2, 0, 4, 0)

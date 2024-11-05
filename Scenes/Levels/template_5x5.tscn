@@ -675,7 +675,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
 
 [node name="Tile5" parent="Grid/Row5" instance=ExtResource("5_cme22")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
-components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/reflect_bullet.tscn")
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
