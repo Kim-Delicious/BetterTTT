@@ -41,7 +41,7 @@ func load_player_uis() -> void:
 			player_ui.add_missing_center_pieces(j, i, player)
 			
 			
-		player_ui.character_sprite.sprite_frames = players.get_child(i).character
+		player_ui.character_sprite.texture = players.get_child(i).character
 
 		
 	

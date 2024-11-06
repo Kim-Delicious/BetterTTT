@@ -1,7 +1,7 @@
 extends Node3D
 
 
-var character: SpriteFrames
+var character: CompressedTexture2D
 
 var primary_actions = 1
 var secondary_actions = 0

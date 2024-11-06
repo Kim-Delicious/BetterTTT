@@ -16,11 +16,19 @@ var rotate_direction = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	orbit_radius = GlobalSettings.camera_zoom
+	position.y = GlobalSettings.camera_height
+	
 	rotate_around_center(0, 1)
+	
+	process_mode = PROCESS_MODE_ALWAYS
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	orbit_radius = GlobalSettings.camera_zoom
+	position.y = GlobalSettings.camera_height
+	rotate_around_center(_delta, 0)
 	
 	limit_variables()
 	
@@ -41,21 +49,21 @@ func _process(_delta: float) -> void:
 	
 func _input(event: InputEvent) -> void:
 	
-	if event.is_action("AngleCameraUp"):
-		orbit_radius -= 1
-		rotate_around_center(0, 0)
-		
-	elif event.is_action("AngleCameraDown"):
-		orbit_radius += 1
-		rotate_around_center(0, 0)
-	
-	if(event.is_action("ZoomInCamera")):
-		position.y -= 1
-		rotate_around_center(0, 0)
-		
-	elif(event.is_action("ZoomOutCamera")):
-		position.y += 1
-		rotate_around_center(0, 0)
+	#if event.is_action("AngleCameraUp"):
+		#orbit_radius -= 1
+		#rotate_around_center(0, 0)
+		#
+	#elif event.is_action("AngleCameraDown"):
+		#orbit_radius += 1
+		#rotate_around_center(0, 0)
+	#
+	#if(event.is_action("ZoomInCamera")):
+		#position.y -= 1
+		#rotate_around_center(0, 0)
+		#
+	#elif(event.is_action("ZoomOutCamera")):
+		#position.y += 1
+		#rotate_around_center(0, 0)
 	
 	
 	if !can_move:
@@ -184,7 +192,7 @@ func calculate_circular_position(radius, angle):
 func rotate_around_center(_delta, direction) ->  void:
 	
 	var new_pos = calculate_circular_position(orbit_radius, current_angle + deg_to_rad(-90))
-	
+		
 	current_angle +=  deg_to_rad(135) * rotate_speed * _delta * direction
 		
 	

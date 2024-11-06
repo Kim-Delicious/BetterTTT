@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://26hxrikjooy1" path="res://Textures/inventory.png" id="1_74rkx"]
 [ext_resource type="Script" path="res://Scripts/UI/player_ui.gd" id="1_goatr"]
-[ext_resource type="SpriteFrames" uid="uid://cmopp144wbvuc" path="res://Textures/SpriteFrames/Sharpshooter_Frames.tres" id="2_hlx6q"]
+[ext_resource type="Texture2D" uid="uid://7vhj3y1japyb" path="res://Textures/SillouetteGunslinger_Grayscale.png" id="2_1d0fr"]
 [ext_resource type="PackedScene" uid="uid://irhtrmjy0jep" path="res://Scenes/UI/ability_sticker.tscn" id="4_7ftmd"]
 [ext_resource type="Texture2D" uid="uid://b8w5ah14x3qfs" path="res://Textures/TurnDisc.png" id="4_ceglh"]
 
@@ -150,10 +150,10 @@ tracks/11/path = NodePath("PlayerUI1/DisplayAnchor/AnimatedCharacterSprite:posit
 tracks/11/interp = 2
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(4.23333, 4.53333, 4.73333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(4.23333, 4.53333, 4.8, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-185, 400), Vector2(165, 45), Vector2(165, 45)]
+"values": [Vector2(-185, 400), Vector2(-165, 45), Vector2(198, -338), Vector2(198, -338)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -563,23 +563,29 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(0.75, 0.75)
 
-[node name="AnimatedCharacterSprite" type="AnimatedSprite2D" parent="DisplayAnchor"]
+[node name="AnimatedCharacterSprite" type="TextureRect" parent="DisplayAnchor"]
+self_modulate = Color(0.223529, 0.0156863, 0.129412, 1)
 z_index = -100
-position = Vector2(-185, 400)
-sprite_frames = ExtResource("2_hlx6q")
-flip_h = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 0
+offset_left = 198.0
+offset_top = -338.0
+offset_right = 454.0
+offset_bottom = -82.0
+texture = ExtResource("2_1d0fr")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Inventory" type="Control" parent="DisplayAnchor"]
-visible = false
 z_index = -20
 material = SubResource("CanvasItemMaterial_grqqq")
 layout_mode = 3
 anchors_preset = 0
-offset_left = 200.0
+offset_left = 248.0
 offset_top = -112.0
-offset_right = 200.0
+offset_right = 248.0
 offset_bottom = -112.0
-scale = Vector2(0.25, 2)
+scale = Vector2(2, 2)
 
 [node name="Start" type="Sprite2D" parent="DisplayAnchor/Inventory"]
 texture = ExtResource("1_74rkx")
@@ -615,15 +621,12 @@ region_rect = Rect2(128, 0, 64, 64)
 
 [node name="TurnDial" type="Sprite2D" parent="DisplayAnchor"]
 z_index = 1
-position = Vector2(-512, -136)
-rotation = -8.93609
+position = Vector2(128, -136)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_ceglh")
 
 [node name="Node" type="Node2D" parent="DisplayAnchor/TurnDial"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(6, 6)
 
 [node name="AbilitySticker" parent="DisplayAnchor/TurnDial/Node" instance=ExtResource("4_7ftmd")]
 anchors_preset = 8

@@ -1,25 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://bkisiou4d34im"]
+[gd_scene load_steps=13 format=3 uid="uid://bkisiou4d34im"]
 
 [ext_resource type="Script" path="res://Scripts/UI/player_ui.gd" id="1_lj3hi"]
-[ext_resource type="Texture2D" uid="uid://do2gon356i5vp" path="res://Textures/SillouetteWizard.png" id="2_janjx"]
+[ext_resource type="Texture2D" uid="uid://7vhj3y1japyb" path="res://Textures/SillouetteGunslinger_Grayscale.png" id="2_c6c5q"]
 [ext_resource type="Texture2D" uid="uid://26hxrikjooy1" path="res://Textures/inventory.png" id="3_0p5al"]
 [ext_resource type="PackedScene" uid="uid://irhtrmjy0jep" path="res://Scenes/UI/ability_sticker.tscn" id="4_pwwqh"]
 [ext_resource type="Texture2D" uid="uid://b8w5ah14x3qfs" path="res://Textures/TurnDisc.png" id="5_ug2kj"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvgmp"]
-atlas = ExtResource("2_janjx")
-region = Rect2(0, 0, 419, 737)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ljdhd"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nvgmp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_grqqq"]
 
@@ -129,10 +114,10 @@ tracks/8/path = NodePath("PlayerUI4/DisplayAnchor/AnimatedCharacterSprite:positi
 tracks/8/interp = 2
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 4.23333, 4.5, 4.7),
+"times": PackedFloat32Array(0, 4.23333, 4.7, 4.86667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(185.333, 400), Vector2(185.333, 400), Vector2(-362.667, -10.6667), Vector2(-362.667, -10.6667)]
+"values": [Vector2(185.333, 400), Vector2(185.333, 400), Vector2(-437.333, -320), Vector2(-437.333, -320)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
@@ -481,6 +466,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("PlayerUI4/DisplayAnchor/AnimatedCharacterSprite:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-437.333, -320)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5dwy3"]
 _data = {
@@ -509,20 +506,28 @@ offset_right = -408.0
 offset_bottom = 40.0
 scale = Vector2(0.75, 0.75)
 
-[node name="AnimatedCharacterSprite" type="AnimatedSprite2D" parent="DisplayAnchor"]
+[node name="AnimatedCharacterSprite" type="TextureRect" parent="DisplayAnchor"]
+self_modulate = Color(0.223529, 0.0156863, 0.129412, 1)
 z_index = -100
-position = Vector2(185.333, 400)
-sprite_frames = SubResource("SpriteFrames_ljdhd")
+custom_minimum_size = Vector2(256, 256)
+offset_left = -437.333
+offset_top = -320.0
+offset_right = -181.333
+offset_bottom = -64.0
+texture = ExtResource("2_c6c5q")
+expand_mode = 2
+stretch_mode = 5
+flip_h = true
 
 [node name="Inventory" type="Control" parent="DisplayAnchor"]
 z_index = -20
 material = SubResource("CanvasItemMaterial_grqqq")
 layout_mode = 3
 anchors_preset = 0
-offset_left = 248.0
-offset_top = -57.0
-offset_right = 248.0
-offset_bottom = -57.0
+offset_left = -248.0
+offset_top = -112.0
+offset_right = -248.0
+offset_bottom = -112.0
 scale = Vector2(2, 2)
 
 [node name="Start" type="Sprite2D" parent="DisplayAnchor/Inventory"]
@@ -561,14 +566,12 @@ region_rect = Rect2(128, 0, 64, 64)
 
 [node name="TurnDial" type="Sprite2D" parent="DisplayAnchor"]
 z_index = 1
-position = Vector2(128, -100)
+position = Vector2(-128, -136)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_ug2kj")
 
 [node name="Node" type="Node2D" parent="DisplayAnchor/TurnDial"]
-visible = false
-modulate = Color(1, 1, 1, 0)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(6, 6)
 
 [node name="AbilitySticker" parent="DisplayAnchor/TurnDial/Node" instance=ExtResource("4_pwwqh")]
 anchors_preset = 8

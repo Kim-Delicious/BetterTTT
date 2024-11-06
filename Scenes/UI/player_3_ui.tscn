@@ -1,25 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://db7inm5d6hewc"]
+[gd_scene load_steps=13 format=3 uid="uid://db7inm5d6hewc"]
 
 [ext_resource type="Script" path="res://Scripts/UI/player_ui.gd" id="1_tpua6"]
-[ext_resource type="Texture2D" uid="uid://d1fe3tbj02pbb" path="res://Textures/SillouetteGunslinger.png" id="2_pwjxt"]
+[ext_resource type="Texture2D" uid="uid://7vhj3y1japyb" path="res://Textures/SillouetteGunslinger_Grayscale.png" id="2_dp8y5"]
 [ext_resource type="Texture2D" uid="uid://26hxrikjooy1" path="res://Textures/inventory.png" id="3_7cm4m"]
 [ext_resource type="PackedScene" uid="uid://irhtrmjy0jep" path="res://Scenes/UI/ability_sticker.tscn" id="4_pnfdq"]
 [ext_resource type="Texture2D" uid="uid://b8w5ah14x3qfs" path="res://Textures/TurnDisc.png" id="5_6leae"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7460a"]
-atlas = ExtResource("2_pwjxt")
-region = Rect2(0, 0, 834, 888)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_rsd4q"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7460a")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_grqqq"]
 
@@ -168,7 +153,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(4.23333, 4.53333, 4.73333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-185, 400), Vector2(165, 45), Vector2(165, 45)]
+"values": [Vector2(-185, 400), Vector2(192, -330.667), Vector2(192, -330.667)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -567,11 +552,17 @@ offset_right = 488.0
 offset_bottom = 40.0
 scale = Vector2(0.75, 0.75)
 
-[node name="AnimatedCharacterSprite" type="AnimatedSprite2D" parent="DisplayAnchor"]
+[node name="AnimatedCharacterSprite" type="TextureRect" parent="DisplayAnchor"]
+self_modulate = Color(0.223529, 0.0156863, 0.129412, 1)
 z_index = -100
-position = Vector2(185.333, 46.6667)
-sprite_frames = SubResource("SpriteFrames_rsd4q")
-flip_h = true
+custom_minimum_size = Vector2(256, 256)
+offset_left = -185.0
+offset_top = 400.0
+offset_right = 71.0
+offset_bottom = 656.0
+texture = ExtResource("2_dp8y5")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="Inventory" type="Control" parent="DisplayAnchor"]
 z_index = -20
@@ -579,9 +570,9 @@ material = SubResource("CanvasItemMaterial_grqqq")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 248.0
-offset_top = -57.0
+offset_top = -112.0
 offset_right = 248.0
-offset_bottom = -57.0
+offset_bottom = -112.0
 scale = Vector2(2, 2)
 
 [node name="Start" type="Sprite2D" parent="DisplayAnchor/Inventory"]
@@ -619,7 +610,7 @@ region_rect = Rect2(128, 0, 64, 64)
 
 [node name="TurnDial" type="Sprite2D" parent="DisplayAnchor"]
 z_index = 1
-position = Vector2(128, -100)
+position = Vector2(128, -136)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_6leae")
 

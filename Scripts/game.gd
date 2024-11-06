@@ -59,7 +59,7 @@ func add_player(character, main_sticker, abilities) -> void:
 
 	
 	# Character
-	new_player.character = get_character_sprite_frames_from_id(character)
+	new_player.character = get_character_sprite_from_id(character)
 	
 	# main_sticker
 	
@@ -92,17 +92,17 @@ func get_player_component(component_id) -> Node:
 		_:
 			return null
 		
-func get_character_sprite_frames_from_id(character_id) -> SpriteFrames:
+func get_character_sprite_from_id(character_id) -> CompressedTexture2D:
 	
 	match character_id:
 		
 		# Wizard
 		0:
-			return preload("res://Textures/SpriteFrames/Wizard_Frames.tres")
+			return preload("res://Textures/SillouetteWizard_Grayscale.png")
 			
 		#Sharpshooter
 		1:
-			return preload("res://Textures/SpriteFrames/Sharpshooter_Frames.tres")
+			return preload("res://Textures/SillouetteGunslinger_Grayscale.png")
 			
 		_:
 			return null

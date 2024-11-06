@@ -122,16 +122,16 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_top = -313.0
-offset_right = 115.0
-offset_bottom = 352.0
+offset_left = -805.0
+offset_top = -561.0
+offset_right = 200.0
+offset_bottom = 104.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_filter = 2
-mouse_default_cursor_shape = 10
 texture = ExtResource("7_48uxx")
-expand_mode = 1
+expand_mode = 2
+stretch_mode = 5
 flip_h = true
 
 [node name="Inventory" type="Control" parent="."]

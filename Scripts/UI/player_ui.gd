@@ -3,7 +3,7 @@ extends Control
 @onready var player_symbol: TextureButton = $DisplayAnchor/TurnDial/Node/AbilitySticker
 @onready var inventory: Control = $DisplayAnchor/Inventory
 @onready var animation_player: AnimationPlayer = $DisplayAnchor/AnimationPlayer
-@onready var character_sprite: AnimatedSprite2D = $DisplayAnchor/AnimatedCharacterSprite
+@onready var character_sprite: TextureRect = $DisplayAnchor/AnimatedCharacterSprite
 
 
 signal player_ui_anim_fin

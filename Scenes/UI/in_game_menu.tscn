@@ -115,6 +115,7 @@ self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
 
 [node name="Background" type="TextureRect" parent="."]
 self_modulate = Color(1, 0.439216, 0.341176, 1)
@@ -154,7 +155,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 
 [node name="Label" type="Label" parent="Background/VBoxContainer/Menu"]
-modulate = Color(0.14, 0.0527333, 0.0448, 1)
+modulate = Color(0.34902, 0.0980392, 0.0588235, 1)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 96
@@ -239,11 +240,293 @@ grow_horizontal = 0
 grow_vertical = 2
 texture = ExtResource("6_e8h35")
 
-[node name="VSeparator2" type="VSeparator" parent="."]
+[node name="VSeparator3" type="VSeparator" parent="."]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="Settings" type="VBoxContainer" parent="."]
+visible = false
+z_index = -1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+alignment = 2
+
+[node name="HSeparator" type="HSeparator" parent="Settings"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="SettingsMenu" type="TextureRect" parent="Settings"]
+self_modulate = Color(0.83, 0.314985, 0.2241, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_i5bs7")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="Settings/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Settings/SettingsMenu/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Menu" type="VBoxContainer" parent="Settings/SettingsMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="HSeparator8" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Label" type="Label" parent="Settings/SettingsMenu/VBoxContainer/Menu"]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.25
+theme_override_font_sizes/font_size = 128
+text = "SETTINGS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gameplay" type="HBoxContainer" parent="Settings/SettingsMenu/VBoxContainer/Menu"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.33
+
+[node name="Zoom" type="VBoxContainer" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/Zoom"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="Label" type="Label" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/Zoom"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "ZOOM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSlider" type="VSlider" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/Zoom"]
+self_modulate = Color(1, 0.589333, 0.23, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+min_value = 5.0
+value = 35.0
+
+[node name="HSeparator3" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/Zoom"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VSeparator2" type="VSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.75
+
+[node name="CameraHeight" type="VBoxContainer" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/CameraHeight"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="Label" type="Label" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/CameraHeight"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_font_sizes/font_size = 32
+text = "CAMERA HEIGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSlider" type="VSlider" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/CameraHeight"]
+self_modulate = Color(1, 0.589333, 0.23, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+min_value = 32.0
+value = 35.0
+
+[node name="HSeparator3" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/CameraHeight"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VSeparator3" type="VSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.25
+
+[node name="HSeparator9" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Audio" type="VBoxContainer" parent="Settings/SettingsMenu/VBoxContainer/Menu"]
+layout_mode = 2
+size_flags_vertical = 6
+size_flags_stretch_ratio = 2.0
+alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="Music" type="HBoxContainer" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio"]
+layout_mode = 2
+size_flags_vertical = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "MUSIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio/Music"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.25
+
+[node name="MusicSlider" type="HSlider" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio/Music"]
+self_modulate = Color(1, 0.589333, 0.23, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 4.0
+max_value = 10.0
+value = 10.0
+
+[node name="HSeparator2" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SFX" type="HBoxContainer" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio"]
+layout_mode = 2
+size_flags_vertical = 6
+alignment = 1
+
+[node name="Label" type="Label" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio/SFX"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.25
+
+[node name="SFXSlider" type="HSlider" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio/SFX"]
+self_modulate = Color(1, 0.589333, 0.23, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 4.0
+max_value = 10.0
+value = 10.0
+
+[node name="HSeparator3" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="HSeparator7" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VSeparator2" type="VSeparator" parent="Settings/SettingsMenu/VBoxContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Shadow" type="TextureRect" parent="Settings/SettingsMenu"]
+modulate = Color(0.27, 0.27, 0.27, 0.333333)
+show_behind_parent = true
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_right = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("6_e8h35")
+
+[node name="HSeparator2" type="HSeparator" parent="Settings"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VSeparator4" type="VSeparator" parent="."]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.25
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -253,3 +536,7 @@ libraries = {
 [connection signal="pressed" from="Background/VBoxContainer/Menu/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/Menu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Background/VBoxContainer/Menu/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="value_changed" from="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/Zoom/VSlider" to="." method="_on_zoom_slider_value_changed"]
+[connection signal="value_changed" from="Settings/SettingsMenu/VBoxContainer/Menu/Gameplay/CameraHeight/VSlider" to="." method="_on_height_slider_value_changed"]
+[connection signal="value_changed" from="Settings/SettingsMenu/VBoxContainer/Menu/Audio/Music/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Settings/SettingsMenu/VBoxContainer/Menu/Audio/SFX/SFXSlider" to="." method="_on_sfx_slider_value_changed"]
