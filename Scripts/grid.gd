@@ -2,6 +2,7 @@ extends Node3D
 
 signal tile_clicked
 signal game_won
+signal game_tie
 signal panic_time
 
 @export_category("Game Options")
@@ -43,6 +44,9 @@ func is_array_internally_identical(given_array: Array) -> bool:
 	return true
 	
 func check_for_win() -> void:
+	
+	var free_tiles = 0
+	
 	for i in range(get_child_count()):
 		
 		var row = get_child(i)
@@ -50,11 +54,16 @@ func check_for_win() -> void:
 			var tile = row.get_child(j)
 
 			var symbol = tile.symbol
+			
+			if !tile.get_child(0).visible:
+				continue
+			
 			if symbol.name != "Symbol":
 				print("Node has wrong name! Expected: 'Symbol', Actual: " + str(symbol.name) )
 				continue
 				
 			if symbol.symbol_type == -1:
+				free_tiles += 1
 				continue
 				
 
@@ -63,6 +72,9 @@ func check_for_win() -> void:
 			
 			### Instant Win
 			emit_on_tiles_match(i, j, tiles_to_win, game_won)
+			
+	if free_tiles == 0:
+		game_tie.emit()
 							
 	return
 	
@@ -178,6 +190,9 @@ func on_end_round() -> void:
 		for j in range(row.get_child_count()):
 			var tile = row.get_child(j)
 			
+			if !tile.get_child(0).visible:
+				continue
+			
 			if tile.command_buffer.size() <= 0:
 				continue
 			
@@ -197,6 +212,9 @@ func on_end_turn() -> void:
 			
 			tile.refresh_turn_buffer()
 			
+			if !tile.get_child(0).visible:
+				continue
+			
 			if tile.turn_command_buffer.size() <= 0:
 				continue
 			
@@ -205,7 +223,54 @@ func on_end_turn() -> void:
 			component_buffer.append(tile_method)
 		
 	iterate_through_buffer()
+
+
+func apply_chaos() -> void:
 	
+
+	
+	var possible_components: Array
+	
+	for packed_scene_name in DirAccess.get_files_at("res://Scenes/Tile Components/"):
+		
+
+		if packed_scene_name == "placable" + ".tscn":
+			continue
+		if packed_scene_name == "shootable" + ".tscn":
+			continue
+		if packed_scene_name == "movable" + ".tscn":
+			continue
+			
+		possible_components.append(load("res://Scenes/Tile Components/" + packed_scene_name) )
+	
+	
+	
+	for i in range(get_child_count()):
+		
+		var row = get_child(i)
+		for j in range(row.get_child_count()):
+			var tile = row.get_child(j)
+			
+			if !tile.get_child(0).visible:
+				continue
+			
+			var random_num = randf_range(0, 1)
+			
+			if random_num <= GlobalGame.chaos_factor:
+				
+				#Do randomness
+				
+				var random_pick = randi_range(0, possible_components.size() - 1)
+				
+				var new_comp = possible_components[random_pick].instantiate()
+				
+				tile.components.add_child(new_comp)
+								
+			tile.ready_tile()
+
+	
+	possible_components.clear()
+
 
 func iterate_through_buffer() -> void:	
 	if buffer_index > component_buffer.size() - 1:
@@ -217,7 +282,6 @@ func iterate_through_buffer() -> void:
 		
 		return
 		
-	print("Calling!")
 	component_buffer[buffer_index].call()
 	buffer_timer.start()
 	

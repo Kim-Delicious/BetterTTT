@@ -25,6 +25,7 @@ func on_round_end() -> void:
 	
 	if check_for_chains():
 		animate_jammed()
+		interacted.emit()
 		return
 	
 	if direction == -1:
@@ -300,6 +301,9 @@ func animate_jammed() -> void:
 			var found_tile = get_relative_tile(i, j)
 			
 			found_tile.animation_player.play("ReflectBullet")
+			
+			found_tile.components.get_child(0).interacted.emit()
+
 			
 	if direction == -1:
 		tile.animation_player.play("CogLeft")

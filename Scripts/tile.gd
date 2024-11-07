@@ -25,6 +25,9 @@ signal interacted_with
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	pass
+			
+func ready_tile() -> void:
 	for path in components_to_add:
 		var component: Node = load(path).instantiate()
 		components.add_child(component)

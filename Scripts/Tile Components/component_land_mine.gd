@@ -29,6 +29,9 @@ func after_tile_ready() -> void:
 			
 		if found_tile.components.has_node("LandMine"):
 				continue
+		if found_tile.mesh_instance_3d.material_overlay != null:
+			continue
+			
 		found_tile.mesh_instance_3d.material_overlay = LAND_MINE_ADJACENT
 
 	tile.mesh_instance_3d.mesh.surface_set_material(0, LAND_MINE)
@@ -49,6 +52,7 @@ func get_neighbors() -> Array:
 			continue
 		
 		for x in range(-1,2):
+			print(str(x_index + x) + ", row size: " + str(row.get_child_count()) )
 			if x_index + x >= row.get_child_count() || x_index + x < 0:
 				continue
 			
@@ -62,18 +66,27 @@ func reconnect_neighbors() -> void:
 	
 	for found_tile in neighbors:
 		# Disconnect
+		if found_tile == null:
+			print("ALERT! TILE WAS NULL")
+			continue
+		
 		if found_tile.interacted_with.is_connected(on_neighbor_interaction):
 			found_tile.interacted_with.disconnect(on_neighbor_interaction)
 			if found_tile.components.has_node("LandMine"):
 				continue
 			
-			found_tile.mesh_instance_3d.material_overlay = null
+			if found_tile.mesh_instance_3d.material_overlay == LAND_MINE_ADJACENT:
+				found_tile.mesh_instance_3d.material_overlay = null
 				
 	var new_neighbors = get_neighbors()
 	neighbors = new_neighbors
 	
 	for new_tile in new_neighbors:
 		# Connect
+		if new_tile == null:
+			print("ERROR. NEIGHBOR IS NULL")
+			continue
+			
 		if !new_tile.mesh_instance_3d.visible:
 			continue
 		
@@ -88,9 +101,14 @@ func reconnect_neighbors() -> void:
 			if new_tile.components.has_node("LandMine"):
 				continue
 				
-			new_tile.mesh_instance_3d.material_overlay = LAND_MINE_ADJACENT
+			if new_tile.mesh_instance_3d.material_overlay == null:
+				
+				new_tile.mesh_instance_3d.material_overlay = LAND_MINE_ADJACENT
 
 func on_turn_end() -> void:
+	
+	if !tile.get_child(0).visible:
+		return
 	
 	for found_tile in neighbors:
 		found_tile.animation_player.play("GetShot")

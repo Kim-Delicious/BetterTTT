@@ -857,6 +857,7 @@ libraries = {
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
 [connection signal="timeout" from="BufferTimer" to="Grid" method="iterate_through_buffer"]
+[connection signal="game_tie" from="Grid" to="." method="_on_grid_game_tie"]
 [connection signal="game_won" from="Grid" to="." method="_on_game_won"]
 [connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
 [connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]

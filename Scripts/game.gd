@@ -45,6 +45,8 @@ func _input(event: InputEvent) -> void:
 	
 func setup_game() -> void:
 	max_turns = players.get_child_count()
+	
+	grid.apply_chaos()
 		
 	turn_ui.setup_uis()
 	call_deferred("connect_players_signals")
@@ -233,7 +235,21 @@ func _on_game_won(tile_array: Array) -> void:
 		tile.play_animation("WinningThree")
 
 	var label =$GameUI/Control/MatchEnd.winner_label 
-	label.text = "Player " + str(player_index + 1) + " Won!"
+	label.text = "PLAYER " + str(player_index + 1) + " WON!"
+	
+	end_animation_player.play("EndGame")
+
+
+func _on_grid_game_tie() -> void:
+	
+	end_game = true
+	
+	for i in range(players.get_child_count() ):
+		players.get_child(i).on_turn = false
+
+
+	var label =$GameUI/Control/MatchEnd.winner_label 
+	label.text = "IT'S A TIE!"
 	
 	end_animation_player.play("EndGame")
 

@@ -18,7 +18,7 @@ var chaos_factor : float = 0.0: # Percentage
 func refresh_game() -> void:
 	
 	ready_players.clear()
-	tiles_to_win = 5
+	#tiles_to_win = 5
 	
 class PlayerSetup:
 	

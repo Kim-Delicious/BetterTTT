@@ -18,6 +18,10 @@ var next_scene
 
 func _ready() -> void:
 	GlobalGame.refresh_game()
+	
+	$SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Tiles/Label.text = "TILES TO WIN: " + str(GlobalGame.tiles_to_win)
+	$SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/MaxAbilities/Label.text = "MAX ABILITY STICKERS: " + str(GlobalGame.max_abilities)
+	$SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos/Label.text = "CHAOS FACTOR: " + str(round(GlobalGame.chaos_factor * 100) ) + "%"
 
 func _set_all_menues_invisible() -> void:
 	main.hide()
@@ -204,7 +208,7 @@ func increment_chaos_factor(amount) -> void:
 	GlobalGame.chaos_factor += amount
 	
 	var chaos_label = $SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos/Label
-	chaos_label.text = "CHAOS FACTOR: " + str(GlobalGame.chaos_factor * 100) + "%"
+	chaos_label.text = "CHAOS FACTOR: " + str(round(GlobalGame.chaos_factor * 100) ) + "%"
 	
 func change_scene() -> void:
 	animation_player.play("FadeOut")
