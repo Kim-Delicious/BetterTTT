@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://d3nphmtnwyx2b"]
+[gd_scene load_steps=37 format=3 uid="uid://d3nphmtnwyx2b"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_tpt7p"]
 [ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_aiis5"]
@@ -13,7 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://cf2hu0v7iwkms" path="res://Scenes/UI/end_screen.tscn" id="11_up73i"]
 [ext_resource type="PackedScene" uid="uid://eb1fd5eu0f66" path="res://Scenes/UI/in_game_menu.tscn" id="12_iqkyx"]
 [ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="13_lfrtl"]
+[ext_resource type="AudioStream" uid="uid://dhqap4viua83q" path="res://Audio/SFX/screen_thump.wav" id="13_pm2vk"]
 [ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="14_grsg2"]
+[ext_resource type="AudioStream" uid="uid://c468s7fif6no4" path="res://Audio/Music/Track1.wav" id="16_wfdry"]
 
 [sub_resource type="Sky" id="Sky_i4i7v"]
 sky_material = ExtResource("2_aiis5")
@@ -514,6 +516,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameUI/AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0673693),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_jjy8j"]
 length = 0.001
@@ -962,6 +976,11 @@ libraries = {
 "": SubResource("AnimationLibrary_rfywp")
 }
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="GameUI/Control"]
+stream = ExtResource("13_pm2vk")
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 15000.0
+
 [node name="Background" type="Control" parent="GameUI"]
 layout_mode = 1
 anchors_preset = 15
@@ -1038,6 +1057,11 @@ libraries = {
 "": SubResource("AnimationLibrary_s21g0")
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="GameUI"]
+stream = ExtResource("16_wfdry")
+bus = &"Music"
+attenuation_filter_cutoff_hz = 15000.0
+
 [connection signal="on_end_turn" from="." to="GameUI/TurnUI" method="_on_end_turn"]
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
@@ -1050,3 +1074,5 @@ libraries = {
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="GameUI/TurnUI" method="_on_loaded_player_uis"]
 [connection signal="pressed" from="GameUI/Control/NextTurnButton/TextureRect/Button" to="." method="end_turn_alt"]
 [connection signal="next_button_pushed" from="GameUI/Control/MatchEnd" to="GameUI/Control/InGameMenu" method="_on_main_menu_pressed"]
+[connection signal="screen_landed" from="GameUI/Control/MatchEnd" to="Grid" method="_on_match_end_screen_landed"]
+[connection signal="finished" from="GameUI/AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

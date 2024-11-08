@@ -269,3 +269,7 @@ func _on_turn_ui_done_with_anim(anim_name: String) -> void:
 func _on_turn_ui_loaded_player_uis() -> void:
 	get_tree().paused = true
 	
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	$GameUI/AudioStreamPlayer2D.play()

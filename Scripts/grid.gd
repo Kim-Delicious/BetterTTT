@@ -271,6 +271,16 @@ func apply_chaos() -> void:
 	
 	possible_components.clear()
 
+func stop_all_animations() -> void:
+	
+	for i in range(get_child_count()):
+		
+		var row = get_child(i)
+		for j in range(row.get_child_count()):
+			var tile = row.get_child(j)
+			
+			tile.animation_player.stop()
+	
 
 func iterate_through_buffer() -> void:	
 	if buffer_index > component_buffer.size() - 1:
@@ -288,3 +298,7 @@ func iterate_through_buffer() -> void:
 	buffer_index += 1
 	
 	
+
+
+func _on_match_end_screen_landed() -> void:
+	stop_all_animations()

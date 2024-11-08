@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://0lrhqn6cmekb"]
+[gd_scene load_steps=36 format=3 uid="uid://0lrhqn6cmekb"]
 
 [ext_resource type="Script" path="res://Scripts/game.gd" id="1_m3lna"]
 [ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_r514i"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://eb1fd5eu0f66" path="res://Scenes/UI/in_game_menu.tscn" id="12_b1ad1"]
 [ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="13_xjgfx"]
 [ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="14_lxnct"]
+[ext_resource type="AudioStream" uid="uid://c468s7fif6no4" path="res://Audio/Music/Track1.wav" id="15_u4mo2"]
 
 [sub_resource type="Sky" id="Sky_i4i7v"]
 sky_material = ExtResource("2_r514i")
@@ -514,6 +515,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameUI/AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0673693),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="Animation" id="Animation_jjy8j"]
 length = 0.001
@@ -757,7 +770,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21, 0, 0)
 components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/land_mine.tscn")
 
 [node name="GameUI" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -933,6 +945,11 @@ libraries = {
 "": SubResource("AnimationLibrary_s21g0")
 }
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="GameUI"]
+stream = ExtResource("15_u4mo2")
+bus = &"Music"
+attenuation_filter_cutoff_hz = 15000.0
+
 [connection signal="on_end_turn" from="." to="GameUI/TurnUI" method="_on_end_turn"]
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
@@ -945,3 +962,5 @@ libraries = {
 [connection signal="loaded_player_uis" from="GameUI/TurnUI" to="GameUI/TurnUI" method="_on_loaded_player_uis"]
 [connection signal="pressed" from="GameUI/Control/NextTurnButton/TextureRect/Button" to="." method="end_turn_alt"]
 [connection signal="next_button_pushed" from="GameUI/Control/MatchEnd" to="GameUI/Control/InGameMenu" method="_on_main_menu_pressed"]
+[connection signal="screen_landed" from="GameUI/Control/MatchEnd" to="Grid" method="_on_match_end_screen_landed"]
+[connection signal="finished" from="GameUI/AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

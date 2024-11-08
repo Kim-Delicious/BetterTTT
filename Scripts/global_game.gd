@@ -6,7 +6,7 @@ var tiles_to_win : int = 5:
 	set(new_value):
 		tiles_to_win = clamp(new_value, 3, 9)
 		
-var max_abilities: int = 2:
+var max_abilities: int = 1:
 	set(new_value):
 		max_abilities = clamp(new_value, 0, 4)
 		

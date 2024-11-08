@@ -294,6 +294,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="SelectionMenu" type="TextureRect" parent="."]
+visible = false
 self_modulate = Color(0.41, 0.685333, 1, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -310,7 +311,6 @@ expand_mode = 1
 stretch_mode = 1
 
 [node name="MapSelection" type="Control" parent="SelectionMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -623,6 +623,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.05
 
 [node name="PlayerSelection" type="Control" parent="SelectionMenu"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

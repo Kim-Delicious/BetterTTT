@@ -247,7 +247,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="Settings" type="VBoxContainer" parent="."]
-visible = false
 z_index = -1
 layout_mode = 2
 size_flags_horizontal = 3
@@ -443,8 +442,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 4.0
+min_value = -60.0
 max_value = 10.0
-value = 10.0
+step = 5.0
 
 [node name="HSeparator2" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio"]
 modulate = Color(1, 1, 1, 0)
@@ -477,8 +477,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 size_flags_stretch_ratio = 4.0
+min_value = -60.0
 max_value = 10.0
-value = 10.0
+step = 5.0
 
 [node name="HSeparator3" type="HSeparator" parent="Settings/SettingsMenu/VBoxContainer/Menu/Audio"]
 modulate = Color(1, 1, 1, 0)

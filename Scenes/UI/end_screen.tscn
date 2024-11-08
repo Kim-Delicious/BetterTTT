@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cikvpgwt7em1q" path="res://Textures/GameWin_mask.png" id="4_ou105"]
 [ext_resource type="Shader" path="res://Resources/Shaders/animated_title_2.gdshader" id="5_nqy5p"]
 [ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="6_bnjju"]
-[ext_resource type="StyleBox" uid="uid://g7w0n7dgricu" path="res://Resources/StyleBox/long_button_hover.tres" id="7_r13ho"]
-[ext_resource type="StyleBox" uid="uid://ddcao77yu21dh" path="res://Resources/StyleBox/long_button_pressed.tres" id="8_sxsy5"]
-[ext_resource type="StyleBox" uid="uid://c80qni2878hrn" path="res://Resources/StyleBox/long_button_normal.tres" id="9_krt7t"]
+[ext_resource type="Texture2D" uid="uid://01fy5pek7lyb" path="res://Textures/UI/Buttons/Next_Button.png" id="8_g7jk7"]
+[ext_resource type="Texture2D" uid="uid://cojdnkvquf77s" path="res://Textures/UI/Buttons/Next_ButtonPressed.png" id="9_b26ee"]
+[ext_resource type="Texture2D" uid="uid://dciwepxm62im7" path="res://Textures/UI/Buttons/Next_ButtonHover.png" id="10_lvsq2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dukbb"]
 shader = ExtResource("5_nqy5p")
@@ -158,17 +158,16 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ContinueButton" type="Button" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
-modulate = Color(0.9, 0.540385, 0.216, 1)
+[node name="ContinueButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(0.81, 0.39096, 0.0243, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 54
-theme_override_styles/hover = ExtResource("7_r13ho")
-theme_override_styles/pressed = ExtResource("8_sxsy5")
-theme_override_styles/normal = ExtResource("9_krt7t")
-text = "Next
-"
+texture_normal = ExtResource("8_g7jk7")
+texture_pressed = ExtResource("9_b26ee")
+texture_hover = ExtResource("10_lvsq2")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="VSeparator2" type="VSeparator" parent="HBoxContainer/VBoxContainer/HBoxContainer"]
 self_modulate = Color(1, 1, 1, 0)
