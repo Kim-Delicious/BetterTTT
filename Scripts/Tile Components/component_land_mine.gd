@@ -52,7 +52,7 @@ func get_neighbors() -> Array:
 			continue
 		
 		for x in range(-1,2):
-			print(str(x_index + x) + ", row size: " + str(row.get_child_count()) )
+			#print(str(x_index + x) + ", row size: " + str(row.get_child_count()) )
 			if x_index + x >= row.get_child_count() || x_index + x < 0:
 				continue
 			

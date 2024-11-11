@@ -23,6 +23,17 @@ func _ready() -> void:
 	$SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/MaxAbilities/Label.text = "MAX ABILITY STICKERS: " + str(GlobalGame.max_abilities)
 	$SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos/Label.text = "CHAOS FACTOR: " + str(round(GlobalGame.chaos_factor * 100) ) + "%"
 
+
+func _process(_delta: float) -> void:
+	
+	if Input.is_action_just_pressed("MouseLeft"):
+		$SFXPlayer.pitch_scale = 1 + randf_range(-0.14, -0.09)
+		$SFXPlayer.play()
+	if Input.is_action_just_released("MouseLeft"):
+		$SFXPlayer.pitch_scale = 1 + randf_range(-0.08, 0.08)
+		$SFXPlayer.play()
+
+
 func _set_all_menues_invisible() -> void:
 	main.hide()
 	selection.hide()
@@ -219,3 +230,7 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 		get_tree().change_scene_to_file(next_scene)
 
 	
+
+
+func _on_audio_stream_player_2d_finished() -> void:
+	$MusicPlayer.play()

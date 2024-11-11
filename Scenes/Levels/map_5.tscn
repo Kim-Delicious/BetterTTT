@@ -403,6 +403,44 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(0, 32), Vector2(0, 32), Vector2(0, 632), Vector2(0, 632)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MatchEnd")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.34477),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_landed"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.27891, 2.32235),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer3D:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.29407),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_2t44y")]
+}
 
 [sub_resource type="Animation" id="Animation_kxlfd"]
 resource_name = "RESET"
@@ -852,9 +890,9 @@ stretch_mode = 0
 [node name="MatchEnd" parent="GameUI/Control" instance=ExtResource("11_io2us")]
 visible = false
 layout_mode = 1
-offset_left = -7.62939e-06
+offset_left = 230.4
 offset_top = -2064.8
-offset_right = 0.0
+offset_right = 230.4
 offset_bottom = -2064.8
 grow_horizontal = 1
 grow_vertical = 1
@@ -960,6 +998,7 @@ attenuation_filter_cutoff_hz = 15000.0
 [connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
 [connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
 [connection signal="timeout" from="BufferTimer" to="Grid" method="iterate_through_buffer"]
+[connection signal="game_tie" from="Grid" to="." method="_on_grid_game_tie"]
 [connection signal="game_won" from="Grid" to="." method="_on_game_won"]
 [connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
 [connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]

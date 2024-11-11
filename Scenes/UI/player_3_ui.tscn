@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://db7inm5d6hewc"]
+[gd_scene load_steps=14 format=3 uid="uid://db7inm5d6hewc"]
 
 [ext_resource type="Script" path="res://Scripts/UI/player_ui.gd" id="1_tpua6"]
 [ext_resource type="Texture2D" uid="uid://7vhj3y1japyb" path="res://Textures/SillouetteGunslinger_Grayscale.png" id="2_dp8y5"]
 [ext_resource type="Texture2D" uid="uid://26hxrikjooy1" path="res://Textures/inventory.png" id="3_7cm4m"]
 [ext_resource type="PackedScene" uid="uid://irhtrmjy0jep" path="res://Scenes/UI/ability_sticker.tscn" id="4_pnfdq"]
 [ext_resource type="Texture2D" uid="uid://b8w5ah14x3qfs" path="res://Textures/TurnDisc.png" id="5_6leae"]
+[ext_resource type="AudioStream" uid="uid://ccvj3ejifqbqg" path="res://Audio/SFX/wheel_spin.wav" id="6_ulhuf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_grqqq"]
 
@@ -150,10 +151,10 @@ tracks/11/path = NodePath("PlayerUI3/DisplayAnchor/AnimatedCharacterSprite:posit
 tracks/11/interp = 2
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(4.23333, 4.53333, 4.73333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(4.23333, 4.53333, 4.73333, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-185, 400), Vector2(192, -330.667), Vector2(192, -330.667)]
+"values": [Vector2(-185, 400), Vector2(-185, 400), Vector2(192, -330.667), Vector2(192, -330.667)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -228,6 +229,30 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": PackedStringArray("ShowIndicator"),
 "times": PackedFloat32Array(0.833333)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerUI3/DisplayAnchor/AudioStreamPlayer2D:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_ulhuf")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerUI3/DisplayAnchor/AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_m06ku"]
@@ -556,10 +581,11 @@ scale = Vector2(0.75, 0.75)
 self_modulate = Color(0.223529, 0.0156863, 0.129412, 1)
 z_index = -100
 custom_minimum_size = Vector2(256, 256)
-offset_left = -185.0
-offset_top = 400.0
-offset_right = 71.0
-offset_bottom = 656.0
+layout_mode = 0
+offset_left = 185.333
+offset_top = 46.6667
+offset_right = 441.333
+offset_bottom = 302.667
 texture = ExtResource("2_dp8y5")
 expand_mode = 2
 stretch_mode = 5
@@ -570,9 +596,9 @@ material = SubResource("CanvasItemMaterial_grqqq")
 layout_mode = 3
 anchors_preset = 0
 offset_left = 248.0
-offset_top = -112.0
+offset_top = -57.0
 offset_right = 248.0
-offset_bottom = -112.0
+offset_bottom = -57.0
 scale = Vector2(2, 2)
 
 [node name="Start" type="Sprite2D" parent="DisplayAnchor/Inventory"]
@@ -610,7 +636,7 @@ region_rect = Rect2(128, 0, 64, 64)
 
 [node name="TurnDial" type="Sprite2D" parent="DisplayAnchor"]
 z_index = 1
-position = Vector2(128, -136)
+position = Vector2(128, -100)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_6leae")
 
@@ -634,3 +660,10 @@ libraries = {
 }
 autoplay = "BeginGame"
 next/BeginGame = &"EndTurn"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DisplayAnchor"]
+scale = Vector2(1.33333, 1.33333)
+stream = ExtResource("6_ulhuf")
+max_distance = 4000.0
+max_polyphony = 12
+bus = &"SFX"

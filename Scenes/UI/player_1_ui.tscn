@@ -1,10 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://c6nsmtmqmj0b8"]
+[gd_scene load_steps=16 format=3 uid="uid://c6nsmtmqmj0b8"]
 
 [ext_resource type="Texture2D" uid="uid://26hxrikjooy1" path="res://Textures/inventory.png" id="1_74rkx"]
 [ext_resource type="Script" path="res://Scripts/UI/player_ui.gd" id="1_goatr"]
 [ext_resource type="Texture2D" uid="uid://7vhj3y1japyb" path="res://Textures/SillouetteGunslinger_Grayscale.png" id="2_1d0fr"]
 [ext_resource type="PackedScene" uid="uid://irhtrmjy0jep" path="res://Scenes/UI/ability_sticker.tscn" id="4_7ftmd"]
 [ext_resource type="Texture2D" uid="uid://b8w5ah14x3qfs" path="res://Textures/TurnDisc.png" id="4_ceglh"]
+[ext_resource type="AudioStream" uid="uid://bi3mpj5jelxvn" path="res://Audio/SFX/RollingWood.wav" id="6_ebf5y"]
+[ext_resource type="AudioStream" uid="uid://msgdjmpm3dwv" path="res://Audio/SFX/spacebar-click-keyboard-199448.mp3" id="7_4elqx"]
+[ext_resource type="AudioStream" uid="uid://ccvj3ejifqbqg" path="res://Audio/SFX/wheel_spin.wav" id="8_dfx4n"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_grqqq"]
 
@@ -153,7 +156,7 @@ tracks/11/keys = {
 "times": PackedFloat32Array(4.23333, 4.53333, 4.8, 5),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-185, 400), Vector2(-165, 45), Vector2(198, -338), Vector2(198, -338)]
+"values": [Vector2(-165, 45), Vector2(-165, 45), Vector2(198, -338), Vector2(198, -338)]
 }
 tracks/12/type = "value"
 tracks/12/imported = false
@@ -190,6 +193,30 @@ tracks/14/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PlayerUI1/DisplayAnchor/AudioStreamPlayer2D:stream")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 2.03333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("6_ebf5y"), ExtResource("7_4elqx")]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("PlayerUI1/DisplayAnchor/AudioStreamPlayer2D:playing")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0.633333, 2.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
 }
 
 [sub_resource type="Animation" id="Animation_nufv0"]
@@ -228,6 +255,30 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "clips": PackedStringArray("ShowIndicator"),
 "times": PackedFloat32Array(0.833333)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PlayerUI1/DisplayAnchor/AudioStreamPlayer2D:stream")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_dfx4n")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerUI1/DisplayAnchor/AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_m06ku"]
@@ -539,6 +590,30 @@ tracks/13/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("PlayerUI1/DisplayAnchor/AudioStreamPlayer2D:stream")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("PlayerUI1/DisplayAnchor/AudioStreamPlayer2D:playing")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5dwy3"]
 _data = {
@@ -568,10 +643,10 @@ self_modulate = Color(0.223529, 0.0156863, 0.129412, 1)
 z_index = -100
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 0
-offset_left = 198.0
-offset_top = -338.0
-offset_right = 454.0
-offset_bottom = -82.0
+offset_left = -165.0
+offset_top = 45.0
+offset_right = 91.0
+offset_bottom = 301.0
 texture = ExtResource("2_1d0fr")
 expand_mode = 2
 stretch_mode = 5
@@ -643,5 +718,12 @@ libraries = {
 "": SubResource("AnimationLibrary_5dwy3")
 }
 autoplay = "BeginGame"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="DisplayAnchor"]
+scale = Vector2(1.33333, 1.33333)
+stream = ExtResource("7_4elqx")
+max_distance = 4000.0
+max_polyphony = 12
+bus = &"SFX"
 
 [connection signal="animation_finished" from="DisplayAnchor/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

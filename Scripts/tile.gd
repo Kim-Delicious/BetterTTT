@@ -5,6 +5,7 @@ extends Node3D
 @onready var button_3d: StaticBody3D = $AnimationTarget/Button3D
 @onready var mouse_hover_sprite: Sprite3D = $AnimationTarget/MouseHoverSprite
 @onready var mesh_instance_3d: MeshInstance3D = $AnimationTarget/MeshInstance3D
+@onready var audio_stream_player_3d: AudioStreamPlayer3D = $AudioStreamPlayer3D
 
 @onready var components: Node = $Components
 

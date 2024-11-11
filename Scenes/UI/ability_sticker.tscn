@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://irhtrmjy0jep"]
+[gd_scene load_steps=12 format=3 uid="uid://irhtrmjy0jep"]
 
 [ext_resource type="Texture2D" uid="uid://bbm4plo53y170" path="res://Textures/BlankSticker.png" id="1_upk4l"]
 [ext_resource type="PackedScene" uid="uid://bg5anl0dsvskh" path="res://Scenes/UI/count_sticker.tscn" id="2_5oqhp"]
 [ext_resource type="Script" path="res://Scripts/UI/ability_sticker.gd" id="2_bvi1x"]
 [ext_resource type="Texture2D" uid="uid://by48ogf6ip8an" path="res://Textures/BorderlessBlankSticker.png" id="3_o8ohe"]
+[ext_resource type="AudioStream" uid="uid://msgdjmpm3dwv" path="res://Audio/SFX/spacebar-click-keyboard-199448.mp3" id="5_iwylt"]
 
 [sub_resource type="Animation" id="Animation_0atu6"]
 resource_name = "HideIndicator"
@@ -57,6 +58,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [10]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_2fp41"]
@@ -161,6 +174,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(0.5, 0.5), Vector2(0.5, 0.5), Vector2(0.48, 0.48), Vector2(0.5, 0.5)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(3.9),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_flsyx"]
 resource_name = "UnpackFlipped"
@@ -261,21 +286,18 @@ hover_color = Color(0.99, 0.9801, 0.792, 1)
 press_color = Color(0.84, 0.75936, 0.5712, 1)
 
 [node name="CountSticker" parent="." instance=ExtResource("2_5oqhp")]
-modulate = Color(1, 1, 1, 0)
+z_index = 10
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 0.0
-offset_top = -42.0
-offset_right = 0.0
-offset_bottom = -42.0
+offset_left = 32.0
+offset_right = 32.0
+offset_bottom = -64.0
 grow_horizontal = 2
 grow_vertical = 2
-rotation = -0.872665
-scale = Vector2(0.25, 0.25)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -289,6 +311,14 @@ show_behind_parent = true
 position = Vector2(64, 64)
 scale = Vector2(1.08, 1.08)
 texture = ExtResource("3_o8ohe")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1.33333, 1.33333)
+stream = ExtResource("5_iwylt")
+pitch_scale = 1.5
+max_distance = 4000.0
+max_polyphony = 12
+bus = &"SFX"
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

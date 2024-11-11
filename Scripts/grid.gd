@@ -55,7 +55,11 @@ func check_for_win() -> void:
 
 			var symbol = tile.symbol
 			
+			if !tile.visible:
+				continue
 			if !tile.get_child(0).visible:
+				continue
+			if !tile.get_child(0).get_child(0).visible:
 				continue
 			
 			if symbol.name != "Symbol":
@@ -64,6 +68,9 @@ func check_for_win() -> void:
 				
 			if symbol.symbol_type == -1:
 				free_tiles += 1
+				print(str(i) + ", " + str(j))
+
+				
 				continue
 				
 
@@ -75,8 +82,11 @@ func check_for_win() -> void:
 			
 	if free_tiles == 0:
 		game_tie.emit()
+		print("Tie")
+		
+	print("Check done!")
+		
 							
-	return
 	
 
 func emit_on_tiles_match(row_index, tile_index, max_length, the_signal: Signal) -> void:	
@@ -190,7 +200,11 @@ func on_end_round() -> void:
 		for j in range(row.get_child_count()):
 			var tile = row.get_child(j)
 			
+			if !tile.visible:
+				continue
 			if !tile.get_child(0).visible:
+				continue
+			if !tile.get_child(0).get_child(0).visible:
 				continue
 			
 			if tile.command_buffer.size() <= 0:
@@ -212,7 +226,11 @@ func on_end_turn() -> void:
 			
 			tile.refresh_turn_buffer()
 			
+			if !tile.visible:
+				continue
 			if !tile.get_child(0).visible:
+				continue
+			if !tile.get_child(0).get_child(0).visible:
 				continue
 			
 			if tile.turn_command_buffer.size() <= 0:
@@ -251,7 +269,11 @@ func apply_chaos() -> void:
 		for j in range(row.get_child_count()):
 			var tile = row.get_child(j)
 			
+			if !tile.visible:
+				continue
 			if !tile.get_child(0).visible:
+				continue
+			if !tile.get_child(0).get_child(0).visible:
 				continue
 			
 			var random_num = randf_range(0, 1)
@@ -280,6 +302,7 @@ func stop_all_animations() -> void:
 			var tile = row.get_child(j)
 			
 			tile.animation_player.stop()
+			
 	
 
 func iterate_through_buffer() -> void:	
@@ -302,3 +325,4 @@ func iterate_through_buffer() -> void:
 
 func _on_match_end_screen_landed() -> void:
 	stop_all_animations()
+	print(" should have stopped")

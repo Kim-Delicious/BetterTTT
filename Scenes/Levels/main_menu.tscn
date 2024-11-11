@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://c74edjjjeexmm"]
+[gd_scene load_steps=71 format=3 uid="uid://c74edjjjeexmm"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_gxgxq"]
 [ext_resource type="Texture2D" uid="uid://bb13fyijl4ufv" path="res://Textures/SilloutteBanner6.png" id="2_m3mow"]
@@ -58,6 +58,8 @@
 [ext_resource type="Texture2D" uid="uid://b611k4li0qsbx" path="res://Textures/MapPictures/Buttons/Border_9_h.png" id="38_jxy8o"]
 [ext_resource type="Texture2D" uid="uid://ceutsyyy1h8je" path="res://Textures/MapPictures/Buttons/Border_10_p.png" id="40_o76sp"]
 [ext_resource type="Texture2D" uid="uid://cirwwfqekveea" path="res://Textures/MapPictures/Buttons/Border_10_h.png" id="41_t51y8"]
+[ext_resource type="AudioStream" uid="uid://dqpc46s2g278w" path="res://Audio/Music/TitleTrack.wav" id="58_moxq5"]
+[ext_resource type="AudioStream" uid="uid://bjlep5jhb8s2t" path="res://Audio/SFX/click1.wav" id="59_cf85a"]
 
 [sub_resource type="Animation" id="Animation_ijygi"]
 resource_name = "CloseMain"
@@ -95,6 +97,42 @@ tracks/1/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SFXPlayer:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [10.0, -60.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MusicPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(5, 1),
+"update": 0,
+"values": [10.0, -60.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MusicPlayer:pitch_scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.433),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.8]
+}
 
 [sub_resource type="Animation" id="Animation_1xvfp"]
 resource_name = "OpenMain"
@@ -131,9 +169,93 @@ tracks/1/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MusicPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFXPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MusicPlayer:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MusicPlayer:pitch_scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_35sne"]
 resource_name = "Startup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MusicPlayer:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Screen:self_modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Screen:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n4ner"]
 _data = {
@@ -1119,9 +1241,25 @@ size_flags_stretch_ratio = 0.33
 anchor_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_n4ner")
 }
+autoplay = "Startup"
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("58_moxq5")
+volume_db = 10.0
+max_distance = 4000.0
+max_polyphony = 2
+bus = &"Music"
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("59_cf85a")
+volume_db = 10.0
+max_distance = 4000.0
+max_polyphony = 12
+bus = &"SFX"
 
 [node name="Screen" type="TextureRect" parent="."]
 self_modulate = Color(0, 0, 0, 0)
@@ -1164,3 +1302,4 @@ metadata/_edit_lock_ = true
 [connection signal="pressed" from="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/Chaos/Button2" to="." method="increment_chaos_factor" binds= [0.05]]
 [connection signal="pressed" from="SelectionMenu/SpecialRules/HBoxContainer/VBoxContainer/HBoxContainer/BackButton" to="." method="hide_special"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="finished" from="MusicPlayer" to="." method="_on_audio_stream_player_2d_finished"]

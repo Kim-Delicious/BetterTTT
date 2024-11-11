@@ -1,0 +1,936 @@
+[gd_scene load_steps=37 format=3 uid="uid://dud6sswbvolw1"]
+
+[ext_resource type="Script" path="res://Scripts/game.gd" id="1_xp40p"]
+[ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_qebsp"]
+[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_ie1e2"]
+[ext_resource type="Script" path="res://Scripts/grid.gd" id="4_8oyyv"]
+[ext_resource type="PackedScene" uid="uid://b713dr5lk5kx8" path="res://Scenes/Tile.tscn" id="5_tgima"]
+[ext_resource type="Script" path="res://Scripts/UI/turn_ui.gd" id="6_5gqie"]
+[ext_resource type="Texture2D" uid="uid://bn73b2cre5yb5" path="res://Textures/CenterUI.png" id="7_2m4x0"]
+[ext_resource type="Texture2D" uid="uid://dth2r76lyigkf" path="res://Textures/NextTurnStickerUp.png" id="8_hupyg"]
+[ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="9_8jmt0"]
+[ext_resource type="Texture2D" uid="uid://brj6vlivsows8" path="res://Textures/NextTurnStickerUpHover.png" id="10_x0rql"]
+[ext_resource type="PackedScene" uid="uid://cf2hu0v7iwkms" path="res://Scenes/UI/end_screen.tscn" id="11_st6u0"]
+[ext_resource type="PackedScene" uid="uid://eb1fd5eu0f66" path="res://Scenes/UI/in_game_menu.tscn" id="12_p7van"]
+[ext_resource type="AudioStream" uid="uid://dhqap4viua83q" path="res://Audio/SFX/screen_thump.wav" id="13_5yqec"]
+[ext_resource type="Texture2D" uid="uid://stxp0awtbl5a" path="res://Textures/SilloutteColorPixle.png" id="14_dx2de"]
+[ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="15_64j0o"]
+[ext_resource type="AudioStream" uid="uid://c468s7fif6no4" path="res://Audio/Music/Track1.wav" id="16_a5gyx"]
+
+[sub_resource type="Sky" id="Sky_i4i7v"]
+sky_material = ExtResource("2_qebsp")
+radiance_size = 6
+
+[sub_resource type="Environment" id="Environment_g8a3a"]
+background_mode = 2
+sky = SubResource("Sky_i4i7v")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ssao_intensity = 12.08
+ssao_power = 0.0437359
+ssao_detail = 3.45
+ssao_horizon = 1.0
+ssao_sharpness = 0.0
+ssao_light_affect = 0.77
+ssao_ao_channel_affect = 1.0
+sdfgi_bounce_feedback = 0.0
+fog_mode = 1
+fog_light_color = Color(0.991376, 0.809417, 0.841349, 1)
+fog_light_energy = 0.44
+fog_sun_scatter = 7.55
+fog_density = 0.0485
+fog_height = -2.2
+fog_height_density = -0.0255
+fog_depth_curve = 0.0473661
+fog_depth_begin = 66.3
+fog_depth_end = 629.7
+volumetric_fog_density = 0.0
+volumetric_fog_length = 0.7
+
+[sub_resource type="Animation" id="Animation_8wvp7"]
+resource_name = "MoveCamera"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector3(0, 64, -45), Vector3(-45, 64, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(3, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -3.14159, 0), Vector3(-1.0472, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lcuds"]
+resource_name = "MoveLeft1"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 64, -45), Vector3(45, 64, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -3.14159, 0), Vector3(-1.0472, -4.71239, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fiu6b"]
+resource_name = "MoveLeft2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-45, 64, 0), Vector3(0, 64, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -1.5708, 0), Vector3(-1.0472, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e05oq"]
+resource_name = "MoveLeft3"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 64, 45), Vector3(-45, 64, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, 0, 0), Vector3(-1.0472, -1.5708, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_we1j2"]
+resource_name = "MoveLeft4"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(45, 64, 0), Vector3(0, 64, 45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, 1.5708, 0), Vector3(-1.0472, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_04e8t"]
+resource_name = "MoveRight0"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 64, -45), Vector3(0, 64, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -3.14159, 0), Vector3(-1.0472, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nc8ug"]
+resource_name = "MoveRight2"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-45, 64, 0), Vector3(0, 64, 45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -1.5708, 0), Vector3(-1.0472, -6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8qu3v"]
+resource_name = "MoveRight3"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 64, 45), Vector3(45, 64, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -6.28319, 0), Vector3(-1.0472, -4.71239, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0w3p4"]
+resource_name = "MoveRight4"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(45, 64, 0), Vector3(0, 64, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.0472, -4.71239, 0), Vector3(-1.0472, -3.14159, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yfbtf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 64, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.0472, -3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8nhk"]
+_data = {
+"MoveCamera": SubResource("Animation_8wvp7"),
+"MoveLeft1": SubResource("Animation_lcuds"),
+"MoveLeft2": SubResource("Animation_fiu6b"),
+"MoveLeft3": SubResource("Animation_e05oq"),
+"MoveLeft4": SubResource("Animation_we1j2"),
+"MoveRight1": SubResource("Animation_04e8t"),
+"MoveRight2": SubResource("Animation_nc8ug"),
+"MoveRight3": SubResource("Animation_8qu3v"),
+"MoveRight4": SubResource("Animation_0w3p4"),
+"RESET": SubResource("Animation_yfbtf")
+}
+
+[sub_resource type="Animation" id="Animation_83ud4"]
+resource_name = "EndGame"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MatchEnd:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.13333, 2.36667, 2.46667, 2.83333, 2.9, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(345.6, -2000), Vector2(345.6, 132), Vector2(345.6, -4), Vector2(345.6, 100), Vector2(345.6, 88), Vector2(345.6, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MatchEnd:rotation")
+tracks/1/interp = 4
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.13333, 2.36667, 2.46667, 2.56667, 2.66667, 2.76667, 2.83333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.0174533, 0.0174533, -0.0174533, 0.00872665, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MatchEnd:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TurnUI:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2.36667, 2.56667, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 600), Vector2(0, 600)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextTurnButton/TextureRect:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2.36667, 2.56667, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 32), Vector2(0, 32), Vector2(0, 632), Vector2(0, 632)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MatchEnd")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.34477),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_landed"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer3D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2.27891, 2.32235),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer3D:stream")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.29407),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_5yqec")]
+}
+
+[sub_resource type="Animation" id="Animation_kxlfd"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MatchEnd:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(115.2, -2000)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MatchEnd:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TurnUI:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MatchEnd:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("NextTurnButton/TextureRect:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 32)]
+}
+
+[sub_resource type="Animation" id="Animation_dhx3k"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MatchEnd:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(115.2, 64.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rfywp"]
+_data = {
+"EndGame": SubResource("Animation_83ud4"),
+"RESET": SubResource("Animation_kxlfd"),
+"new_animation": SubResource("Animation_dhx3k")
+}
+
+[sub_resource type="Animation" id="Animation_xky0j"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/Screen:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.966667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/Screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameUI/AudioStreamPlayer2D:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0673693),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_jjy8j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameUI/Screen:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GameUI/Screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s21g0"]
+_data = {
+"FadeIn": SubResource("Animation_xky0j"),
+"RESET": SubResource("Animation_jjy8j")
+}
+
+[node name="local_game" type="Node3D"]
+script = ExtResource("1_xp40p")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -7.57103e-08, -0.866025, 0.5, 4.37114e-08, 0.5, 0.866025, -3, 33, 0)
+light_color = Color(0.997035, 0.813498, 1, 1)
+light_angular_distance = 60.0
+shadow_enabled = true
+shadow_normal_bias = 10.0
+shadow_opacity = 0.85
+shadow_blur = 1.021
+directional_shadow_mode = 0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+process_mode = 3
+transform = Transform3D(-1, 2.19553e-06, -1.26759e-06, 0, 0.499998, 0.866027, 2.53518e-06, 0.866026, -0.499998, 0, 64, -45)
+environment = SubResource("Environment_g8a3a")
+fov = 60.0
+size = 17.561
+near = 0.001
+script = ExtResource("3_ie1e2")
+orbit_radius = 35
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Camera3D"]
+libraries = {
+"": SubResource("AnimationLibrary_a8nhk")
+}
+blend_times = [&"MoveLeft1", &"MoveLeft1", 1.0, &"MoveLeft1", &"MoveLeft2", 1.0, &"MoveLeft1", &"MoveLeft3", 1.0, &"MoveLeft1", &"MoveLeft4", 1.0, &"MoveLeft1", &"MoveRight1", 1.0, &"MoveLeft1", &"MoveRight2", 1.0, &"MoveLeft1", &"MoveRight3", 1.0, &"MoveLeft1", &"MoveRight4", 1.0, &"MoveLeft2", &"MoveLeft1", 3.0, &"MoveLeft2", &"MoveLeft2", 3.0, &"MoveLeft2", &"MoveLeft3", 3.0, &"MoveLeft2", &"MoveLeft4", 3.0, &"MoveLeft2", &"MoveRight1", 3.0, &"MoveLeft2", &"MoveRight2", 3.0, &"MoveLeft2", &"MoveRight3", 3.0, &"MoveLeft3", &"MoveLeft1", 1.0, &"MoveLeft3", &"MoveLeft2", 1.0, &"MoveLeft3", &"MoveLeft3", 1.0, &"MoveLeft3", &"MoveLeft4", 1.0, &"MoveLeft3", &"MoveRight1", 1.0, &"MoveLeft3", &"MoveRight2", 1.0, &"MoveLeft3", &"MoveRight3", 1.0, &"MoveLeft3", &"MoveRight4", 1.0, &"MoveLeft4", &"MoveLeft1", 1.0, &"MoveLeft4", &"MoveLeft2", 1.0, &"MoveLeft4", &"MoveLeft3", 1.0, &"MoveLeft4", &"MoveLeft4", 1.0, &"MoveLeft4", &"MoveRight1", 1.0, &"MoveLeft4", &"MoveRight2", 1.0, &"MoveLeft4", &"MoveRight3", 1.0, &"MoveLeft4", &"MoveRight4", 1.0, &"MoveRight1", &"MoveCamera", 3.0, &"MoveRight1", &"MoveLeft1", 3.0, &"MoveRight1", &"MoveLeft2", 3.0, &"MoveRight1", &"MoveLeft3", 3.0, &"MoveRight1", &"MoveLeft4", 3.0, &"MoveRight1", &"MoveRight1", 3.0, &"MoveRight1", &"MoveRight2", 3.0, &"MoveRight1", &"MoveRight3", 3.0, &"MoveRight1", &"MoveRight4", 3.0, &"MoveRight2", &"MoveLeft1", 3.0, &"MoveRight2", &"MoveLeft2", 3.0, &"MoveRight2", &"MoveLeft3", 3.0, &"MoveRight2", &"MoveLeft4", 3.0, &"MoveRight2", &"MoveRight1", 3.0, &"MoveRight2", &"MoveRight2", 3.0, &"MoveRight2", &"MoveRight3", 3.0, &"MoveRight2", &"MoveRight4", 3.0, &"MoveRight3", &"MoveLeft1", 3.0, &"MoveRight3", &"MoveLeft2", 3.0, &"MoveRight3", &"MoveLeft3", 3.0, &"MoveRight3", &"MoveLeft4", 3.0, &"MoveRight3", &"MoveRight1", 3.0, &"MoveRight3", &"MoveRight2", 3.0, &"MoveRight3", &"MoveRight3", 3.0, &"MoveRight3", &"MoveRight4", 3.0, &"MoveRight4", &"MoveLeft1", 3.0, &"MoveRight4", &"MoveLeft2", 3.0, &"MoveRight4", &"MoveLeft3", 3.0, &"MoveRight4", &"MoveLeft4", 3.0, &"MoveRight4", &"MoveRight1", 3.0, &"MoveRight4", &"MoveRight2", 3.0, &"MoveRight4", &"MoveRight3", 3.0, &"MoveRight4", &"MoveRight4", 3.0]
+
+[node name="AnimationTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Players" type="Node" parent="."]
+process_mode = 3
+
+[node name="BufferTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Grid" type="Node3D" parent="."]
+process_mode = 1
+script = ExtResource("4_8oyyv")
+tiles_to_panic = 4
+
+[node name="Row" type="Node3D" parent="Grid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+
+[node name="Tile" parent="Grid/Row" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="Tile2" parent="Grid/Row" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="Tile3" parent="Grid/Row" instance=ExtResource("5_tgima")]
+
+[node name="Tile4" parent="Grid/Row" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+
+[node name="Tile5" parent="Grid/Row" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="Row2" type="Node3D" parent="Grid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+
+[node name="Tile" parent="Grid/Row2" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="Tile2" parent="Grid/Row2" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -2, 0)
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/chained.tscn")
+
+[node name="Tile3" parent="Grid/Row2" instance=ExtResource("5_tgima")]
+
+[node name="Tile4" parent="Grid/Row2" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -2, 0)
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/chained.tscn")
+
+[node name="Tile5" parent="Grid/Row2" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="Row3" type="Node3D" parent="Grid"]
+
+[node name="Tile" parent="Grid/Row3" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="Tile2" parent="Grid/Row3" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="Tile3" parent="Grid/Row3" instance=ExtResource("5_tgima")]
+
+[node name="Tile4" parent="Grid/Row3" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+
+[node name="Tile5" parent="Grid/Row3" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="Row4" type="Node3D" parent="Grid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7)
+
+[node name="Tile" parent="Grid/Row4" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="Tile2" parent="Grid/Row4" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -2, 0)
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/chained.tscn")
+
+[node name="Tile3" parent="Grid/Row4" instance=ExtResource("5_tgima")]
+
+[node name="Tile4" parent="Grid/Row4" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, -2, 0)
+components_to_add = PackedStringArray("res://Scenes/Tile Components/placable.tscn", "res://Scenes/Tile Components/movable.tscn", "res://Scenes/Tile Components/shootable.tscn", "res://Scenes/Tile Components/chained.tscn")
+
+[node name="Tile5" parent="Grid/Row4" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="Row5" type="Node3D" parent="Grid"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+
+[node name="Tile" parent="Grid/Row5" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 0, 0)
+
+[node name="Tile2" parent="Grid/Row5" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 0, 0)
+
+[node name="Tile3" parent="Grid/Row5" instance=ExtResource("5_tgima")]
+
+[node name="Tile4" parent="Grid/Row5" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, 0)
+
+[node name="Tile5" parent="Grid/Row5" instance=ExtResource("5_tgima")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, 0)
+
+[node name="GameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TurnUI" type="Control" parent="GameUI"]
+process_mode = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("6_5gqie")
+metadata/_edit_lock_ = true
+
+[node name="Control" type="Control" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="NextTurnButton" type="Control" parent="GameUI/Control"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -256.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="GameUI/Control/NextTurnButton"]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_2m4x0")
+expand_mode = 1
+
+[node name="Button" type="TextureButton" parent="GameUI/Control/NextTurnButton/TextureRect"]
+modulate = Color(0.780598, 0.780598, 0.780598, 1)
+custom_minimum_size = Vector2(128, 144)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -64.0
+offset_top = -80.0
+offset_right = 64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+texture_normal = ExtResource("8_hupyg")
+texture_pressed = ExtResource("9_8jmt0")
+texture_hover = ExtResource("10_x0rql")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MatchEnd" parent="GameUI/Control" instance=ExtResource("11_st6u0")]
+visible = false
+layout_mode = 1
+offset_left = 230.4
+offset_top = -2064.8
+offset_right = 230.4
+offset_bottom = -2064.8
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="InGameMenu" parent="GameUI/Control" instance=ExtResource("12_p7van")]
+layout_mode = 1
+offset_bottom = 0.0
+mouse_filter = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameUI/Control"]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_rfywp")
+}
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="GameUI/Control"]
+stream = ExtResource("13_5yqec")
+bus = &"SFX"
+attenuation_filter_cutoff_hz = 15000.0
+
+[node name="Background" type="Control" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="TextureRect" parent="GameUI/Background"]
+modulate = Color(0.25, 0.2475, 0.2475, 1)
+z_index = -50
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+texture = ExtResource("14_dx2de")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sprite2D2" type="TextureRect" parent="GameUI/Background"]
+modulate = Color(0.25, 0.2475, 0.2475, 1)
+z_index = -50
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_dx2de")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Sprite2D3" type="TextureRect" parent="GameUI/Background"]
+modulate = Color(0.25, 0.2475, 0.2475, 1)
+z_index = -50
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 32.0
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("14_dx2de")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Screen" type="TextureRect" parent="GameUI"]
+self_modulate = Color(0, 0, 0, 1)
+z_index = 100
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("15_64j0o")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="SceneTransition" type="AnimationPlayer" parent="GameUI"]
+process_mode = 3
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_s21g0")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer3D" parent="GameUI"]
+stream = ExtResource("16_a5gyx")
+bus = &"Music"
+attenuation_filter_cutoff_hz = 15000.0
+
+[connection signal="on_end_turn" from="." to="GameUI/TurnUI" method="_on_end_turn"]
+[connection signal="animation_finished" from="Camera3D/AnimationPlayer" to="Camera3D" method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="AnimationTimer" to="." method="_on_animation_timer_timeout"]
+[connection signal="timeout" from="BufferTimer" to="Grid" method="iterate_through_buffer"]
+[connection signal="game_tie" from="Grid" to="." method="_on_grid_game_tie"]
+[connection signal="game_won" from="Grid" to="." method="_on_game_won"]
+[connection signal="panic_time" from="Grid" to="." method="_on_panic_time"]
+[connection signal="tile_clicked" from="Grid" to="." method="_on_grid_tile_clicked"]
+[connection signal="done_with_anim" from="GameUI/TurnUI" to="." method="_on_turn_ui_done_with_anim"]
+[connection signal="loaded_player_uis" from="GameUI/TurnUI" to="." method="_on_turn_ui_loaded_player_uis"]
+[connection signal="loaded_player_uis" from="GameUI/TurnUI" to="GameUI/TurnUI" method="_on_loaded_player_uis"]
+[connection signal="pressed" from="GameUI/Control/NextTurnButton/TextureRect/Button" to="." method="end_turn_alt"]
+[connection signal="next_button_pushed" from="GameUI/Control/MatchEnd" to="GameUI/Control/InGameMenu" method="_on_main_menu_pressed"]
+[connection signal="screen_landed" from="GameUI/Control/MatchEnd" to="Grid" method="_on_match_end_screen_landed"]
+[connection signal="finished" from="GameUI/AudioStreamPlayer2D" to="." method="_on_audio_stream_player_2d_finished"]

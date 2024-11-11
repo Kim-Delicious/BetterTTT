@@ -268,7 +268,9 @@ func move_tile(target_x, target_y, next_x, next_y, anim_direction: String) -> vo
 		_:
 			return
 			
-	found_tile.components.get_child(0).interacted.emit()
+	if found_tile.components.get_child_count() > 0:
+			
+		found_tile.components.get_child(0).interacted.emit()
 	
 func check_for_chains() -> bool:
 		
@@ -298,10 +300,19 @@ func animate_jammed() -> void:
 			if i == 0 && j == 0:
 				continue
 				
+				
 			var found_tile = get_relative_tile(i, j)
 			
-			found_tile.animation_player.play("ReflectBullet")
+			if !found_tile.visible:
+				continue
+			if !found_tile.get_child(0).visible:
+				continue
+			if !found_tile.get_child(0).get_child(0).visible:
+				continue
 			
+			
+			found_tile.animation_player.play("ReflectBullet")
+						
 			found_tile.components.get_child(0).interacted.emit()
 
 			
