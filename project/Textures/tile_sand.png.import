@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dnojfum3ucyrp"
-path.s3tc="res://.godot/imported/SandTile.png-63e5627695d5c7a037dacb56df22f754.s3tc.ctex"
+path.s3tc="res://.godot/imported/tile_sand.png-73653bda11db33eef8056bbe2e565eb3.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Textures/SandTile.png"
-dest_files=["res://.godot/imported/SandTile.png-63e5627695d5c7a037dacb56df22f754.s3tc.ctex"]
+source_file="res://Textures/tile_sand.png"
+dest_files=["res://.godot/imported/tile_sand.png-73653bda11db33eef8056bbe2e565eb3.s3tc.ctex"]
 
 [params]
 

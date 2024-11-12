@@ -67,10 +67,7 @@ func check_for_win() -> void:
 				continue
 				
 			if symbol.symbol_type == -1:
-				free_tiles += 1
-				print(str(i) + ", " + str(j))
-
-				
+				free_tiles += 1			
 				continue
 				
 
@@ -82,9 +79,9 @@ func check_for_win() -> void:
 			
 	if free_tiles == 0:
 		game_tie.emit()
-		print("Tie")
+		#print("Tie")
 		
-	print("Check done!")
+	#print("Check done!")
 		
 							
 	
@@ -325,4 +322,3 @@ func iterate_through_buffer() -> void:
 
 func _on_match_end_screen_landed() -> void:
 	stop_all_animations()
-	print(" should have stopped")

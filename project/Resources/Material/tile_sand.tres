@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dxb7okdcww4js"]
 
-[ext_resource type="Texture2D" uid="uid://dnojfum3ucyrp" path="res://Textures/SandTile.png" id="1_jbtrb"]
+[ext_resource type="Texture2D" uid="uid://dnojfum3ucyrp" path="res://Textures/tile_sand.png" id="1_jbtrb"]
 
 [resource]
 resource_local_to_scene = true

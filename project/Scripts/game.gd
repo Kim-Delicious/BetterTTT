@@ -220,7 +220,7 @@ func _on_panic_time(tile_array: Array) -> void:
 	for tile in tile_array:
 		tile.symbol.animation_player.play("WinningThree")
 		
-	print("TIME TO PANIC!")
+	#print("TIME TO PANIC!")
 
 
 func _on_game_won(tile_array: Array) -> void:
@@ -263,7 +263,7 @@ func _on_turn_ui_done_with_anim(anim_name: String) -> void:
 		players.get_child(0).on_turn = true
 		
 		
-		print("Game has finished starting!")
+		#print("Game has finished starting!")
 
 
 func _on_turn_ui_loaded_player_uis() -> void:

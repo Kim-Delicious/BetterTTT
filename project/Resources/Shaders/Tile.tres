@@ -1,6 +1,6 @@
 [gd_resource type="VisualShader" load_steps=30 format=3 uid="uid://bw6fe710xjoe7"]
 
-[ext_resource type="Texture2D" uid="uid://dnojfum3ucyrp" path="res://Textures/SandTile.png" id="1_s2hv6"]
+[ext_resource type="Texture2D" uid="uid://dnojfum3ucyrp" path="res://Textures/tile_sand.png" id="1_72e3t"]
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ajs2p"]
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
@@ -33,7 +33,7 @@ op_type = 2
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_gxhfb"]
 output_port_for_preview = 0
 expanded_output_ports = [0]
-texture = ExtResource("1_s2hv6")
+texture = ExtResource("1_72e3t")
 
 [sub_resource type="VisualShaderNodeFloatOp" id="VisualShaderNodeFloatOp_cn6ch"]
 default_input_values = [0, 0.0, 1, 7.0]
