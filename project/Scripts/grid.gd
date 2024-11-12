@@ -255,6 +255,9 @@ func apply_chaos() -> void:
 			continue
 		if packed_scene_name == "movable" + ".tscn":
 			continue
+
+		if packed_scene_name.contains(".remap"):
+			packed_scene_name = packed_scene_name.replace(".remap", "")
 			
 		possible_components.append(load("res://Scenes/Tile Components/" + packed_scene_name) )
 	
