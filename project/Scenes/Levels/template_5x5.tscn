@@ -1,11 +1,11 @@
 [gd_scene load_steps=35 format=3 uid="uid://cuiu7kl8ucos0"]
 
-[ext_resource type="Script" path="res://Scripts/game.gd" id="1_knm78"]
+[ext_resource type="Script" uid="uid://dirh45ss43fka" path="res://Scripts/game.gd" id="1_knm78"]
 [ext_resource type="Material" uid="uid://v4coqk0sidi8" path="res://Resources/sky_material_1.tres" id="2_ddp1i"]
-[ext_resource type="Script" path="res://Scripts/camera_3d.gd" id="3_egwos"]
-[ext_resource type="Script" path="res://Scripts/grid.gd" id="4_dbgyt"]
+[ext_resource type="Script" uid="uid://drswqobxyxyps" path="res://Scripts/camera_3d.gd" id="3_egwos"]
+[ext_resource type="Script" uid="uid://bfoobyx8p52de" path="res://Scripts/grid.gd" id="4_dbgyt"]
 [ext_resource type="PackedScene" uid="uid://b713dr5lk5kx8" path="res://Scenes/Tile.tscn" id="5_cme22"]
-[ext_resource type="Script" path="res://Scripts/UI/turn_ui.gd" id="6_l6q4y"]
+[ext_resource type="Script" uid="uid://cba5bl17yi2yf" path="res://Scripts/UI/turn_ui.gd" id="6_l6q4y"]
 [ext_resource type="Texture2D" uid="uid://bn73b2cre5yb5" path="res://Textures/CenterUI.png" id="7_mgcmv"]
 [ext_resource type="Texture2D" uid="uid://dth2r76lyigkf" path="res://Textures/NextTurnStickerUp.png" id="8_hx00l"]
 [ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="9_2se7m"]
@@ -326,16 +326,16 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a8nhk"]
 _data = {
-"MoveCamera": SubResource("Animation_8wvp7"),
-"MoveLeft1": SubResource("Animation_lcuds"),
-"MoveLeft2": SubResource("Animation_fiu6b"),
-"MoveLeft3": SubResource("Animation_e05oq"),
-"MoveLeft4": SubResource("Animation_we1j2"),
-"MoveRight1": SubResource("Animation_04e8t"),
-"MoveRight2": SubResource("Animation_nc8ug"),
-"MoveRight3": SubResource("Animation_8qu3v"),
-"MoveRight4": SubResource("Animation_0w3p4"),
-"RESET": SubResource("Animation_yfbtf")
+&"MoveCamera": SubResource("Animation_8wvp7"),
+&"MoveLeft1": SubResource("Animation_lcuds"),
+&"MoveLeft2": SubResource("Animation_fiu6b"),
+&"MoveLeft3": SubResource("Animation_e05oq"),
+&"MoveLeft4": SubResource("Animation_we1j2"),
+&"MoveRight1": SubResource("Animation_04e8t"),
+&"MoveRight2": SubResource("Animation_nc8ug"),
+&"MoveRight3": SubResource("Animation_8qu3v"),
+&"MoveRight4": SubResource("Animation_0w3p4"),
+&"RESET": SubResource("Animation_yfbtf")
 }
 
 [sub_resource type="Animation" id="Animation_83ud4"]
@@ -483,9 +483,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rfywp"]
 _data = {
-"EndGame": SubResource("Animation_83ud4"),
-"RESET": SubResource("Animation_kxlfd"),
-"new_animation": SubResource("Animation_dhx3k")
+&"EndGame": SubResource("Animation_83ud4"),
+&"RESET": SubResource("Animation_kxlfd"),
+&"new_animation": SubResource("Animation_dhx3k")
 }
 
 [sub_resource type="Animation" id="Animation_xky0j"]
@@ -544,8 +544,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s21g0"]
 _data = {
-"FadeIn": SubResource("Animation_xky0j"),
-"RESET": SubResource("Animation_jjy8j")
+&"FadeIn": SubResource("Animation_xky0j"),
+&"RESET": SubResource("Animation_jjy8j")
 }
 
 [node name="local_game" type="Node3D"]

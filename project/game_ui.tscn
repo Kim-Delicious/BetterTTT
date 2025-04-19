@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dvqkhnbd3iraj"]
 
-[ext_resource type="Script" path="res://Scripts/UI/turn_ui.gd" id="1_8jl7d"]
+[ext_resource type="Script" uid="uid://cba5bl17yi2yf" path="res://Scripts/UI/turn_ui.gd" id="1_8jl7d"]
 [ext_resource type="Texture2D" uid="uid://bn73b2cre5yb5" path="res://Textures/CenterUI.png" id="2_wumd2"]
 [ext_resource type="Texture2D" uid="uid://dth2r76lyigkf" path="res://Textures/NextTurnStickerUp.png" id="3_ihqr1"]
 [ext_resource type="Texture2D" uid="uid://gcorcnendhs1" path="res://Textures/NextTurnSticker.png" id="4_i1gxn"]
@@ -155,9 +155,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rfywp"]
 _data = {
-"EndGame": SubResource("Animation_83ud4"),
-"RESET": SubResource("Animation_kxlfd"),
-"new_animation": SubResource("Animation_dhx3k")
+&"EndGame": SubResource("Animation_83ud4"),
+&"RESET": SubResource("Animation_kxlfd"),
+&"new_animation": SubResource("Animation_dhx3k")
 }
 
 [sub_resource type="Animation" id="Animation_xky0j"]
@@ -216,8 +216,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_s21g0"]
 _data = {
-"FadeIn": SubResource("Animation_xky0j"),
-"RESET": SubResource("Animation_jjy8j")
+&"FadeIn": SubResource("Animation_xky0j"),
+&"RESET": SubResource("Animation_jjy8j")
 }
 
 [node name="GameUI" type="Control"]

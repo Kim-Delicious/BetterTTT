@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://db7inm5d6hewc"]
 
-[ext_resource type="Script" path="res://Scripts/UI/player_ui.gd" id="1_tpua6"]
+[ext_resource type="Script" uid="uid://42n356vjs74w" path="res://Scripts/UI/player_ui.gd" id="1_tpua6"]
 [ext_resource type="Texture2D" uid="uid://7vhj3y1japyb" path="res://Textures/SillouetteGunslinger_Grayscale.png" id="2_dp8y5"]
 [ext_resource type="Texture2D" uid="uid://26hxrikjooy1" path="res://Textures/inventory.png" id="3_7cm4m"]
 [ext_resource type="PackedScene" uid="uid://irhtrmjy0jep" path="res://Scenes/UI/ability_sticker.tscn" id="4_pnfdq"]
@@ -555,11 +555,11 @@ tracks/12/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5dwy3"]
 _data = {
-"BeginGame": SubResource("Animation_1xtmh"),
-"BeginTurn": SubResource("Animation_nufv0"),
-"BeginTurn2": SubResource("Animation_m06ku"),
-"EndTurn": SubResource("Animation_ybh7m"),
-"RESET": SubResource("Animation_3qqc5")
+&"BeginGame": SubResource("Animation_1xtmh"),
+&"BeginTurn": SubResource("Animation_nufv0"),
+&"BeginTurn2": SubResource("Animation_m06ku"),
+&"EndTurn": SubResource("Animation_ybh7m"),
+&"RESET": SubResource("Animation_3qqc5")
 }
 
 [node name="PlayerUI3" type="Control"]
