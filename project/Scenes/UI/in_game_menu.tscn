@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://eb1fd5eu0f66"]
 
-[ext_resource type="Script" path="res://Scripts/game_menu.gd" id="1_tqgai"]
+[ext_resource type="Script" uid="uid://bltudfj0u8yfk" path="res://Scripts/game_menu.gd" id="1_tqgai"]
 [ext_resource type="Texture2D" uid="uid://bbhrle7pxmvkn" path="res://Textures/SilloutteBanner2.png" id="2_i5bs7"]
 [ext_resource type="StyleBox" uid="uid://ddcao77yu21dh" path="res://Resources/StyleBox/long_button_pressed.tres" id="3_v1x2s"]
 [ext_resource type="StyleBox" uid="uid://g7w0n7dgricu" path="res://Resources/StyleBox/long_button_hover.tres" id="4_y7y20"]
@@ -92,9 +92,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bqnqg"]
 _data = {
-"Close": SubResource("Animation_qquy1"),
-"Open": SubResource("Animation_d8yae"),
-"RESET": SubResource("Animation_3lt5q")
+&"Close": SubResource("Animation_qquy1"),
+&"Open": SubResource("Animation_d8yae"),
+&"RESET": SubResource("Animation_3lt5q")
 }
 
 [node name="InGameMenu" type="HBoxContainer"]

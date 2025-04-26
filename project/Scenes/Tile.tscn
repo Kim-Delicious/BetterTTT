@@ -1,6 +1,6 @@
 [gd_scene load_steps=36 format=3 uid="uid://b713dr5lk5kx8"]
 
-[ext_resource type="Script" path="res://Scripts/tile.gd" id="1_m4vp3"]
+[ext_resource type="Script" uid="uid://du576sbth06ta" path="res://Scripts/tile.gd" id="1_m4vp3"]
 [ext_resource type="PackedScene" uid="uid://cgc5nfkuvu0s8" path="res://Scenes/symbol.tscn" id="2_oplua"]
 [ext_resource type="Shader" uid="uid://bw6fe710xjoe7" path="res://Resources/Shaders/Tile.tres" id="2_tlo8o"]
 [ext_resource type="AudioStream" uid="uid://wqmytp62guty" path="res://Audio/SFX/fast-whoosh-118248_01.wav" id="3_ucqb6"]
@@ -702,17 +702,17 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6h2p5"]
 _data = {
-"AddSticker": SubResource("Animation_7jmbb"),
-"CogLeft": SubResource("Animation_ydqb8"),
-"CogRight": SubResource("Animation_5lj6j"),
-"GetShot": SubResource("Animation_f56pr"),
-"MoveDown": SubResource("Animation_bgpm8"),
-"MoveLeft": SubResource("Animation_woeo7"),
-"MoveRight": SubResource("Animation_drr6v"),
-"MoveUp": SubResource("Animation_4tyog"),
-"RESET": SubResource("Animation_ii0vl"),
-"ReflectBullet": SubResource("Animation_aukij"),
-"WinningThree": SubResource("Animation_dr0e5")
+&"AddSticker": SubResource("Animation_7jmbb"),
+&"CogLeft": SubResource("Animation_ydqb8"),
+&"CogRight": SubResource("Animation_5lj6j"),
+&"GetShot": SubResource("Animation_f56pr"),
+&"MoveDown": SubResource("Animation_bgpm8"),
+&"MoveLeft": SubResource("Animation_woeo7"),
+&"MoveRight": SubResource("Animation_drr6v"),
+&"MoveUp": SubResource("Animation_4tyog"),
+&"RESET": SubResource("Animation_ii0vl"),
+&"ReflectBullet": SubResource("Animation_aukij"),
+&"WinningThree": SubResource("Animation_dr0e5")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1n3kl"]
@@ -752,12 +752,12 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gy36r"]
 _data = {
-"Idle": SubResource("Animation_qbcef"),
-"RESET": SubResource("Animation_ytghy")
+&"Idle": SubResource("Animation_qbcef"),
+&"RESET": SubResource("Animation_ytghy")
 }
 
 [sub_resource type="Curve" id="Curve_v3pua"]
-max_value = 3.0
+_limits = [0.0, 3.0, 0.0, 1.0]
 _data = [Vector2(0, 0.0334573), 4.45959, 4.45959, 0, 0, Vector2(0.0146341, 3), 0.0, 0.0, 0, 0]
 point_count = 2
 

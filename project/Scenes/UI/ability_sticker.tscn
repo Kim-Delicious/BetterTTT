@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bbm4plo53y170" path="res://Textures/BlankSticker.png" id="1_upk4l"]
 [ext_resource type="PackedScene" uid="uid://bg5anl0dsvskh" path="res://Scenes/UI/count_sticker.tscn" id="2_5oqhp"]
-[ext_resource type="Script" path="res://Scripts/UI/ability_sticker.gd" id="2_bvi1x"]
+[ext_resource type="Script" uid="uid://c64xjscnmahkv" path="res://Scripts/UI/ability_sticker.gd" id="2_bvi1x"]
 [ext_resource type="Texture2D" uid="uid://by48ogf6ip8an" path="res://Textures/BorderlessBlankSticker.png" id="3_o8ohe"]
 [ext_resource type="AudioStream" uid="uid://msgdjmpm3dwv" path="res://Audio/SFX/spacebar-click-keyboard-199448.mp3" id="5_iwylt"]
 
@@ -265,11 +265,11 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fpr61"]
 _data = {
-"HideIndicator": SubResource("Animation_0atu6"),
-"RESET": SubResource("Animation_55qdo"),
-"ShowIndicator": SubResource("Animation_2fp41"),
-"Unpack": SubResource("Animation_ec74t"),
-"UnpackFlipped": SubResource("Animation_flsyx")
+&"HideIndicator": SubResource("Animation_0atu6"),
+&"RESET": SubResource("Animation_55qdo"),
+&"ShowIndicator": SubResource("Animation_2fp41"),
+&"Unpack": SubResource("Animation_ec74t"),
+&"UnpackFlipped": SubResource("Animation_flsyx")
 }
 
 [node name="AbilitySticker" type="TextureButton"]

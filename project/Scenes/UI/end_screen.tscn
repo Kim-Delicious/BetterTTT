@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://v47031s4wuu2" path="res://Textures/SilloutteBanner5.png" id="1_a3kgf"]
 [ext_resource type="Texture2D" uid="uid://b5he1a17t8v0t" path="res://Textures/GameWinBorder.png" id="2_ru6ug"]
-[ext_resource type="Script" path="res://Scripts/UI/end_screen.gd" id="2_yfhmg"]
+[ext_resource type="Script" uid="uid://ij30aqsxjhmw" path="res://Scripts/UI/end_screen.gd" id="2_yfhmg"]
 [ext_resource type="Texture2D" uid="uid://c7q0mxa3r33ku" path="res://Textures/GameWin.png" id="3_ih3gs"]
 [ext_resource type="Texture2D" uid="uid://cikvpgwt7em1q" path="res://Textures/GameWin_mask.png" id="4_ou105"]
-[ext_resource type="Shader" path="res://Resources/Shaders/animated_title_2.gdshader" id="5_nqy5p"]
+[ext_resource type="Shader" uid="uid://bcin85shsxx3h" path="res://Resources/Shaders/animated_title_2.gdshader" id="5_nqy5p"]
 [ext_resource type="Texture2D" uid="uid://c5umylsgjlq6p" path="res://Textures/Noise.png" id="6_bnjju"]
 [ext_resource type="Texture2D" uid="uid://01fy5pek7lyb" path="res://Textures/UI/Buttons/Next_Button.png" id="8_g7jk7"]
 [ext_resource type="Texture2D" uid="uid://cojdnkvquf77s" path="res://Textures/UI/Buttons/Next_ButtonPressed.png" id="9_b26ee"]

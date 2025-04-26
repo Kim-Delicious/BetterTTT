@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cgc5nfkuvu0s8"]
 
 [ext_resource type="Texture2D" uid="uid://djdn4duau8afd" path="res://Textures/Sticker_Mult.png" id="1_331ah"]
-[ext_resource type="Script" path="res://Scripts/symbol.gd" id="1_yuykj"]
+[ext_resource type="Script" uid="uid://cajuahfa6ggm0" path="res://Scripts/symbol.gd" id="1_yuykj"]
 
 [sub_resource type="Animation" id="Animation_q1y3n"]
 resource_name = "AddSticker"
@@ -136,9 +136,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_esj6m"]
 _data = {
-"AddSticker": SubResource("Animation_q1y3n"),
-"RESET": SubResource("Animation_ut3ut"),
-"WinningThree": SubResource("Animation_b236y")
+&"AddSticker": SubResource("Animation_q1y3n"),
+&"RESET": SubResource("Animation_ut3ut"),
+&"WinningThree": SubResource("Animation_b236y")
 }
 
 [node name="Symbol" type="Node3D"]
